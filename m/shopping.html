@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body onload="startOff()">
@@ -18,25 +18,25 @@
       }
       function reset(){
         localStorage.setItem("loggedIn",null);
-        window.location = "/index.html";
+        window.location = "/bigben/index.html";
       }
     </script>
     <div class="topBar">
-      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <a href="/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
       <div id="changeToName">
       <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
-      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
-      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
-      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
-      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">U</button>
     </div>
     <center>
     <h1 class="text">Shopping
     </h1>
     </center>
-   <center><img src="/images/shopping.gif"></center>
+   <center><img src="/bigben/images/shopping.gif"></center>
 
     <p class="textbro">Buying new things is always really fun and exciting, but it is better to buy them when they have a <strong>discount.</strong></p>
 
@@ -64,7 +64,7 @@
     <p class="textbro">Just like Benny, you can <strong>save</strong> your money when you want to buy something by using discounts or coupons. Buy smartly!</p>
     <br>
     <center>
-    <button onclick="goSomewhere('shoppingtest.html')" class="loginandsignupconfirm">Next</button>
+    <button onclick="goSomewhere('/bigben/m/shoppingtest.html')" class="loginandsignupconfirm">Next</button>
     </center>
     <br></br>
     <div class="topBar">
