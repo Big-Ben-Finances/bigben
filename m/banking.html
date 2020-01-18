@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body onload="startOff()">
-    <script src="/scripts/script.js"></script>
+    <script src="/bigben/scripts/script.js"></script>
     <script>
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
@@ -22,20 +22,20 @@
       }
     </script>
     <div class="topBar">
-      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <a href="/bigben/index.html"><img src="/images/big ben.png" width="150"></a>
       <div id="changeToName">
       <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
-      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
-      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
-      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
-      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/u.html')">U</button>
     </div>
     <center>
     <h1 class="text">Banking</h1>
     </center>
-    <center><img src="/images/banking.gif"></center>
+    <center><img src="/bigben/images/banking.gif"></center>
     <p class="textbro">Banking is like <strong>saving</strong>, but it is when you put your money into a bank. It is safer than your piggy bank and makes you some money because of <strong>interest</strong>.</p>
     <h1 class="text">WHAT IS A BANK?</h1>
     <p class="textbro">A bank is a place where you put your money and it is protected by experts.</p>
