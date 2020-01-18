@@ -11,15 +11,6 @@
   <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
     <script>
-      var percentage = 0;
-      var interest;
-      var invest;
-      var budgeting;
-      var taxes;
-      var shopping;
-      var banking;
-      var saving;
-      var debt;
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
@@ -39,7 +30,7 @@
       <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/u.html')">U</button>
     </div>
     <h1 class="text" style="font-size: 75px; margin: 0px;">Course Topics</h1>
-    <div class="smallsections" style="max-width:25%;" onclick="/bigben/m/shopping.html">Shopping</div>
+    <div class="smallsections" style="max-width:25%;" onclick="goSomewhere('/bigben/m/shopping.html')">Shopping</div>
     <br>
     <br>
     <div class="topBar">
