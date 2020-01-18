@@ -16,8 +16,8 @@
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
-					document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.setItem("lastname");
-					}
+	  document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.setItem("lastname");
+	}
       }
       function reset(){
         localStorage.setItem("loggedIn",null);
@@ -36,7 +36,8 @@
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">U</button>
     </div>
     <center>
-    <h1 class="text" id="name" style="font-size:100px;"></h1>
+    <h1 class="text" id="name">
+</h1>
     </center>
     <br><br>
     <div class="topBar">
