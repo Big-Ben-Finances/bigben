@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body onload="startOff()">
-    <script src="/scripts/script.js"></script>
+    <script src="/bigben/scripts/script.js"></script>
     <script>
       var percentage = 0;
       var interest;
@@ -26,7 +26,7 @@
       }
       function reset(){
         localStorage.setItem("loggedIn",null);
-        window.location = "/index.html";
+        window.location = "/bigben/index.html";
       }
         if(localStorage.getItem("loggedIn") == "true"){
           percentage = 0;
@@ -77,11 +77,11 @@
     <center>
     <h1 class="text" style="font-size: 100px; margin: 0px;">Courses</h1>
     <br>
-    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/easy.html')">Starter Course (7 and up)</div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/menu/easy.html')">Starter Course (7 and up)</div>
     <br>
-    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/intermediate.html')">Intermediate Course (10 and up)</div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/menu/intermediate.html')">Intermediate Course (10 and up)</div>
     <br>
-    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/games.html')">Games</div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/menu/games.html')">Games</div>
     </center>
     <br>
     <br>
