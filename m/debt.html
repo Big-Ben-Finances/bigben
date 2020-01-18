@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="/bigbentext/css" />
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
   <body onload="startOff()">
-    <script src="/scripts/script.js"></script>
+    <script src="/bigbenscripts/script.js"></script>
     <script>
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
@@ -22,15 +22,15 @@
       }
     </script>
     <div class="topBar">
-      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <a href="/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
       <div id="changeToName">
       <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
       <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
-      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
-      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
-      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">U</button>
     </div>
     <center>
     <h1 class="text">Debt</h1>
@@ -38,7 +38,7 @@
    
     <p class="textbro">	Today, you can get anything you want even if you don’t have enough money to buy it. That is called debt and it sounds cool, but it is the worst thing that can happen to your piggy bank.</p>   
 
-    <img src="/images/piggyBank.png" width="300px" style="float:right; padding-right:15px;">
+    <img src="/bigben/images/piggyBank.png" width="300px" style="float:right; padding-right:15px;">
     <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy a $10 toy, but he only has $8. He knows that he could save, but he wants the toy now! Debt will get him his toy right now, but he knows that he would have to pay back the bank $3 instead of $2 because of interest. Benny decided that he should save and then buy the toy with his own savings.</div>
 
     <p class="textbro">How will you be rich if you lose money when you go into debt? You can’t because debt is evil. For all the great things that the bank does, it needs to make money too. Debt is a trap laid by banks to trick you into giving them money.</p>
