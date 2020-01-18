@@ -169,7 +169,7 @@ strong{
   transform: rotate(90deg);
 }
 .image-cropper {
-    max-width: 100px;
+    max-width: 200px;
     height: auto;
     position: relative;
     overflow: hidden;
@@ -178,7 +178,7 @@ strong{
     display: block;
     margin: 0 auto;
     height: auto;
-    width: 150%; 
+    width: 200px; 
     margin: 0 0 0 -20%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
