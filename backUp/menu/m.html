@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      var percentage = 0;
+      var interest;
+      var invest;
+      var budgeting;
+      var taxes;
+      var shopping;
+      var banking;
+      var saving;
+      var debt;
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+        if(localStorage.getItem("loggedIn") == "true"){
+          percentage = 0;
+        interest = localStorage.getItem("interest");
+        if(interest == null || interest == NaN){
+          localStorage.setItem("interest",false);
+        }
+        if(interest == "true"){
+          percentage += 1;
+        }
+        }
+        percentage = percentage/8;
+        percentage = percentage*100;
+        percentage = Math.round(percentage);
+        if(percentage < 100){
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;'>"+percentage+"%</h2>";
+        }else{
+          document.getElementById("percentageShower").innerHTML = "<div class='completion'><h2 class='percentageText' style='font-size: 150px; padding:0px;'>100%</h2></div>";
+        }
+        if(percentage < 62){
+          document.getElementById("unlock1").innerHTML = "<div class='lockedsmallsection'>Debt(complete all previous)🔒</div>";
+        }
+        if(percentage < 75){
+          document.getElementById("unlock2").innerHTML = "<div class='lockedsmallsection'>Taxes(complete Debt)🔒</div>";
+        }
+        if(percentage < 87){
+          document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
+        }
+        }else{
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;'>0%</h2>";
+          document.getElementById("unlock1").innerHTML = "<div class='lockedsmallsection'>Debt(complete all previous)🔒</div>";
+          document.getElementById("unlock2").innerHTML = "<div class='lockedsmallsection'>Taxes(complete Debt)🔒</div>";
+          document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
+        }
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <div class="topbarbuttonuseless">M</div>
+      <button class="topbarbutton" onclick="goSomewhere('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text" style="font-size: 100px; margin: 0px;">Courses</h1>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/easy.html')">Starter Course (7 and up)</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/intermediate.html')">Intermediate Course (10 and up)</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/games.html')">Games</div>
+    </center>
+    <br>
+    <br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

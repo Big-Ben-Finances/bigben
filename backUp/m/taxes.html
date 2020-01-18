@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Taxes</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1MeZvhQyTe4?start=18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
+    <p class="textbro">What does the school, the park, the library, and the police have in common? They are all paid by <strong>taxes</strong>! Tax is when the <strong>government</strong> asks for money from your parents to pay for cooler buildings and a better life quality for everybody. Tax pays for everything that is owned by the government. It also helps to make new things.
+    </p>
+    <h1 class="text">WHAT IS THE GOVERNMENT?</h1>
+    <p class="textbro">The government of your city is a group lead by the mayor that tries to make your life better.</p>
+    <img src="https://i.pinimg.com/280x280_RS/0b/09/a8/0b09a8a2752bea29221c1186af5d7d32.jpg" width="350" style="float:right; padding-right: 40px">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 65%;">Benny wants to go to the park today because it is warm and sunny. He asks his mom to go to the nearest park, but it is too far from his house. Benny mails a letter to the government asking them to make a park near his house. The government doesn’t have an endless supply of money, so they collect <strong>taxes</strong> from adults to pay for the park. Soon, the park is built and Benny can play there.</div>
+    <br>
+    <center>
+    <button class="loginandsignupconfirm" onclick="goSomewhere('taxtest.html')">Next</button>
+    </center>
+    <br><br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+.topBar{
+  background-color: rgb(29,174,237);
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.body{
+  margin: 0px;
+}
+.text{
+  font-family: 'Poppins', sans-serif;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: black;
+  text-decoration: none;
+}
+.textbro{
+  font-family: 'Poppins', sans-serif;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: black;
+  font-size: 25px;
+}
+.bottomText{
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-decoration: none;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  
+}
+.topbarbutton{
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  padding: 15px;
+  background-color: rgb(115,243,195);
+  font-size: 15px;
+  transition: 1s;
+}
+.topbarbuttonuseless{
+  font-family: 'Poppins', sans-serif;
+  display: inline-block;
+  padding: 15px;
+  background-color: rgb(74, 189, 147);
+  font-size: 15px;
+  max-width: 15px;
+  border: 1px solid rgb(216, 216, 216);
+}
+.topbarbutton:hover{
+  font-family: 'Poppins', sans-serif;
+  padding: 15px;
+  background-color: white;
+  font-size: 15px;
+  transition: 1s;
+}
+.smallsections{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  border-radius: 20px;
+  color: black;
+  background-color: rgb(115,243,195);
+  font-size: 30px;
+  transition: 1s;
+}
+.smallsections:hover{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  color: black;
+  border-radius: 20px;
+  background-color: rgb(130,255,230);
+  font-size: 30px;
+  transition: 1s;
+}
+.lockedsmallsections{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  border-radius: 20px;
+  background-color: lightgrey;
+  font-size: 30px;
+  transition: 1s;
+}
+.percentageText{
+  font-family: "Poppins", sans-serif;
+  font-size: 150px;
+  margin: -1px;
+}
+strong{
+  text-decoration: underline wavy rgb(29,174,237);
+}
+.textinput{
+  padding:10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+.loginandsignupconfirm{
+  padding:20px;
+  font-family: "Poppins", sans-serif;
+  font-size:20px;
+}
+.select{
+  background-color: rgba(0,0,0,0.3);
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: 20px;
+  transition: 1s;
+}
+.select:hover{
+  background-color: rgb(0,0,0);
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  font-size: 20px;
+  transition: 1s;
+}
+.smallsection{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  border-radius: 20px;
+  color: black;
+  background-color: rgb(115,243,195);
+  font-size: 30px;
+  transition: 1s;
+}
+.smallsection:hover{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  color: black;
+  border-radius: 20px;
+  background-color: rgb(130,255,230);
+  font-size: 30px;
+  transition: 1s;
+}
+.completion{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  min-width: 100%;
+  border-radius: 20px;
+  color: black;
+  background-image: url("https://world.edu/wp-content/uploads/2019/08/kisspng-confetti.png");
+  background-size:100%;
+  font-size: 30px;
+  transition: 1s;
+}
+.lockedsmallsection{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  border-radius: 20px;
+  color: black;
+  background-color: rgb(200,200,200);
+  font-size: 30px;
+  transition: 1s;
+}

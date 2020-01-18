@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Shopping
+    </h1>
+    </center>
+   <center><img src="/images/shopping.gif"></center>
+
+    <p class="textbro">Buying new things is always really fun and exciting, but it is better to buy them when they have a <strong>discount.</strong></p>
+
+    <h1 class="text" style="display:inline-block;">WHAT ARE DISCOUNTS?</h1>
+
+    <p class="textbro">Discounts are when the seller wants to sell something for less. </p>
+    <br>
+    <br>
+    <img src="https://image.pushauction.com/0/0/dfc54838-34d1-45be-a596-43ca38b03605/da0efbdc-7047-4e5e-8a91-10edbdb60757.jpg" width="220" style="float:right; padding-right:35px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy a toy car for $5. When he goes to the store, he sees that it has a discount and is selling for only $4. He buys the toy and saves $1.
+    </div>
+
+    <p class="textbro">As you can see, discounts are a good way to <strong>save</strong> money. Next time you go to the store, try to find things you like that have discounts on them.</p>
+
+    <p class="textbro">Another thing you can use to save money are <strong>coupons</strong>. Unlike discounts, you need to look for coupons (usually online).</p>
+
+    <h1 class="text" style="display:inline-block;">WHAT ARE COUPONS?</h1>
+
+    <p class="textbro"> Coupons are like tickets that can give you discounts.</p>
+
+<img src="https://images-na.ssl-images-amazon.com/images/I/61oDfmX35VL._SY355_.jpg" width="220" style="float:right; padding-right:30px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy a toy car for $5. When he goes to the store, he brings his coupon that makes things $1 off. He buys the toy for $4 and saves $1.
+    </div>
+    
+    <p class="textbro">Just like Benny, you can <strong>save</strong> your money when you want to buy something by using discounts or coupons. Buy smartly!</p>
+    <br>
+    <center>
+    <button onclick="goSomewhere('shoppingtest.html')" class="loginandsignupconfirm">Next</button>
+    </center>
+    <br></br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Budgeting</h1>
+    </center>
+
+    <p class="textbro">What if there was a way to plan your money spending so that you don’t spend it all? There is a way to do that! That is called <strong>budgeting.</strong></p>
+
+    <h1 class="text">WHAT IS BUDGETING?</h1>
+
+    <p class="textbro"> Budgeting is a way to <strong>manage</strong> your money over a period of time. </p>
+    <h1 class="text">HOW CAN YOU MAKE A BUDGET?</h1>
+
+    <p class="textbro"> You can make <strong>spreadsheets</strong> putting all your costs and what you made into the little squares. Than you can add them up and see how much you saved. You can also get a piece of paper and add up your losses and gains.</p>
+    <br>
+    <br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQca6hwGJbIbjaEy4MS6ylnCsFLMnZpWlBl3m9ccTggwVJkeXP3" width="380" style="float:right;padding-right:25px; padding-top:15px">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 65%;">Benny makes $10 every week. Benny plans to have at least $2 in savings this week. Benny write a budget plan. He knows that $10-$2 is $8, so he can only spend $8 on toys and candy. Benny likes toys more so he spends $5 for toys and $3 for candy.</div>
+
+    <p class="textbro">A budget is always great for managing your expenses. The next time you don’t know what to do with your money, put it in a budget.</p>
+    <center>
+      <br>
+      <button class="loginandsignupconfirm" onclick="goSomewhere('budgetingtest.html')">Next</button>
+    </center>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

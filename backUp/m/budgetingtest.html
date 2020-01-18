@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h2 class="text">Pop Quiz</h2>
+    <h3 class="text">What is budgeting?</h3>
+    <select id="question1" class="select">
+<option value="wrong"></option>
+<option value="wrong">Putting money into a bank</option>
+<option value="wrong">When you spend a lot of money</option>
+<option value="correct">A way to manage your money over a period of time.</option>
+<option value="wrong">When the bank gives you free money</option>
+</select>
+<h3 class="text">How can you make a budget?</h3>
+<select id="question2" class="select">
+  <option value="wrong"></option>
+<option value="correct">Write out what you want to save and how much you want to spend on different items.</option>
+<option value="wrong">Don't pay your taxes and a budget would appear at your doorstep.</option>
+<option value="wrong">Hammer two nails into a wooden plank. Then, paint it gold.</option>
+<option value="wrong">When you stack money high enough, a budget appears.</option>
+</select>
+<h3 class="text">Budgets help you save money (True or False?)</h3>
+<select id="question3" class="select">
+<option value="wrong"></option>
+<option value="correct">True</option>
+<option value="wrong">False</option>
+</select>
+<br>
+<br>
+<button class="loginandsignupconfirm" onclick="goSomewhere('interest.html')">Back</button><button class="loginandsignupconfirm" onclick="popquizresult()">Submit</button>
+<p class="text" style="color:red;" id="shower"></p>
+</center>
+<script>
+  var a;
+  var result1;
+  var b;
+  var result2;
+  var c;
+  var result3;
+  var overall;
+  function popquizresult(){
+    a = document.getElementById("question1");
+    result1 = a.options[a.selectedIndex].value;
+    b = document.getElementById("question2");
+    result2 = b.options[b.selectedIndex].value;
+    c = document.getElementById("question3");
+    result3 = c.options[c.selectedIndex].value;
+    overall = 0;
+    if(result1 == "correct"){
+      overall += 33;
+    }
+    if(result2 == "correct"){
+      overall += 33;
+    }
+    if(result3 == "correct"){
+      overall += 33;
+    }
+    if(overall == 99){
+      localStorage.setItem("budgeting",true);
+      document.getElementById("shower").innerHTML = "You passed the quiz!";
+    }else{
+      document.getElementById("shower").innerHTML = "Try Again";
+    }
+  }
+</script>
+    <br></br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Debt</h1>
+    </center>      
+   
+    <p class="textbro">	Today, you can get anything you want even if you don’t have enough money to buy it. That is called debt and it sounds cool, but it is the worst thing that can happen to your piggy bank.</p>   
+
+    <img src="/images/piggyBank.png" width="300px" style="float:right; padding-right:15px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy a $10 toy, but he only has $8. He knows that he could save, but he wants the toy now! Debt will get him his toy right now, but he knows that he would have to pay back the bank $3 instead of $2 because of interest. Benny decided that he should save and then buy the toy with his own savings.</div>
+
+    <p class="textbro">How will you be rich if you lose money when you go into debt? You can’t because debt is evil. For all the great things that the bank does, it needs to make money too. Debt is a trap laid by banks to trick you into giving them money.</p>
+
+    <h1 class="text">“WHY IS DEBT SUCH A BIG DEAL?”</h1>
+
+    <p class="textbro">Why would anyone want to borrow money and then pay more for it? Debt makes money off of people with pressure and fear.Once you’re in debt, it takes a long time to get out. The next time you want to get something that you can’t buy, just start saving your money. Don’t fall for the evil tricks the bank lay to fool you into spending money.</p>
+
+    <br>
+    <center>
+    <br>
+      <button onclick="goSomewhere('debttest.html')" class="loginandsignupconfirm">Next</button>
+    <br>
+    </center>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

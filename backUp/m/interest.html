@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Interest</h1>
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/GHHesANT6OM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
+    <br><br>
+
+    <p class="textbro">When you go to the bank and get a loan, you will have to pay <strong>interest</strong> on the amount that you got.</p>
+    
+    <h1 class="text" style="display:inline-block;">WHAT IS INTEREST?</h1>
+
+    <p class="textbro" style="display:inline-block;">Interest is when you have to pay back some extra borrowed money to the person who gives it to you.</p>
+    <br>
+    <br>
+    <img src="https://www.cebugift.com/images/products/large_1915_new-teddy-bear-16.png" width="200" style="float:right; padding-right:35px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny goes to the store and sees a teddy bear he wants to buy. The teddy bear costs $10. He only brought $7. He can get a loan from his mom for $3. He will have to pay back the $3 that he owes to the mom and a little more because of interest ($4).
+    </div>
+    <p class="textbro">Interest will <strong>grow</strong> over time slowly. The longer you don’t pay back your loans, the more money you need to pay back later. Try not to take loans and just look at the toys that you can buy.</p>
+    <center>
+      <br>
+      <button onclick="goSomewhere('interesttest.html')" class="loginandsignupconfirm">Next</button>
+    <br></br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

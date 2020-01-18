@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Saving</h1>
+    </center>
+    <center>
+   <img src="/images/saving.gif" width="600px">
+   </center>
+    <p class="textbro">	When someone gives you money, you want to spend it on things you like. You can spend your money, but sometimes things are more expensive than the money you have. What do you do when this happens? You can save your money. </p>        
+
+    <h1 class="text" style="display:inline-block;">WHAT IS SAVING?</h1>
+   
+    <p class="textbro">	Saving is when you build up the money you have so you can get the things you want. </p>   
+
+    <img src="https://missionlittleb.files.wordpress.com/2015/05/img_3743.jpg" width="230" style="float:right; padding-right:35px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy a $7 action figure, but he only has $5. He saves his money. The next time he wants to buy some candy, he doesn’t buy it. The next time he gets $5, he  has $10 in total. Now he can buy the $7 action figure!</div>
+
+    <p class="textbro">Saving is like a sacrifice. You need to give up some things to get others that are even better. If you can’t get the things you want, saving is the best idea!</p>
+    <br>
+    <center>
+    <button onclick="goSomewhere('savingtest.html')" class="loginandsignupconfirm">Next</button>
+    </center>
+    <br>
+    <br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

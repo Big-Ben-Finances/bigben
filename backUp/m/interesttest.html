@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <a href="/index.html"><img src="/images/big ben.png" width="150"></a>
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h2 class="text">Pop Quiz</h2>
+    <h3 class="text">What is Interest?</h3>
+    <select id="question1" class="select">
+<option value="wrong"></option>
+<option value="wrong">When you are curious about something relating to money</option>
+<option value="correct">When you have to pay back some borrowed money to the person who gives it to you</option>
+<option value="wrong">A thing that you like and want to buy</option>
+<option value="wrong">A type of money that you can use to buy stuff</option>
+</select>
+<h3 class="text">When do you need to pay interest</h3>
+<select id="question2" class="select">
+  <option value="wrong"></option>
+<option value="wrong">When you have over $10</option>
+<option value="wrong">When you are hungry</option>
+<option value="correct">When you have a loan</option>
+<option value="wrong">When you are over 40 years old</option>
+</select>
+<h3 class="text">What is compund interest?</h3>
+<select id="question3" class="select">
+<option value="wrong"></option>
+<option value="wrong">When you stack money on top of each other</option>
+<option value="wrong">When you like to listen to pop music</option>
+<option value="wrong">When you are becoming more curious</option>
+<option value="correct">When you have interest on your interest</option>
+</select>
+<h3 class="text">Interest grows quickly. (True or False?)</h3>
+<select id="question4" class="select">
+<option value="wrong"></option>
+<option value="wrong">True</option>
+<option value="correct">False</option>
+</select>
+<br>
+<br>
+<button class="loginandsignupconfirm" onclick="goSomewhere('interest.html')">Back</button><button class="loginandsignupconfirm" onclick="popquizresult()">Submit</button>
+<p class="text" style="color:red;" id="shower"></p>
+</center>
+<script>
+  var a;
+  var result1;
+  var b;
+  var result2;
+  var c;
+  var result3;
+  var d;
+  var result4;
+  var overall;
+  function popquizresult(){
+    a = document.getElementById("question1");
+    result1 = a.options[a.selectedIndex].value;
+    b = document.getElementById("question2");
+    result2 = b.options[b.selectedIndex].value;
+    c = document.getElementById("question3");
+    result3 = c.options[c.selectedIndex].value;
+    d = document.getElementById("question4");
+    result4 = d.options[d.selectedIndex].value;
+    overall = 0;
+    if(result1 == "correct"){
+      overall += 25;
+    }
+    if(result2 == "correct"){
+      overall += 25;
+    }
+    if(result3 == "correct"){
+      overall += 25;
+    }
+    if(result4 == "correct"){
+      overall += 25;
+    }
+    if(overall >= 100){
+      localStorage.setItem("interest",true);
+      document.getElementById("shower").innerHTML = "You passed the quiz!";
+    }else{
+      document.getElementById("shower").innerHTML = "Try Again";
+    }
+  }
+</script>
+    <br></br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>

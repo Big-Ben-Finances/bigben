@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link href="/images/big ben.png" rel="shortcut icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body onload="startOff()">
+    <script src="/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/index.html";
+      }
+    </script>
+    <div class="topBar">
+      <img src="/images/big ben.png" width="150">
+      <div id="changeToName">
+      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('https://big-ben.cyclopsdude.repl.co/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere ('e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere ('n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere ('u.html')">U</button>
+    </div>
+    <center>
+    <h1 class="text">Invest</h1>
+    </center>
+    <p class="textbro">You can make money <strong>without</strong> doing chores. The way you can do that is by <strong>investing</strong>!</p>
+    
+    <h1 class="text">WHAT IS INVESTING?</h1>
+    
+     <p class="textbro">Investing is when you give money to companies so you can own a small piece of it. This is called buying <strong>stocks</strong>. Not all stocks make money, though. If the company's stock price drops then you lose money.</p>
+    <img src="https://5.imimg.com/data5/NC/SD/UP/SELLER-5892480/hot-wheels-car-set-pack-of-10-500x500.jpg" width="250" style="float:right; padding-right: 15px; padding-top: 15px;">
+    <div class="textbro" style="background-color:rgb(29,174,237); padding-top: 60px; padding-bottom: 60px; padding-right: 40px; padding-left: 40px; color: white; max-width: 75%;">Benny wants to buy the latest HotWheels car, but he doesn’t want to do chores. He invested $5 into the Pear® company. Since the company made money, they pay him $10 the next week. With the money he just made, he buys the toy car set.</div>
+    <h1 class="text">WHEN SHOULD I INVEST?</h1>
+    <p class="textbro">Try investing when the stock market is really low. When the stock prices <strong>rise</strong>, you will make a lot of money.</p>
+    <br>
+    <center>
+      <button class="loginandsignupconfirm" onclick="goSomewhere('investtest.html')">Next</button>
+    </center>
+    <br><br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+</html>
