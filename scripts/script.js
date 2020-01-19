@@ -13,7 +13,7 @@ window.location = "/bigben/index.html";
 function changeDescription(){
 document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;font-size:20px;' id='textr' placeholder='Edit Description'></textarea>"+"<br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
 }
-function startOff(){
+function startOffProfile(){
 if(localStorage.getItem("loggedIn") == "true"){
 document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
 document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
