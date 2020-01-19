@@ -20,6 +20,7 @@
       var banking;
       var saving;
       var debt;
+      var xp = 0;
       function reset(){
        localStorage.setItem("loggedIn",null);
        window.location = "/bigben/index.html";
@@ -36,6 +37,7 @@
         }
         if(interest == "true"){
           percentage += 1;
+          xp += 1;
         }
         loans = localStorage.getItem("loans");
         if(loans == null || loans == NaN){
@@ -43,6 +45,7 @@
         }
         if(loans == "true"){
           percentage += 1;
+          xp += 1;
         }
         shopping = localStorage.getItem("shopping");
         if(shopping == null || shopping == NaN){
@@ -50,6 +53,7 @@
         }
         if(shopping == "true"){
           percentage += 1;
+          xp += 1;
         }
         banking = localStorage.getItem("banking");
         if(banking == null || banking == NaN){
@@ -57,6 +61,7 @@
         }
         if(banking == "true"){
           percentage += 1;
+          xp += 1;
         }
         saving = localStorage.getItem("saving");
         if(saving == null || saving == NaN){
@@ -64,6 +69,7 @@
         }
         if(saving == "true"){
           percentage += 1;
+          xp += 1;
         }
         debt = localStorage.getItem("debt");
         if(debt == null || debt == NaN){
@@ -71,6 +77,7 @@
         }
         if(debt == "true"){
           percentage += 1;
+          xp += 1;
         }
         budgeting = localStorage.getItem("budgeting");
         if(budgeting == null || budgeting == NaN){
@@ -78,6 +85,7 @@
         }
         if(budgeting == "true"){
           percentage += 1;
+          xp += 1;
         }
         invest = localStorage.getItem("invest");
         if(invest == null || invest == NaN){
@@ -85,6 +93,7 @@
         }
         if(invest == "true"){
           percentage += 1;
+          xp += 1;
         }
         taxes = localStorage.getItem("taxes");
         if(taxes == null || taxes == NaN){
@@ -92,12 +101,15 @@
         }
         if(taxes == "true"){
           percentage += 1;
+          xp += 1;
         }
         percentage = percentage/8;
         percentage = percentage*100;
         percentage = Math.round(percentage);
+        
         if(percentage < 100){
           document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;'>"+percentage+"%</h2>";
+          document.getElementById("xpShower").innerHTML = "<h3 class='percentageText' style='font-size: 80px; padding:10px;'>"+xp+"xp</h3>";
         }else{
           document.getElementById("percentageShower").innerHTML = "<div class='completion'><h2 class='percentageText' style='font-size: 150px; padding:0px;'>100%</h2></div>";
         }
@@ -134,6 +146,7 @@
     <br>
     <h3 class="text">You have completed:</h3>
     <div id="percentageShower"></div>
+    <div id="xpShower"></div>
     <div class="smallsections" onclick="goSomewhere('/bigben/m/shopping.html')">Shopping</div>
     <br>
     <div class="smallsections" onclick="goSomewhere('/bigben/m/saving.html')">Saving</div>
