@@ -10,6 +10,29 @@
   </head>
   <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
+	  <script>
+		  function changeImage(){
+		  document.getElementById("changeMePlease").innerHTML = "<select id='switch' class='select'><option value='Benny'>Benny</option><option value='Elena'>Elena</option><option value='Milo'>Milo</option><option value='Laura'>Laura</option></select><button class='loginandsignupconfirm'>Confirm</button>";
+		  }
+		  var a;
+		  var person;
+		  function submitChange(){
+		  a = document.getElementById("question1");
+    		  person = a.options[a.selectedIndex].value;
+	          if(person == "Benny"){
+			  localStorage.setItem("avatar","/bigben/images/Benny.png");
+		     }
+	           if(person == "Milo"){
+			  localStorage.setItem("avatar","/bigben/images/Milo.png");
+		     }
+		    if(person == "Laura"){
+			  localStorage.setItem("avatar","/bigben/images/Laura.png");
+		     }
+		    if(person == "Elena"){
+			  localStorage.setItem("avatar","/bigben/images/Elena.png");
+		     }
+		  }
+		  </script>
     <div class="topBar">
       <a href="index.html"><img src="/bigben/images/big ben.png" width="150"></a>
       <div id="changeToName">
@@ -26,14 +49,15 @@
     <img src="/bigben/images/Benny.png" id="profileImage" class="rounded">
 </div>   
 	  <button class="loginandsignupconfirm" onclick="changeImage()">Edit Picture</button>
-          <center><h2 class='text'>Benny</h2><img src='/bigben/images/Benny.png'><br><h2 class='text'>Elena</h2><img src='/bigben/images/Elena.png'><br><h2 class='text'>Laura</h2><img src='/bigben/images/Laura.png'><br><h2 class='text'>Milo</h2><img src='/bigben/images/Milo.png'></center>
-	        <h1 class="text" id="name" style="font-size:75px;"></h1>
+	  <div id="changeMePlease">
+	   </div>
+		  <h1 class="text" id="name" style="font-size:75px;"></h1>
 	    <textarea class='text' style='margin: 0px; width: 994px; height: 137px;font-size:20px;' id='textr' placeholder='Edit Description'></textarea>
 	  <br>
 	  <button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>
     <br><br>
     <div class="topBar">
-      <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+      <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   </body>
 </html>
