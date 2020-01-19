@@ -14,9 +14,9 @@
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
 	  document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
 		if(localStorage.getItem("description") != "null" || localStorage.getItem("description") != "NaN" || localStorage.getItem("description") != null || localStorage.getItem("description") != NaN){
-			document.getElementById("description").innerHTML = "<p class = "text">"+localStorage.getItem("description")+"</p>";
+			document.getElementById("descriptionr").innerHTML = "<p class = 'text'>"+localStorage.getItem("description")+"</p>";
 		   }else{
-		   document.getElementById("description").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'></texarea><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+		   document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'></texarea><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
 		   }
 	}
       }
@@ -46,7 +46,7 @@
     <img src="/bigben/images/Benny.png" id="profileImage" class="rounded">
 </div>   
 	        <h1 class="text" id="name" style="font-size:75px;"></h1>
-	    <div class="text" id="description"></div>
+	    <div class="text" id="descriptionr"></div>
     <br><br>
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
