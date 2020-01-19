@@ -22,6 +22,13 @@
         localStorage.setItem("loggedIn",null);
         window.location = "/bigben/index.html";
       }
+     function block(){
+              if(localStorage.getItem("loggedIn") == "true"){
+         document.getElementById("accessDenied").innerHTML = "<button class="topbarbutton" onclick="goSomewhere('/bigben/menu/e.html')">Budget Calculator</button>"
+      }else{
+         document.getElementById("accessDenied").innerHTML = "<div class="topbarbuttonuseless">Lessons</div>" 
+     }
+     }
     </script>
     <div class="topBar">
       <img src="images/big ben.png" width="150">
@@ -29,7 +36,7 @@
       <a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
-      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
+      <div id="accessDenied">
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
