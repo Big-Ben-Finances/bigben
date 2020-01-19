@@ -8,20 +8,35 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
+ <div class="header" id="myHeader">
   <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
+    <body onload="startOff()">
+    <script src="/bigben/scripts/script.js"></script>
+    <script>
+      function startOff(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
+      }
+      }
+      function reset(){
+        localStorage.setItem("loggedIn",null);
+        window.location = "/bigben/index.html";
+      }
+    </script>
     <div class="topBar">
-      <img src="/bigben/images/big ben.png" width="150">
+      <img src="images/big ben.png" width="150">
       <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      <a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div>
+      <br>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
     </div>
-     <br>
-       <button class='topbarbutton' onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
-       <button class='topbarbutton' onclick="goSomewhere('/bigben/menu/e.html')">Budget Calculator</button>
-       <button class='topbarbutton' onclick="goSomewhere('/bigben/menu/n.html')">Lessons</button>
-       <button class='topbarbutton' onclick="goSomewhere('/bigben/menu/u.html')">Tips</button>
     <center>
-    <h1 class="text">What Is it?</h1>
+          <h1 class="text">What Is it?</h1>
     <p class="text" align="justify">We made Big Ben to prepare the future generations for the tough financial environment America has. A 2018 study showed that over 69% of workers currently in an office are stressed out over money. From the same study, 72% of workers admited that they often worried about their finances while they were at their job. Habits such as spending and debt put most Americans into bankruptcy and massive amounts of debt that takes years to pay off. The purpose of BigBen is to help our future generation develop good habits early on so that they know how to avoid developing bad habits later.</p>
     <h1 class="text">Why Is It Important?</h1>
     <p class="text" align="justify">Looking at our competitors, we noticed that their websites didn’t have a kid-friendly interface. Some of us being young kids, we knew the things that we enjoyed seeing in a website, such as bright and exciting colors, lots of different photos, fun examples, cool fonts, and challenges. Unfortunately, in most currently existing financial platforms for kids, little to none of these expectations are met, which makes the experience an overall disgusting one. We fear that this experience will lead our next generation to have a negative view on the world of finances, thinking:</p>
@@ -67,4 +82,5 @@
       <a class="bottomText" style="float: left; font-size: 25px;">{Footer}</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   </body>
+   </div>
 </html>
