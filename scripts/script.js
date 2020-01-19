@@ -48,12 +48,3 @@ function descriptionSave(){
 localStorage.setItem("description",document.getElementById("textr").value);
 window.location = "profile.html";
 }
-function block(){
-if(localStorage.getItem("loggedIn") == "true"){
- document.getElementById("accessDenied").innerHTML = "<button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>";
-document.getElementById("securityYouMustLeave").innerHTML = "<button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>"
-}else{
-document.getElementById("accessDenied").innerHTML = " ";
-document.getElementById("securityYouMustLeave").innerHTML = " ";
-}
-}
