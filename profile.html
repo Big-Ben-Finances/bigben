@@ -13,11 +13,10 @@
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
 	  document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
-		//if(((localStorage.getItem("description").localeCompare("null")!=0 )||( localStorage.getItem("description").localeCompare("NaN")!=0)) || ((localStorage.getItem("description") != null) || (localStorage.getItem("description") != NaN))){
 		if(localStorage.getItem("description")){
 		document.getElementById("descriptionr").innerHTML = "<p class = 'text'>"+localStorage.getItem("description")+"</p>";
 		   }else{
-		   document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'></texarea><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+		   document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
 		   }
 	}
       }
