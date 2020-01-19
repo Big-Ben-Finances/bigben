@@ -24,3 +24,7 @@ document.getElementById("descriptionr").innerHTML = "<textarea class='text' styl
 }
 }
 }
+function descriptionSave(){
+localStorage.setItem("description",document.getElementById("textr").value);
+window.location = "profile.html";
+}
