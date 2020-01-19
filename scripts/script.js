@@ -24,7 +24,7 @@ window.location = x;
 function startOff(){
  console.log("test");
 if(localStorage.getItem("loggedIn") == "true"){
-document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
+window.location = "/bigben/profileedit.html";
 }
 }
 function reset(){
@@ -41,7 +41,10 @@ document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" 
 if(localStorage.getItem("description")){
 document.getElementById("descriptionr").innerHTML = "<p class = 'text' style='font-size:20px;'>"+localStorage.getItem("description")+"</p>"+"<br><button class='loginandsignupconfirm' onclick='changeDescription()'>Edit Description</button>";
 }else{
-document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;font-size:20px;' id='textr' placeholder='Edit Description'></textarea>"+"<br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+window.location = "profileedit.html";
+}
+ if(localStorage.getItem("avatar")){
+document.getElementById("profileImage").src = localStorage.getItem("avatar");
 }
 }
 }
