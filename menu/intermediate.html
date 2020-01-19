@@ -13,14 +13,6 @@
     <script>
       var percentage = 0;
       var stuff;
-      function startOff(){
-        if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
-      }
-      function reset(){
-        localStorage.setItem("loggedIn",null);
-        window.location = "/index.html";
-      }
         if(localStorage.getItem("loggedIn") == "true"){
           percentage = 0;
         interest = localStorage.getItem("interest");
