@@ -8,36 +8,14 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
-  <body onload="startOff()">
-    <script src="/bigben/scripts/script.js"></script>
-    <body onload="startOff()">
+  <body onload="startOffer()">
     <script src="/bigben/scripts/script.js"></script>
     <script>
-      function startOff(){
+      function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button><br><button class='topbarbutton' onclick='goSomewhere(\"/bigben/menu/n.html\")'>Lessons</button><button class='topbarbutton' onclick='goSomewhere (\"/bigben/menu/n.html\")'>Budget Calculator</button><button class='topbarbutton' onclick='goSomewhere (\"/bigben/menu/n.html\")'>Tips</button>";
       }
       }
-      function reset(){
-        localStorage.setItem("loggedIn",null);
-        window.location = "/bigben/index.html";
-      }
-     function block(){
-        if(localStorage.getItem("loggedIn") == "true"){
-           document.getElementById("accessDenied").innerHTML = "<button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>";
-           document.getElementById("securityYouMustLeave").innerHTML = "<button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>"
-        }else{
-           document.getElementById("accessDenied").innerHTML = " ";
-           document.getElementById("securityYouMustLeave").innerHTML = " ";
-     }
-     }
-     function noProfile(){
-        if(localStorage.getItem("loggedIn") == "true"){
-           document.getElementById("stopProfile").innerHTML = "<a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a>";
-        }else{
-           document.getElementById("stopProfile").innerHTML = " ";
-     }
-     }
     </script>
     <div class="topBar">
       <img src="images/big ben.png" width="150">
