@@ -35,6 +35,11 @@
         if(interest == null || interest == NaN){
           localStorage.setItem("interest",false);
         }
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("blockingProfile").innerHTML = "<a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a>";
+        }else{
+          document.getElementById("blockingProfile").innerHTML = " ";
+        }
         if(interest == "true"){
           percentage += 1;
           xp += 100;
@@ -133,7 +138,7 @@
     <div class="topBar">
       <a href="/bigben/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
       <div id="changeToName">
-      <a href="https://big-ben-finances.github.io/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      <div id="blockingProfile"><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
       <div class="topbarbuttonuseless">Lessons</div>
