@@ -1,0 +1,718 @@
+  <font face="geneva" color="black">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Claire Wang</title>
+<script type="text/javascript">
+
+  function insertText(elemID, text)
+      {
+        var elem = document.getElementById(elemID);
+        elem.innerHTML += text;
+      }
+    function GetSelectedValue(){
+                var e = document.getElementById("slct");
+
+                var result = e.options[e.selectedIndex].value;
+
+
+
+
+                if(result == "1"){                
+                document.getElementById("watch").innerHTML = "We are currently in Santa Monica, CA.";
+                }
+                if(result == "2"){
+                var today= new Date();
+               
+                document.getElementById("watch").innerHTML = today;
+                }
+                if(result == "3"){
+document.getElementById("watch").innerHTML = "Javascriiiiiipt";
+                }
+                if(result == "4"){
+               document.body.style.background = "blue";
+document.getElementById("watch").innerHTML = "Stare at this for a while. By looking at this, you are straining your eyes. This effect is pulled off because your eyes does not respond well to blue light and after a while, it can hurt your eyes. Sega should keep this in mind if they want kids to play Sonic the Hedgehog games without hurting their eyes. If you are still reading, your eyes are very are very good and you should be able to go on with your life without glasses ever playing a major role in your sight until you're old, it's either that or your wearing glasses right now. Wow you're still reading! That's crazy your eyes are among the best I have ever seen.";
+                }
+                if(result == "5"){
+                  var number = Math.ceil(Math.random() * 10);
+                  document.getElementById("watch").innerHTML = number;
+                }
+               
+               
+            }                                          
+
+function getAI() {
+
+
+    var val = document.getElementById("result").value;
+   
+    var items1 = Array("Yes", "No", "Probably not", "Yes", "of course not", "For sure");
+    val = val.toLowerCase();
+
+    if (val.startsWith("are") || val.startsWith("is") || val.startsWith("will") || val.startsWith("did") || val.startsWith("can") || val.startsWith("will") ||
+        val.startsWith("shall") || val.startsWith("does") || val.startsWith("do") || val.startsWith("have") || val.startsWith("has") || val.startsWith("had") ||
+        val.startsWith("did") || val.startsWith("was") || val.startsWith("can't") || val.startsWith("didn't") || val.startsWith("hasn't") ||
+        val.startsWith("haven't") || val.startsWith("won't") || val.startsWith("weren't") || val.startsWith("wasn't") || val.startsWith("aren't") ||
+        val.startsWith("isn't") || val.startsWith("ain't") || val.startsWith("you") || val.startsWith("so") || val.startsWith("were") || val.startsWith("want")
+		|| val.startsWith("am") || val.startsWith("to be")  || val.startsWith("really") || val.startsWith("want") || val.startsWith("would") || val.startsWith("it") || val.startsWith("could") || val.startsWith("do y") || val.startsWith("seriously?")) {
+
+        var randomSelection = items1[Math.floor(Math.random() * items1.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+     var items24 = Array("monkey","Donkey","horse","Dragon");
+    val = val.toLowerCase();
+    if (val.includes("animal")){
+        var randomSelection = items24[Math.floor(Math.random() * items24.length)];
+        document.body.style.background = randomSelection;
+}
+ var items026 = Array("Apple Iphone 10+");
+    val = val.toLowerCase();
+    if (val.includes("device") || val.includes("device")){
+        var randomSelection = items026[Math.floor(Math.random() * items026.length)];
+        document.body.style.background = randomSelection;
+}
+ var items027 = Array("My favorite show is the show Child Genius because I have personally been on the show. You should check it out later.");
+    val = val.toLowerCase();
+    if (val.includes("tv") || val.includes("movies") || val.includes("tv show")){
+        var randomSelection = items027[Math.floor(Math.random() * items027.length)];
+        document.body.style.background = randomSelection;
+}
+
+    var items00A = Array("John Westwood. . .Search is up on Google","A donkey. . . Search it up on Google","A young child. . .Search it up on Google","A baby. . . search it up on google","a great monument","A horrible crisis","Hard work");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what is t")) {
+
+        var randomSelection = items00A[Math.floor(Math.random() * items00A.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+    var items00A = Array("awful things which you don't want to know about", "smelly donkeys","Young people","Kids","Children","babies","Funny gangsters","Huge amounts of love","Beauty","Love","Tech","Computers","Softwares","Programs");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what are t")) {
+
+        var randomSelection = items00A[Math.floor(Math.random() * items00A.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var items0A = Array("Because I feel like it","Because I want to","IDK","Because I have to", "Because I need to","I feel it is my duty","Because I was programmed to", "I need to");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why are you") || val.startsWith("how come you")) {
+
+        var randomSelection = items0A[Math.floor(Math.random() * items0A.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsA = Array("Because I felt like it","Because I wanted to","IDK","Because I had to", "Because I needed to","I felt it was my duty","Because I was programmed to");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why did you") || val.startsWith("why did this") || val.startsWith("why don't you") || val.startsWith("why can't you") || val.startsWith("why aren't you") || val.startsWith("why didn't you") || val.startsWith("why couldn't you") || val.startsWith("why haven't you")) {
+
+        var randomSelection = itemsA[Math.floor(Math.random() * itemsA.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsB = Array("Just because","Why are you asking me that?","How am I supposed to know?","You really expect me to know?",
+	"As if I can detect why","Seriously? How am I supposed to know?","Don't ask me that","That's personal","Haha, as if I can detect why");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why can't") || val.startsWith("why?")) {
+
+        var randomSelection = itemsB[Math.floor(Math.random() * itemsB.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsC = Array("Don't ask me that","That's personal","How am I supposed to know?","Hehe, as if I can detect why",
+	"I don't know","Because you just are","Depends", "Because you are a fun person");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why am")) {
+
+        var randomSelection = itemsC[Math.floor(Math.random() * itemsC.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsD = Array("You are a MoNsTeR. . . no JK","You are a mysterious wonder","How am I supposed to know?","You are someone amazing",
+	"You are the User. Duh.","Depends");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what am")) {
+
+        var randomSelection = itemsD[Math.floor(Math.random() * itemsD.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var itemsE = Array("You are Chris P. Bacon", "You are some representative from the AngelHacks company",
+	"You are a judge of the limits of my intelligence. Don't worry; they are too high for you to see","You are a wonderful person :)");
+    val = val.toLowerCase();
+
+    if (val.startsWith("who am")) {
+
+        var randomSelection = itemsE[Math.floor(Math.random() * itemsE.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+var itemsF = Array("Welcome","No problemo","You're very welcome","Yeah, sure!","Of course","Yup","Sure thing!");
+    val = val.toLowerCase();
+
+    if (val.startsWith("thanks") || val.startsWith("ty") || val.startsWith("thank you") || val.startsWith("gracias")) {
+
+        var randomSelection = itemsF[Math.floor(Math.random() * itemsF.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var itemsG = Array("Hey","Hi","Hola!","Hey there","Howdy");
+    val = val.toLowerCase();
+
+    if (val.startsWith("hi") || val.startsWith("hello") || val.startsWith("hola") || val.startsWith("hey") || val.startsWith("sup") || val.startsWith("wassup")) {
+
+        var randomSelection = itemsG[Math.floor(Math.random() * itemsG.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+
+	var itemsH = Array("I honestly don't even know what I meant by that","IDK what you are talking about. Please ask me something specific again");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what do you mean") || val.startsWith("what do ya mean") || val.startsWith("what do u mean")) {
+
+        var randomSelection = itemsH[Math.floor(Math.random() * itemsH.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsI = Array("They just are","Stop trying to test me, User. I was coded well, and I don't need you horsing around with me","Because they are");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why are your")) {
+
+        var randomSelection = itemsI[Math.floor(Math.random() * itemsI.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var itemsJ = Array("Whatever you say","If you say so","O.K.","Nice","Cool","Epic","I don't care. I can't because I am a program", "Um","OK then",
+	"Good for you","Agreed","I disagree","of course");
+    val = val.toLowerCase();
+
+    if (val.startsWith("b") || val.startsWith("e") || val.startsWith("f") || val.startsWith("g") || val.startsWith("j")
+	|| val.startsWith("k") || val.startsWith("l") || val.startsWith("m") || val.startsWith("n") || val.startsWith("o") || val.startsWith("p") || val.startsWith("q")
+	 || val.startsWith("r") || val.startsWith("u") || val.startsWith("v") || val.startsWith("x") || val.startsWith("z") || val.startsWith("sh")  ||  val.startsWith("wow") || val.startsWith("woah") ) {
+
+        var randomSelection = itemsJ[Math.floor(Math.random() * itemsJ.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsK = Array("I'm doing great!","Good, thanks. How about you?","Fine","I'm doing fine. You?","I'm just sick","I'm angry");
+    val = val.toLowerCase();
+
+    if (val.startsWith("how are you?") || val.startsWith("how are you today") || val.startsWith("how are you doing?") || val.startsWith("how are you doing today")
+	 || val.endsWith("you doing?") || val.endsWith("u doing?") || val.endsWith("ya doing?")) {
+
+        var randomSelection = itemsK[Math.floor(Math.random() * itemsK.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var items0K = Array("your silly questions","you annoying me","you bugging me","you trying to test me out as if I'm a tool");
+    val = val.toLowerCase();
+
+    if (val.startsWith("sick of") || val.startsWith("angry at") || val.startsWith("mad at") || val.startsWith("what are you mad")
+	 || val.startsWith("what are you sick") || val.startsWith("what are you angry") || val.endsWith("angry?") || val.endsWith("mad?") || val.endsWith("sad?") || val.endsWith("sick?")
+	  || val.endsWith("sick of?")) {
+
+        var randomSelection = items0K[Math.floor(Math.random() * items0K.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var items0K = Array("Maybe search it up on Quora. I really don't know. ","Maybe search it up on Quora. IDK. You are making me embarassed","Maybe search it up on Quora. IDK",
+	"Ok.I'll admit: I am really stupid. Go search it up on Quora!");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what were t") || val.startsWith("what had") || val.startsWith("what did") || val.startsWith("why did a") || val.startsWith("why did b") || val.startsWith("why did c") || val.startsWith("why did d") || val.startsWith("why did e") || val.startsWith("why did f") || val.startsWith("why did g") || val.startsWith("why did h") || val.startsWith("why did i") || val.startsWith("why did j") || val.startsWith("why did k") || val.startsWith("why did l") || val.startsWith("why did m") || val.startsWith("why did n") || val.startsWith("why did o") || val.startsWith("why did p") || val.startsWith("why did q") || val.startsWith("why did r") || val.startsWith("why did s") || val.startsWith("why did u") || val.startsWith("why did v") || val.startsWith("why did w") || val.startsWith("why did x") || val.startsWith("why did z") || val.startsWith("why was")) {
+
+        var randomSelection = items0K[Math.floor(Math.random() * items0K.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var items0K1 = Array("Javascript, duh!");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what was this program") || val.startsWith("what was this") || val.startsWith("what were you")) {
+
+        var randomSelection = items0K1[Math.floor(Math.random() * items0K1.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+		
+	var items0K1 = Array("Some peculiar stuff which I can't talk about","Goody goody thingies","Nasty stuff","Tasty stuff","Epic stuff","Big things","Wonderful things",
+	"Something peculiar","Something amazing","Something incredible","Something I can't tell you about","Nothing","Shoot. ask that again. I just blanked out.");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what do you") || val.startsWith("what don't you") || val.startsWith("what specifically is you")
+	|| val.startsWith("what specifically do you") || val.startsWith("what specifically don't you")) {
+
+        var randomSelection = items0K1[Math.floor(Math.random() * items0K1.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsL = Array("I just am","By using my brain","by being awesome","IDK", "By detecting what you say, and giving a corresponding answer",
+	"IDK. How are YOU talking?");
+    val = val.toLowerCase();
+
+    if (val.startsWith("how are you actually") || val.startsWith("how can you") || val.startsWith("how can this program") || val.startsWith("how are you c")
+	 || val.startsWith("how are you talk") || val.startsWith("how do you") ) {
+
+        var randomSelection = itemsL[Math.floor(Math.random() * itemsL.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+	var itemsM = Array("Of course it is", "Agreed","Disagreed","Nah. I don't think so");
+    val = val.toLowerCase();
+
+    if (val.startsWith("this")) {
+
+        var randomSelection = itemsM[Math.floor(Math.random() * itemsM.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+		var itemsN = Array("because it just wants to","because it feels like it. LOL","Just because");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why is")) {
+
+        var randomSelection = itemsN[Math.floor(Math.random() * itemsN.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsO = Array("strange things","epic stuff","goody goody thingies");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what are you saying") || val.startsWith("what are you doing")) {
+
+        var randomSelection = itemsO[Math.floor(Math.random() * itemsO.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsP = Array("because I was programmed to","I feel like it. LOL","haha. You won't get a good response from that one. Try something else");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why do you") || val.startsWith("why won't you") || val.startsWith("why must you")) {
+
+        var randomSelection = itemsP[Math.floor(Math.random() * itemsP.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+
+	var itemsQ = Array("Love","Something I cannot discuss about","You will probably have better luck searching it up on Quora","Luck","Heaven","Everything");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what is t") || val.startsWith("what is w")) {
+
+        var randomSelection = itemsQ[Math.floor(Math.random() * itemsQ.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsR = Array("IDK. Search it up on Quora","Something awkward","You will probably have better luck searching that up on Quora","great things","donnkeys");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what was t") || val.startsWith("what had") || val.startsWith("what wouldn't") || val.startsWith("what couldn't")) {
+
+        var randomSelection = itemsR[Math.floor(Math.random() * itemsR.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsS = Array("im a chat bot, not a math bot. . .https://www.desmos.com/calculator","I am not your calculator. . .https://www.desmos.com/calculator","230492304982230498230498","donnkeys. . .https://www.desmos.com/calculator");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what is 1") || val.startsWith("what is 2") || val.startsWith("what is 3") || val.startsWith("what is 4") || val.startsWith("what is 5")
+	|| val.startsWith("what is 6") || val.startsWith("what is 7") || val.startsWith("what is 8") || val.startsWith("what is 9") || val.startsWith("what is 0")) {
+
+        var randomSelection = itemsS[Math.floor(Math.random() * itemsS.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsT = Array("I'm just not","I can't be and I won't ever be","How am I supposed to give the answer to that?","donnkeys");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why aren't yo")) {
+
+        var randomSelection = itemsT[Math.floor(Math.random() * itemsT.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	var itemsV = Array("I mean that I am sick of hearing your questions","IDK what I meant","I meant to confuse you","donnkeys","peculiar things","I meant to confuse you");
+    val = val.toLowerCase();
+
+    if (val.endsWith("mean?") || val.endsWith("meant?") || val.endsWith("mean by that?") || val.endsWith("meant by that?")) {
+
+        var randomSelection = itemsV[Math.floor(Math.random() * itemsV.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsW = Array("For some peculiar reasons","For reasons I shall not discuss","Unlock the full version of me to find out");
+    val = val.toLowerCase();
+
+    if (val.startsWith("why not")) {
+
+        var randomSelection = itemsW[Math.floor(Math.random() * itemsW.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var items0X = Array("There really is no way. HAHAHA","By using your brain","Just think","You will find a way by thinking","Figure it out yourself","donkeys");
+    val = val.toLowerCase();
+
+    if (val.startsWith("How do I") || val.startsWith("how can i") || val.startsWith("How should I") || val.startsWith("how am I") || val.startsWith("How will I")
+	|| val.startsWith("How must I") || val.startsWith("How could I"))
+	{
+	
+        var randomSelection = items0X[Math.floor(Math.random() * items0X.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsY = Array("$1039","$9309","$1","$2","$3","$4","$5","$6","$7","$8","$9","$10","$11" );
+    val = val.toLowerCase();
+
+    if (val.startsWith("How much")){
+
+        var randomSelection = itemsY[Math.floor(Math.random() * itemsY.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var itemsZ = Array("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","101","102","103","104","105",
+	"106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","201","202","203","204","205","206","207","208",
+	"209","210","211","212","213","214","215","216","217","218","219","220","221","222","223","224","225");
+    val = val.toLowerCase();
+
+    if (val.startsWith("how many") || val.startsWith("how old") || val.startsWith("about how many")){
+
+        var randomSelection = itemsZ[Math.floor(Math.random() * itemsZ.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	
+	
+
+    var items2 = Array("somewhere hidden    https://www.google.com/maps/@29.1612815,-99.3578351,2.8z", "somewhere in plain sight   https://www.google.com/maps/@29.1612815,-99.3578351,2.8z", "somewhere isolated   https://www.google.com/maps/@29.1612815,-99.3578351,2.8z", "somewhere high   https://www.google.com/maps/@29.1612815,-99.3578351,2.8z", "somewhere deep bellow   https://www.google.com/maps/@29.1612815,-99.3578351,2.8z","In Heaven","Somewhere on Planet Earth   https://www.google.com/maps/@29.1612815,-99.3578351,2.8z", "Where you aren't", "In a galaxy far far away.", "In Afghanistan https://www.google.com/maps/place/Afghanistan/@33.8615754,63.2110776,6z/data=!3m1!4b1!4m5!3m4!1s0x38d16eb6f8ff026d:0xf3b5460dbe96da78!8m2!3d33.93911!4d67.709953", "In Paris https://www.google.com/maps/place/Paris,+France/@48.8589507,2.2770202,12z/data=!3m1!4b1!4m5!3m4!1s0x47e66e1f06e2b70f:0x40b82c3688c9460!8m2!3d48.856614!4d2.3522219", "In France https://www.google.com/maps/place/France/@46.1389858,-2.4363786,6z/data=!3m1!4b1!4m5!3m4!1s0xd54a02933785731:0x6bfd3f96c747d9f7!8m2!3d46.227638!4d2.213749", "In Indonesia https://www.google.com/maps/place/Indonesia/@-2.2760348,99.4616785,4z/data=!3m1!4b1!4m5!3m4!1s0x2c4c07d7496404b7:0xe37b4de71badf485!8m2!3d-0.789275!4d113.921327", "In Dubai https://www.google.com/maps/place/Dubai+-+United+Arab+Emirates/@25.0757073,54.9475547,10z/data=!3m1!4b1!4m5!3m4!1s0x3e5f43496ad9c645:0xbde66e5084295162!8m2!3d25.2048493!4d55.2707828");
+    val = val.toLowerCase();
+
+    if (val.startsWith("where")) {
+
+        var randomSelection = items2[Math.floor(Math.random() * items2.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+
+    var items3 = Array("last Christmas", "yesterday", "last halloween", "last Easter", "last Thanksgiving", "a few days ago", "a few weeks ago", "a few months ago");
+    val = val.toLowerCase();
+
+    if (val.startsWith("when did") || val.startsWith("when were") || val.startsWith("when have") || val.startsWith("when was") || val.startsWith("when has") || val.startsWith("when had")) {
+
+        var randomSelection = items3[Math.floor(Math.random() * items3.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	 var items4 = Array("nasty things", "wonderful stuff", "amazing stuff","gangster things","strange stuff","Hilarious people","Love","Babies","Children","Joy","Hard work");
+    val = val.toLowerCase();
+
+    if (val.startsWith("what does")) {
+
+        var randomSelection = items4[Math.floor(Math.random() * items4.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+	var items5 = Array("every Monday", "Every weekend", "Each second Thursday of each month", "Wednesdays",
+	"Each year","Every 4 years","Every December","Every October","Every November","Every Saturday","Every evening", "Every 2 years");
+    val = val.toLowerCase();
+
+    if (val.startsWith("when do") || val.startsWith("when do") || val.startsWith("when specifically")) {
+
+        var randomSelection = items5[Math.floor(Math.random() * items5.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+var items6 = Array("O.K.","Nice","Cool","Epic","I don't care. I can't because I am a program", "Um","OK then", "Good for you","Agreed","I disagree","Meh");
+    val = val.toLowerCase();
+
+    if (val.endsWith(".") || val.endsWith("!") || val.startsWith(" ")) {
+
+        var randomSelection = items6[Math.floor(Math.random() * items6.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+		var items7 = Array("The AngelHacks Competition");
+    val = val.toLowerCase();
+
+    if (val.endsWith("competition's name?") || val.endsWith("name of this competition?") || val.endsWith("name of this event?") || val.endsWith("event's name?")) {
+
+        var randomSelection = items7[Math.floor(Math.random() * items7.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+    }
+    	var items8 = Array("The Claire Wang Bot");
+    val = val.toLowerCase();
+
+    if (val.endsWith("name?") || val.endsWith("name again?")) {
+
+        var randomSelection = items8[Math.floor(Math.random() * items8.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+}
+	var items9 = Array("It's hiiiiiiigh noon!","Don't ask me that when you can just check your computer's clock","time for you to get a watch","muffin time");
+    val = val.toLowerCase();
+
+    if (val.endsWith("time?") || val.endsWith("time is it?")) {
+
+        var randomSelection = items9[Math.floor(Math.random() * items9.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+}
+var items10 = Array("It's Saturday, October 26, 2019","Don't ask me that when you can just check your computer's clock");
+    val = val.toLowerCase();
+
+    if (val.endsWith("date?") || val.endsWith("date today?") || val.endsWith("day?") || val.endsWith("year?") || val.endsWith("year is it?") || val.endsWith("day is it?")) {
+
+        var randomSelection = items10[Math.floor(Math.random() * items10.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+}
+var items11 = Array("I asked God for a bike, but I know God doesn't work that way so I stole a bike and asked for forgiveness","I hate Russian dolls. They're so full of themselves","Why did David Hasselhoff change his name to The Hoff? It’s less hassle","I visited the Air and Space Museum…Nothing was there.","Q: Why should you sit in a corner when you get cold? A: Because most corners are 90 degrees.","Q: How long does it take to know if a pair of underwear fits you well? A brief moment! DUH!","Corny jokes are a-maize-ing.","Q: Erin, spell mouse. A: M O U S. Q: Yes–and what’s on the end of it? A: A tail?","Why did the diet coach send her clients to the paint store? She heard you could get thinner there.");
+    val = val.toLowerCase();
+
+    if (val.includes("a joke") || val.includes("a good joke") || val.includes(" joke")) {
+
+        var randomSelection = items11[Math.floor(Math.random() * items11.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+        
+  } 
+var items12 = Array("Wassup user","That's my name!","Hi User","Hello there");
+    val = val.toLowerCase();
+
+    if (val.endsWith("bot?") || val.endsWith("bot") || val.endsWith("bot.") || val.endsWith("wang.") || val.endsWith("wang")
+	 || val.endsWith("wang?")) {
+
+        var randomSelection = items12[Math.floor(Math.random() * items12.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items13 = Array("eating pencils. How about you?","Answering questions. How about you?","Chilling with my friends","Playing with animals","Horsing around with monkies"
+,"making people feel better");
+    val = val.toLowerCase();
+
+    if (val.includes("activities") || val.includes("verbs") || val.includes("hobbies") || val.includes("interests") || val.includes("like to do")
+	 || val.includes("things to do")|| val.includes("things do you")) {
+
+        var randomSelection = items13[Math.floor(Math.random() * items13.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items14 = Array("The FIRST ONE!!!","I think I'll go with the first option","The second one","the second one for sure","I'll choose Option 2","I guess the first one","Option 2","Option 1");
+    val = val.toLowerCase();
+
+    if (val.startsWith("would you rather") || val.includes("would this program rather") || val.startsWith(" what would you rather")) {
+      val = val.replace("would you rather ","");
+      val.replace("would this program rather ","")
+
+      
+      console.log(val)
+        var randomSelection = items14[Math.floor(Math.random() * items14.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items15 = Array("This conversation is actually about you, User. It is about making you feel better.");
+    val = val.toLowerCase();
+
+    if (val.endsWith("you.") || val.endsWith("yours?") || val.endsWith("yours.")) {
+
+        var randomSelection = items15[Math.floor(Math.random() * items15.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items16 = Array("I am the only one here who is cool", "Your not cool, I am.","I am the only cool person ever in history");
+    val = val.toLowerCase();
+
+    if (val.endsWith("cool") || val.endsWith("cool.") || val.endsWith("cool?") || val.endsWith("cool!")) {
+
+        var randomSelection = items16[Math.floor(Math.random() * items16.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items17 = Array("I am your helpful ClaireWang Bot, dedicated to making you feel better","I am Mrs. Wang","I am your new friend, the ClaireBot","They call me Mrs. Wang");
+    val = val.toLowerCase();
+
+    if (val.startsWith("who are you") || val.startsWith("who are you?")) {
+
+        var randomSelection = items17[Math.floor(Math.random() * items17.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items18 = Array("Kanye West","Jacob Timberlake","Anna Hutchinson","Nat Turner","Donald Trump","Jean Black","Larry Jean","Timothy Worman","Joe Mama","Donkeyboi Stevenson","Chris P. Bacon");
+    val = val.toLowerCase();
+
+    if (val.startsWith("who is ") || val.startsWith("who will ") || val.startsWith("who are t") || val.startsWith("who were") || val.startsWith("who was") || val.startsWith("who shall")) {
+
+        var randomSelection = items18[Math.floor(Math.random() * items18.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+
+
+
+
+var items19 = Array("Ayush Saha","Kenji Wang","Keizou Wang");
+    val = val.toLowerCase();
+
+    if (val.startsWith("who is") || val.startsWith("who are the w") || val.startsWith("who shall w") || val.startsWith("who will w") || val.startsWith("who can w")) {
+
+        var randomSelection = items19[Math.floor(Math.random() * items19.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items20 = Array("David Park's team","Tin Pham's team","Rachel Brockman's team","Anya Torosyan's team","Treedex Semextetry's team","Anya Torosyan's team","Bardia Safari's team","Sammy Hajhamid's team","Julian Quevedo's team","Ayaan Haque's team","Matthew Lee's team","Nathan Wang's team","Frank Zhnag's team","Nina Luo's team","Andrew Shen's team","Derek Jiang's team","Van Handke's team","Carolyn's team");
+    val = val.toLowerCase();
+
+    if (val.startsWith("who is gonna l") || val.startsWith("who will l") || val.startsWith("who is going to l") || val.startsWith("who shall l") || val.startsWith("which team ")) {
+
+        var randomSelection = items20[Math.floor(Math.random() * items20.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+var items21 = Array("Check this site: https://www.verywellmind.com/overcoming-addiction-4157285");
+    val = val.toLowerCase();
+
+    if (val.includes("I can't stop") || val.includes("addict") || val.includes("drug") || val.includes("help") || val.includes("cocaine") || val.includes("smok") || val.includes("I cannot stop") || val.includes("I can not stop") || val.includes("quit") || val.includes("heroine") || val.includes("cigar")) {
+
+        var randomSelection = items21[Math.floor(Math.random() * items21.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items22 = Array("Very");
+    val = val.toLowerCase();
+
+    if (val.startsWith("How smart") || val.startsWith("How cool") || val.startsWith("how awesome")) {
+
+        var randomSelection = items22[Math.floor(Math.random() * items22.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+var items23 = Array("A lot","Perhaps 200","100","10","1","5","232","395","464","923","537","282","139","284","129","198","439","239","593","139","420","249","203","934","823","789","666","583","481","391","108","19","92","2394","9530","5738","1738");
+    val = val.toLowerCase();
+
+    if (val.startsWith("How many") || val.incldudes("number")) {
+
+        var randomSelection = items23[Math.floor(Math.random() * items23.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+
+
+
+
+
+
+
+
+    val.toLowerCase();
+    if(val.includes("number") && val.includes("choose")){
+      var number = Math.ceil(Math.random() * 10);
+      document.getElementById("answer").innerHTML = number;
+    }
+  
+  var items22 = Array("What do you mean? How can the most awesome person on Earth be depressed","You're awesome! Don't be sad.");
+    val = val.toLowerCase();
+
+    if (val.endsWith("sad") || val.endsWith("sad.") || val.endsWith("depressed") || val.endsWith("depressed.") || val.startsWith("depression") || val.endsWith("depression.")){
+        var randomSelection = items22[Math.floor(Math.random() * items22.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+}
+ var items23 = Array("No you are","My friend. That is incorrect.","It is not","I don't think so","Yup","Yes","For sure");
+    val = val.toLowerCase();
+
+    if (val.includes(" is") || val.includes("is ")){
+        var randomSelection = items23[Math.floor(Math.random() * items23.length)];
+
+var items25 = Array("Destroy your belief that you can surpass me and trick my powerful AI brain.","Going to Ad Astra.","Scheduling the next Angel Hacks.");
+val = val.toLowerCase();
+if(val.includes("what will y")){
+  var randomSelection = items25[Math.floor(Math.random()*items25.length())];
+  document.getElementById("answer").innerHTML = randomSelection;
+}
+}
+var items0021 = Array("");
+    val = val.toLowerCase();
+
+    if (val.includes("I can't stop") || val.includes("addict") || val.includes("drug") || val.includes("help") || val.includes("cocaine") || val.includes("smok") || val.includes("I cannot stop") || val.includes("I can not stop") || val.includes("quit") || val.includes("heroine") || val.includes("cigar")) {
+
+        var randomSelection = items0021[Math.floor(Math.random() * items0021.length)];
+        document.getElementById("answer").innerHTML = randomSelection;
+
+}
+val = val.toLowerCase();
+var items26 = Array("A bugatti.","A tree","A knife","Candy","bicycles","Gangster things","ayush saha's team winning","The fat ones","The hairy ones")
+if(val.endsWith("like.") || val.endsWith("like") || val.endsWith("like!") || val.endsWith("like?")){
+var randomSelection = items26[Math.floor(Math.random()*items26.length)];
+document.getElementById("answer").innerHTML = randomSelection;
+}
+var items027 = Array("great things","wonderful things","terrifying things","ugly things","stuff you don't need to worry about","hiarious things")
+val = val.toLowerCase();
+if(val.startsWith("what will")){
+  var randomSelection = items027[Math.floor(Math.random()*items027.length)];
+  documnent.getElementById("answer").innerHTML = randomSelection;
+}
+var items28 = Array("I can communicate with you (in English). Ask me anything, and I can answer [almost all]! You can have a nice chat with me. P.S. make sure to have proper grammar and use periods and question marks. Have fun!")
+val = val.toLowerCase();
+if(val.startsWith("what can y") || val.startsWith("what are y") || val.startsWith("what questions")){
+  var randomSelection = items28[Math.floor(Math.random()*items28)];
+  documnent.getElementById("answer").innerHTML = randomSelection;
+}
+var items29 = Array("Donkeys")
+val = val.toLowerCase();
+if(val.endsWith("animal?")){
+  var randomSelection = items29[Math.floor(Math.random()*items29)];
+  documnent.getElementById("answer").innerHTML = randomSelection;
+}
+var items30 = Array("Iphone X")
+val = val.toLowerCase();
+if(val.endsWith("device?") || val.endsWith("toy?") || val.endsWith("computer?") || val.endsWith("tool?")){
+  var randomSelection = items30[Math.floor(Math.random()*items30)];
+  documnent.getElementById("answer").innerHTML = randomSelection;
+}
+
+var items31 = Array("Tomorrow","An eternity later.","A week from now.")
+val = val.toLowerCase();
+if(val.startsWith("when do i") || val.startsWith("when shall")|| val.startsWith("when will") || val.startsWith("when can")){
+    var randomSelection = items31[Math.floor(Math.random()*items31)];
+  documnent.getElementById("answer").innerHTML = randomSelection;
+}
+
+}
+}
+</script>
+</head>
+
+<body>
+
+<CENTER><h1><font face="Geneva">Claire Wang</font></h1></CENTER>
+<h1><font face="geneva">About me:</font></h1><br>
+    <font face="geneva"> Hi! I am the real Claire Wang. I heard a chatbot in a physical robot body is here<br><b><i>I can answer almost any question. Try asking something. I can also chat a little.</b></i><br>
+    ----------------------------------------------------------------------------------------
+    <br>
+    Make sure your questions start with a question word and have proper grammar. Have fun! :)
+    </font>
+<br>
+<br>
+<br>
+<form>
+</select>
+<font face="geneva">Section I<br>Choose a sample question:</font><br>
+<select id="slct">
+
+<option value="1">Where are we?</option>
+<option value="2">What time is it?</option>
+<option value="3">What was this coded in?</option>
+<option value="4">Would you like to damage your eyes?</option>
+<option value="5">Give a random number from 1-10</option>
+</select>
+
+<input type="button" onclick="GetSelectedValue()" value="----->"/>
+<p id="watch"></p>
+<br>
+<br>
+Section II<br>
+Type in<input type="text" id="result" size="40" placeholder="Type in Something."/>
+<br>
+<input type="button" onclick="getAI()" value="Click me---Make sure to have proper grammar!---Click me"/>
+<p id="answer"><font face="geneva">Ask me any question above-<i>ANYTHING</i>- you can come up with, and entertain yourelf!<br>
+(P.S. I can conversate a bit, but my main function is answering questions. I should be able to<br>
+to reply to most! Don't forget to have proper spelling and grammar!)<br><br>
+<i>Random sample questions: Tell me a joke. Would you rather run or fall? Who am I? Where are we? Who are you? What is wrong with you? Why are you so awesome? Do you like monkeys?Want to talk with me? Where is the nearest restroom? Who shall lose this competition? Who can win this event? What is your name? What is my name? Can I get a good laugh out of this?</i>
+
+</font></p>
+</form>
+<img src="image.png" width = "200">
+<br>
+<a href="source code.html">Source Code</a>
+</body>
+</html>
+</font>
