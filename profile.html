@@ -16,7 +16,7 @@
 		if(localStorage.getItem("description")){
 		document.getElementById("descriptionr").innerHTML = "<p class = 'text'>"+localStorage.getItem("description")+"</p>";
 		   }else{
-		   document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+		   document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'>"+"<br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
 		   }
 	}
       }
