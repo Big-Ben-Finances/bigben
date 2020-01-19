@@ -12,7 +12,7 @@
     <script src="/bigben/scripts/script.js"></script>
 	  <script>
 		  function changeImage(){
-		  document.getElementById("changeMePlease").innerHTML = "<select id='switch' class='select'><option value='Benny'>Benny</option><option value='Elena'>Elena</option><option value='Milo'>Milo</option><option value='Laura'>Laura</option></select><br><button class='loginandsignupconfirm'>Confirm</button>";
+		  document.getElementById("changeMePlease").innerHTML = "<select id='switch' class='select'><option value='Benny'>Benny</option><option value='Elena'>Elena</option><option value='Milo'>Milo</option><option value='Laura'>Laura</option></select><br><button class='loginandsignupconfirm' onclick='submitChange()'>Confirm</button>";
 		  }
 		  var a;
 		  var person;
@@ -31,6 +31,7 @@
 		    if(person == "Elena"){
 			  localStorage.setItem("avatar","/bigben/images/Elena.png");
 		     }
+			  window.location = "profile.html";
 		  }
 		  </script>
     <div class="topBar">
