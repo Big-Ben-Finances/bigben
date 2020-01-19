@@ -13,6 +13,8 @@
     <script src="/bigben/scripts/script.js"></script>
     <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
+     
+     <div class="header" id="myHeader">
     <script>
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
@@ -24,6 +26,7 @@
         window.location = "/bigben/index.html";
       }
     </script>
+     </div>
     <div class="topBar">
       <img src="images/big ben.png" width="150">
       <div id="changeToName">
@@ -38,7 +41,6 @@
     <center>
      
      
-     <div class="header" id="myHeader">
      
       <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
     <br>
@@ -66,7 +68,7 @@
     <div id="unlock3">
     <div class="smallsections" onclick="goSomewhere('/bigben/m/interest.html')">Interest</div>
     </div>
-     </div>
+     
      
      
     </center>
