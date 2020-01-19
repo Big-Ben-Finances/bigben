@@ -10,9 +10,7 @@
   </head>
   <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
-    <body onload="startOff()">
-    <script src="/bigben/scripts/script.js"></script>
-    <script>
+	  <script>
       function startOff(){
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
@@ -32,6 +30,7 @@
 	localStorage.setItem("description",document.getElementById("textr").value);
 	}
     </script>
+    <script src="/bigben/scripts/script.js"></script>
     <div class="topBar">
       <img src="/bigben/images/big ben.png" width="150">
       <div id="changeToName">
