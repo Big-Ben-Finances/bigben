@@ -37,6 +37,61 @@
         if(interest == "true"){
           percentage += 1;
         }
+        loans = localStorage.getItem("loans");
+        if(loans == null || loans == NaN){
+          localStorage.setItem("loans",false);
+        }
+        if(loans == "true"){
+          percentage += 1;
+        }
+        shopping = localStorage.getItem("shopping");
+        if(shopping == null || shopping == NaN){
+          localStorage.setItem("shopping",false);
+        }
+        if(shopping == "true"){
+          percentage += 1;
+        }
+        banking = localStorage.getItem("banking");
+        if(banking == null || banking == NaN){
+          localStorage.setItem("banking",false);
+        }
+        if(banking == "true"){
+          percentage += 1;
+        }
+        saving = localStorage.getItem("saving");
+        if(saving == null || saving == NaN){
+          localStorage.setItem("saving",false);
+        }
+        if(saving == "true"){
+          percentage += 1;
+        }
+        debt = localStorage.getItem("debt");
+        if(debt == null || debt == NaN){
+          localStorage.setItem("debt",false);
+        }
+        if(debt == "true"){
+          percentage += 1;
+        }
+        budgeting = localStorage.getItem("budgeting");
+        if(budgeting == null || budgeting == NaN){
+          localStorage.setItem("budgeting",false);
+        }
+        if(budgeting == "true"){
+          percentage += 1;
+        }
+        invest = localStorage.getItem("invest");
+        if(invest == null || invest == NaN){
+          localStorage.setItem("invest",false);
+        }
+        if(invest == "true"){
+          percentage += 1;
+        }
+        taxes = localStorage.getItem("taxes");
+        if(taxes == null || taxes == NaN){
+          localStorage.setItem("taxes",false);
+        }
+        if(taxes == "true"){
+          percentage += 1;
         }
         percentage = percentage/8;
         percentage = percentage*100;
@@ -66,20 +121,40 @@
     <div class="topBar">
       <a href="/bigben/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
       <div id="changeToName">
-      <a href="/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
-      <div class="topbarbuttonuseless">M</div>
-      <button class="topbarbutton" onclick="goSomewhere('e.html')">E</button>
-      <button class="topbarbutton" onclick="goSomewhere('n.html')">N</button>
-      <button class="topbarbutton" onclick="goSomewhere('u.html')">U</button>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">M</button>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/e.html')">E</button>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/n.html')">N</button>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/u.html')">U</button>
     </div>
     <center>
-    <h1 class="text" style="font-size: 100px; margin: 0px;">Courses</h1>
+    <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
     <br>
-    <div class="smallsections" onclick="goSomewhere('/bigben/menu/easy.html')">Starter Course (7 and up)</div>
+    <h3 class="text">You have completed:</h3>
+    <div id="percentageShower"></div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/shopping.html')">Shopping</div>
     <br>
-    <div class="smallsections" onclick="goSomewhere('/bigben/menu/games.html')">Games</div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/saving.html')">Saving</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/budgeting.html')">Budgeting</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/invest.html')">Invest</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/banking.html')">Banking</div>
+    <br>
+    <div id="unlock1">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/debt.html')">Debt</div>
+    </div>
+    <br>
+    <div id="unlock2">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/taxes.html')">Taxes</div>
+    </div>
+    <br>
+    <div id="unlock3">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/interest.html')">Interest</div>
+    </div>
     </center>
     <br>
     <br>
