@@ -60,6 +60,10 @@
         var candy = canSpend * (candy*0.1);
         var game = canSpend * (game*0.1);
         var other = canSpend * (other*0.1);
+        var canSpend = Math.round(amount-left);
+        var candy = Math.round(canSpend * (candy*0.1));
+        var game = Math.round(canSpend * (game*0.1));
+        var other = Math.round(canSpend * (other*0.1));
         if(amount < left){
           document.getElementById("warner").innerHTML = "How much money you have is less than how much you want to have at the end of the week.";
         }else if(left < 0){
