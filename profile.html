@@ -14,7 +14,7 @@
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
 	  document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
 		if(localStorage.getItem("description") != "null" || localStorage.getItem("description") != "NaN" || localStorage.getItem("description") != null || localStorage.getItem("description") != NaN){
-			document.getElementById("description").innerHTML = localStorage.getItem("description");
+			document.getElementById("description").innerHTML = "<p class = "text">"+localStorage.getItem("description")+"</p>";
 		   }else{
 		   document.getElementById("description").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;' id='textr' placeholder='Edit Description'></texarea><br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
 		   }
