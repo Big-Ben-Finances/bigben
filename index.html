@@ -8,12 +8,12 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
-  <body onload="startOffer()">
+  <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
     <script>
       function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button><br><button class='topbarbutton' onclick='goSomewhere(\"/bigben/menu/n.html\")'>Lessons</button><button class='topbarbutton' onclick='goSomewhere (\"/bigben/menu/n.html\")'>Budget Calculator</button><button class='topbarbutton' onclick='goSomewhere (\"/bigben/menu/n.html\")'>Tips</button>";
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
       }
       }
     </script>
@@ -21,8 +21,11 @@
       <img src="images/big ben.png" width="150">
       <div id="changeToName">
       <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      <br>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button><button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
+       <br>
+       <button class='topbarbutton' onclick='goSomewhere("/bigben/menu/m.html")'>Lessons</button>
+       <button class='topbarbutton' onclick='goSomewhere ("/bigben/menu/e.html")'>Budget Calculator</button>
+       <button class='topbarbutton' onclick='goSomewhere("/bigben/menu/n.html")'>Lessons</button>
+       <button class='topbarbutton' onclick='goSomewhere ("/bigben/menu/u.html")'>Tips</button>
     </div>
     <center>
     <h1 class="text">What Is it?</h1>
