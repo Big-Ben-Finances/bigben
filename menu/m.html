@@ -8,8 +8,10 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
   </head>
+ <div class="header" id="myHeader">
   <body onload="startOffer()">
     <script src="/bigben/scripts/script.js"></script>
+     <div class="header" id="myHeader">
     <script>
       var percentage = 0;
       var interest;
@@ -34,11 +36,6 @@
         interest = localStorage.getItem("interest");
         if(interest == null || interest == NaN){
           localStorage.setItem("interest",false);
-        }
-        if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("blockingProfile").innerHTML = "<a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a>";
-        }else{
-          document.getElementById("blockingProfile").innerHTML = " ";
         }
         if(interest == "true"){
           percentage += 1;
@@ -135,19 +132,23 @@
         }
       }
     </script>
+     </div>
     <div class="topBar">
-      <a href="/bigben/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
+      <img src="images/big ben.png" width="150">
       <div id="changeToName">
-      <div id="blockingProfile"><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      <a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div>
       <br>
-      <div class="topbarbuttonuseless">Lessons</div>
+      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
       <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
     </div>
     <center>
-    <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
+     
+     
+     
+      <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
     <br>
     <h3 class="text">You have completed:</h3>
     <div id="percentageShower"></div>
@@ -173,11 +174,14 @@
     <div id="unlock3">
     <div class="smallsections" onclick="goSomewhere('/bigben/m/interest.html')">Interest</div>
     </div>
+     
+     
+     
     </center>
-    <br>
-    <br>
+    <br><br>
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   </body>
+   </div>
 </html>
