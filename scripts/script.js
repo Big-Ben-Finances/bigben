@@ -23,9 +23,6 @@ window.location = x;
 }
 function startOff(){
  console.log("test");
-if(localStorage.getItem("loggedIn") == "true"){
-window.location = "/bigben/profileedit.html";
-}
 }
 function reset(){
 localStorage.setItem("loggedIn",null);
@@ -40,8 +37,6 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
 document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
 if(localStorage.getItem("description")){
 document.getElementById("descriptionr").innerHTML = "<p class = 'text' style='font-size:20px;'>"+localStorage.getItem("description")+"</p>"+"<br><button class='loginandsignupconfirm' onclick='changeDescription()'>Edit Description</button>";
-}else{
-window.location = "profileedit.html";
 }
  if(localStorage.getItem("avatar")){
 document.getElementById("profileImage").src = localStorage.getItem("avatar");
