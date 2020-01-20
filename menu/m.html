@@ -110,8 +110,8 @@
         percentage = Math.round(percentage);
         
         if(percentage < 100){
-          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;'>"+percentage+"%</h2>";
-          document.getElementById("xpShower").innerHTML = "<h3 class='percentageText' style='font-size: 80px; padding:10px;'>"+xp+"xp</h3>";
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;color:black;'>"+percentage+"%</h2>";
+          document.getElementById("xpShower").innerHTML = "<h3 class='percentageText' style='font-size: 80px; padding:10px;color:black;'>"+xp+"xp</h3>";
         }else{
           document.getElementById("percentageShower").innerHTML = "<div class='completion'><h2 class='percentageText' style='font-size: 150px; padding:0px;'>100%</h2></div>";
         }
@@ -125,7 +125,7 @@
           document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
         }
         }else{
-          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;'>0%</h2>";
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px;padding:0px;color:black;'>0%</h2>";
           document.getElementById("unlock1").innerHTML = "<div class='lockedsmallsection'>Debt(complete all previous)🔒</div>";
           document.getElementById("unlock2").innerHTML = "<div class='lockedsmallsection'>Taxes(complete Debt)🔒</div>";
           document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
