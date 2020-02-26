@@ -70,6 +70,17 @@ body{
   font-size: 30px;
   transition: 1s;
 }
+.smallsection{
+  font-family: 'Poppins', sans-serif;
+  padding: 30px;
+  max-width: 40%;
+  border-radius: 20px;
+  color: black;
+  margin:10px;
+  background-color: rgb(115,243,195);
+  font-size: 30px;
+  transition: 1s;
+}
 .smallsections:hover{
   font-family: 'Poppins', sans-serif;
   padding: 35px;
