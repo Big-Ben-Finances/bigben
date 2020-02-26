@@ -1,31 +1,5 @@
-/* Style the header */
-.header {
-  padding: 10px 16px;
-  background: #ffffff;
-  color: #f1f1f1;
-}
-
-/* Page content */
-.content {
-  padding: 16px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-    position: fixed;
-  top: 0;
-  width: 100%
-}
-
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 102px;
-}
-/*Everything above this is Muhammad*/
-
-
 .topBar{
-  background-color: rgb(29,174,237);
+  background-image: linear-gradient(to bottom right, rgb(29,174,237),rgb(100,255,100));
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 20px;
@@ -63,6 +37,7 @@ body{
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   padding: 15px;
+  margin:5px;
   background-color: rgb(115,243,195);
   font-size: 15px;
   transition: 1s;
@@ -72,15 +47,17 @@ body{
   display: inline-block;
   background-color: rgb(74, 189, 147);
   font-size: 15px;
-  padding:15px;
+  padding: 20px;
   border: 1px solid rgb(216, 216, 216);
 }
 .topbarbutton:hover{
   font-family: 'Poppins', sans-serif;
   padding: 15px;
+  margin:5px;
   background-color: white;
   font-size: 15px;
   transition: 1s;
+  box-shadow: 10px 10px rgb(0,0,0);
 }
 .smallsections{
   font-family: 'Poppins', sans-serif;
