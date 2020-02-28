@@ -57,7 +57,7 @@ body{
   background-color: white;
   font-size: 15px;
   transition: 1s;
-  box-shadow: 10px 10px rgb(0,0,0);
+  box-shadow: 10px 10px rgb(0,150,255);
 }
 .smallsections{
   font-family: 'Poppins', sans-serif;
