@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900&amp;display=swap" rel="stylesheet">
   </head>
- <div class="header" id="myHeader">
-  <body onload="startOffer()">
-    <script src="/bigben/scripts/script.js"></script>
+ <body onload="startOffer()">    <script src="/bigben/scripts/script.js"></script>
     <script>
       
       var percentage = 0;
@@ -136,10 +132,10 @@
       <div id="changeToName">
       <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
       </div><h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:30px;margin:0px;">BigBen</h1>
-      <div class="topbarbuttonuseless">Lessons</div>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
+      
+      
+      
+      
       <br> 
     </div>
 <div>
@@ -150,7 +146,7 @@
       <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
     <br>
     <h3 class="text">You have completed:</h3>
-    <div id="percentageShower" style="font-family: 'Montserrat';"></div>
+    <div id="percentageShower" style="font-family: 'Montserrat';"><h2 class="percentageText" style="font-size: 150px;padding:0px;color:black;">0%</h2></div>
     <div id="xpShower"></div>
     <div class="smallsections" onclick="goSomewhere('/bigben/m/shopping.html')">Shopping</div>
     <br>
@@ -162,17 +158,11 @@
     <br>
     <div class="smallsections" onclick="goSomewhere('/bigben/m/banking.html')">Banking</div>
     <br>
-    <div id="unlock1">
-    <div class="smallsections" onclick="goSomewhere('/bigben/m/debt.html')">Debt</div>
-    </div>
+    <div id="unlock1"><div class="lockedsmallsection">Debt(complete all previous)🔒</div></div>
     <br>
-    <div id="unlock2">
-    <div class="smallsections" onclick="goSomewhere('/bigben/m/taxes.html')">Taxes</div>
-    </div>
+    <div id="unlock2"><div class="lockedsmallsection">Taxes(complete Debt)🔒</div></div>
     <br>
-    <div id="unlock3">
-    <div class="smallsections" onclick="goSomewhere('/bigben/m/interest.html')">Interest</div>
-    </div>
+    <div id="unlock3"><div class="lockedsmallsection">Interest(complete Debt and Taxes)🔒</div></div>
      
      
      
@@ -181,6 +171,5 @@
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
-  </body>
-   </div>
-</html>
+  
+   </div></body></html>
