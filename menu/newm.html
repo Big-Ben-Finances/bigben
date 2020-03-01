@@ -25,7 +25,7 @@
       }
       function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;color:white;font-family: \"Alegreya Sans\";'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;font-family: 'Alegreya Sans';color:white;background-color:rgb(115,243,195);'>Log out</button>";
+          document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='float:right;color:white;font-family: \"Alegreya Sans\";'>"+localStorage.getItem('username')+"</h2></a>";
       }
         if(localStorage.getItem("loggedIn") == "true"){
           percentage = 0;
