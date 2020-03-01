@@ -193,3 +193,12 @@ strong{
     -o-border-radius: 50%;
     border-radius: 50%;  
 }
+.header{
+  background-image: linear-gradient(to bottom right, rgb(29,174,237),rgb(100,255,100));
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  position:sticky;
+  top:0;
+}
