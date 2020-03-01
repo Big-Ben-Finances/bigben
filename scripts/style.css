@@ -16,24 +16,21 @@ body{
   padding:0px;
 }
 .text{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding-right: 30px;
   padding-left: 30px;
   color: black;
   text-decoration: none;
 }
 .textbro{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding-right: 30px;
   padding-left: 30px;
   color: black;
   font-size: 25px;
 }
 .bottomText{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   color: white;
   text-decoration: none;
   padding-right: 0px;
@@ -43,8 +40,7 @@ body{
   
 }
 .topbarbutton{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   display: inline-block;
   padding: 15px;
   margin:5px;
@@ -53,8 +49,7 @@ body{
   transition: 1s;
 }
 .topbarbuttonuseless{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   display: inline-block;
   background-color: rgb(74, 189, 147);
   font-size: 15px;
@@ -62,8 +57,7 @@ body{
   border: 1px solid rgb(216, 216, 216);
 }
 .topbarbutton:hover{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 15px;
   margin:5px;
   background-color: white;
@@ -72,8 +66,7 @@ body{
   box-shadow: 10px 10px rgb(0,150,255);
 }
 .smallsections{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 30px;
   max-width: 40%;
   border-radius: 20px;
@@ -84,8 +77,7 @@ body{
   transition: 1s;
 }
 .smallsection{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 30px;
   max-width: 40%;
   border-radius: 20px;
@@ -96,8 +88,7 @@ body{
   transition: 1s;
 }
 .smallsections:hover{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 35px;
   max-width: 40%;
   color: black;
@@ -109,8 +100,7 @@ body{
   transition: 1s;
 }
 .percentageText{
-  ffont-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   font-size: 150px;
   margin: -1px;
 }
@@ -119,22 +109,19 @@ strong{
 }
 .textinput{
   padding:10px;
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   font-size: 30px;
   text-align: center;
 }
 .loginandsignupconfirm{
   padding:20px;
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   font-size:20px;
 }
 .select{
   background-color: rgba(0,0,0,0.3);
   padding: 20px;
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   color: white;
   font-size: 20px;
   transition: 1s;
@@ -142,15 +129,13 @@ strong{
 .select:hover{
   background-color: rgb(0,0,0);
   padding: 20px;
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   color: white;
   font-size: 20px;
   transition: 1s;
 }
 .completion{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 30px;
   min-width: 100%;
   border-radius: 20px;
@@ -161,8 +146,7 @@ strong{
   transition: 1s;
 }
 .lockedsmallsection{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 30px;
   max-width: 40%;
   border-radius: 20px;
@@ -173,8 +157,7 @@ strong{
   margin:10px;
 }
 .lockedsmallsection:hover{
-  font-family: 'mainFont';
-  font-weight: 100;
+  font-family: 'Poppins', sans-serif;
   padding: 35px;
   max-width: 40%;
   border-radius: 20px;
