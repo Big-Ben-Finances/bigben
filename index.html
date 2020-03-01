@@ -1,73 +1,72 @@
-<html><head>
+<html><head></head><body>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
     <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:500|Montserrat:900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900&amp;display=swap" rel="stylesheet">
   <script src="/bigben/scripts/script.js"></script><script>
   function goSomewhere(x){
 window.location = x;
 }
-function startOff(){
-if(localStorage.getItem("loggedIn") == "true"){
-document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
-}
-}
-  </script></head>
- 
-    
- 
-   <body onload="startOff()">
+  </script>
+   
  <div class="header" id="myHeader">
     <div class="topBar">
-      <img src="/bigben/images/big ben.png" width="150">
       <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      </div>
-      <br>
-      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
+      <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
+      </div><h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:70px;margin:0px;">BigBen</h1>
     </div>
-    <center>
-          <h1 class="text">What Is it?</h1>
-    <p class="textbro" align="justify">We made Big Ben to prepare the future generations for the tough financial environment America has. A 2018 study showed that over 69% of workers currently in an office are stressed out over money. From the same study, 72% of workers admited that they often worried about their finances while they were at their job. Habits such as spending and debt put most Americans into bankruptcy and massive amounts of debt that takes years to pay off. The purpose of BigBen is to help our future generation develop good habits early on so that they know how to avoid developing bad habits later.</p>
-    <h1 class="text">Why Is It Important?</h1>
-    <p class="textbro" align="justify">Looking at our competitors, we noticed that their websites didn’t have a kid-friendly interface. Some of us being young kids, we knew the things that we enjoyed seeing in a website, such as bright and exciting colors, lots of different photos, fun examples, cool fonts, and challenges. Unfortunately, in most currently existing financial platforms for kids, little to none of these expectations are met, which makes the experience an overall unpleasant one. We fear that this experience will lead our next generation to have a negative view on the world of finances, thinking:</p>
-    <p class="textbro" align="justify"><em>“It’s really boring and excessive!”</em></p>
-    <p class="textbro" align="justify"><em>“Nothing about it is interesting at all!”</em></p>
-    <p class="textbro" align="justify"><em>“Why can’t I just do something else?”</em></p>
-    <p class="textbro" align="justify">By creating our website, we wanted to reverse these views by providing young children with a positive look on finances at a young age, which will carry on a good impression of it as they mature into adults. </p>
-   
-     <h1 class="text">Who we are</h1>
-    <div>
-    <img src="/bigben/images/redBULL!!!!!!!.png" width="300">
-    <h1 class="text">Moh. Alsharif</h1>
-    <p class="text" align="justify">Muhammad is a 19 year old junior at UCSC studying computer science. He has 4 years of experience in coding and enjoys mainly working with C++. In his free time he likes to do volunteer work with nonprofits. </p>
-    <img src="/bigben/images/rubixCuub.jpeg" width="300">
-    <h1 class="text">Kenji Wang</h1>
-    <h2 class="text">Coder</h2>
-    <p class="text" align="justify">Kenji is a 6th grader (11 years old) with 2 years of coding experience. He has proficient knowledge in 9 coding languages including C++ and PYGAME. He focuses on coding new features, improving old ones, and writing the "messy code." Kenji wrote a majority of the code for the project, including the quizzes, buttons, login/signup system, budget calculator, etc. He also helped research background information to create some of the financial lessons in the website.</p>
-    <img src="/bigben/images/KeizouNerd.jpeg" width="300">
-    <h1 class="text">Keizou Wang</h1>
-    <h2 class="text">Coder</h2>
-    <p class="text" align="justify">Keizou is a 6th grader (11 years old) with 2 years  of coding experience. He has proficient knowledge in 6 coding languages including C# and PYGAME. Keizou mainly focuses on writing the lessons, making some of the short animations (view the debt, banking, and saving lessons), and tweaking some of the code. Keizou spends his extra time designing and creating the short animations you see in some of the lessons in the form of gifs.</p>
-    <img src="/bigben/images/KR-Robotics.jpeg" width="300">
-    <h1 class="text">Kierra Wang</h1>
-    <h2 class="text">Designer</h2>
-    <p class="text" align="justify">Kierra is an 8th grader (13 years old) who is going into her 2nd year of coding. She has proficient knowledge in 4 coding languages, but she mainly focuses in front-end coding. Kierra controls a majority of the overall design choices of the website. Before the official coding of the website, she designed the layout of each page and later assisted in writing the code to make everything look the way we planned it. In addition, she did research for a few lessons  and created all of the quizzes related to them.</p>
-    <img src="/bigben/images/anna.png" width="300">
-    <h1 class="text">Anna Pearson</h1>
-    <h2 class="text">Designer</h2>
-    <p class="text" align="justify">Anna is currently a student at UCSC studying Cognitive Science concentrated in Artificial Intelligence. Passionate about the intersection between computer science and cognitive science, she is interested in topics of research in anthropomorphic Artificial Intelligence, human computer interaction, human factors engineering, UX, and data science.</p>
-    </div></center>
-    <br><br>
+<center>
+<div>
+     <h1 class="text" style="display:inline-block;padding-bottom:200px;color:rgb(29,174,237);font-family: 'Alegreya Sans';float:up;padding:10px;"><img src="images/big ben.png" style="width:200px;display:inline-block;" align="middle">Learn About Money The Fun Way</h1>
+     
+</div></center>
+</div>
+<center>
+<img src="images/georgejungle.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/jefferSUN.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/LinkedIn.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/porkinton.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/jackson5.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/collegeGrant.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+<img src="images/MrBig.png" height="100" style="padding:55px;padding-bottom:0px;display:inline-block;">
+</center>
+<div style="padding-left: 60px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Washington</h4></div>
+<div style="padding-left: 33px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Jefferson</h4></div>
+<div style="padding-left: 72px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Lincoln</h4></div>
+<div style="padding-left: 95px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Hamilton</h4></div>
+<div style="padding-left: 95px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Jackson</h4></div>
+<div style="padding-left: 100px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Grant</h4></div>
+<div style="padding-left: 73px; display:inline-block;"><h4 class="text" style="color:rgb(125,125,125);font-family: 'Alegreya Sans';">Benjamin</h4></div>
     <div class="topBar">
-      <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
-    </div>
-  
-   </div>
+    <div style="float: right">
+    <div style="display:inline-block;">  
+    <h2 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">About Us</h2>
+    <a href="/bigben/footer/About.html" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Mission</h4></a>
+    <a href="/bigben/footer/Us.html" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Team</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Press</h4></a>
+    <a href="/bigben/footer/Contact.html" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Contact Us</h4></a>
+        </div>
+<div style="display:inline-block;">
+    <h2 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Products</h2>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">BigBen For Schools</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">IOS app</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Android App</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Coming Soon</h4></a>
+</div>
+    
+<div style="display:inline-block;">
+    <h2 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Privacy &amp; Terms</h2><a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">General</h4></a> 
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Community Guidelines</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Terms</h4></a>
+    <a href="#" style="text-decoration:none;"><h4 class="text" style="color:white;font-family: 'Alegreya Sans';margin:1px;">Privacy</h4></a>
+</div></div><br><br><br><br><br><br></div>
+
+
+
+
 
 </body></html>
+
+
