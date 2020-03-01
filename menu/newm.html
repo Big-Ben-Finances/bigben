@@ -1,1 +1,187 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:500|Montserrat:900&amp;display=swap" rel="stylesheet">
+  </head>
+ <div class="header" id="myHeader">
+  <body onload="startOffer()">
+    <script src="/bigben/scripts/script.js"></script>
+     <div class="header" id="myHeader">
+    <script>
+      var percentage = 0;
+      var interest;
+      var invest;
+      var budgeting;
+      var taxes;
+      var shopping;
+      var banking;
+      var saving;
+      var debt;
+      var xp = 0;
+      function reset(){
+       localStorage.setItem("loggedIn",null);
+       window.location = "/bigben/index.html";
+      }
+      function startOffer(){
+        if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+      }
+        if(localStorage.getItem("loggedIn") == "true"){
+          percentage = 0;
+        interest = localStorage.getItem("interest");
+        if(interest == null || interest == NaN){
+          localStorage.setItem("interest",false);
+        }
+        if(interest == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        loans = localStorage.getItem("loans");
+        if(loans == null || loans == NaN){
+          localStorage.setItem("loans",false);
+        }
+        if(loans == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        shopping = localStorage.getItem("shopping");
+        if(shopping == null || shopping == NaN){
+          localStorage.setItem("shopping",false);
+        }
+        if(shopping == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        banking = localStorage.getItem("banking");
+        if(banking == null || banking == NaN){
+          localStorage.setItem("banking",false);
+        }
+        if(banking == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        saving = localStorage.getItem("saving");
+        if(saving == null || saving == NaN){
+          localStorage.setItem("saving",false);
+        }
+        if(saving == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        debt = localStorage.getItem("debt");
+        if(debt == null || debt == NaN){
+          localStorage.setItem("debt",false);
+        }
+        if(debt == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        budgeting = localStorage.getItem("budgeting");
+        if(budgeting == null || budgeting == NaN){
+          localStorage.setItem("budgeting",false);
+        }
+        if(budgeting == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        invest = localStorage.getItem("invest");
+        if(invest == null || invest == NaN){
+          localStorage.setItem("invest",false);
+        }
+        if(invest == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        taxes = localStorage.getItem("taxes");
+        if(taxes == null || taxes == NaN){
+          localStorage.setItem("taxes",false);
+        }
+        if(taxes == "true"){
+          percentage += 1;
+          xp += 100;
+        }
+        percentage = percentage/8;
+        percentage = percentage*100;
+        percentage = Math.round(percentage);
+        
+        if(percentage < 100){
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px; padding:0px;color:black;font-family: \"Montserrat\";'>"+percentage+"%</h2>";
+          document.getElementById("xpShower").innerHTML = "<h3 class='percentageText' style='font-size: 80px; padding:10px;color:black;'>"+xp+"xp</h3>";
+        }else{
+          document.getElementById("percentageShower").innerHTML = "<div class='completion'><h2 class='percentageText' style='font-size: 150px; padding:0px;'>100%</h2></div>";
+        }
+        if(percentage < 62){
+          document.getElementById("unlock1").innerHTML = "<div class='lockedsmallsection'>Debt(complete all previous)🔒</div>";
+        }
+        if(percentage < 75){
+          document.getElementById("unlock2").innerHTML = "<div class='lockedsmallsection'>Taxes(complete Debt)🔒</div>";
+        }
+        if(percentage < 87){
+          document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
+        }
+        }else{
+          document.getElementById("percentageShower").innerHTML = "<h2 class='percentageText' style='font-size: 150px;padding:0px;color:black;'>0%</h2>";
+          document.getElementById("unlock1").innerHTML = "<div class='lockedsmallsection'>Debt(complete all previous)🔒</div>";
+          document.getElementById("unlock2").innerHTML = "<div class='lockedsmallsection'>Taxes(complete Debt)🔒</div>";
+          document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
+        }
+      }
+    </script>
+     </div>
+    <div class="topBar">
+      <div id="changeToName">
+      <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
+      </div><h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:70px;margin:0px;">BigBen</h1>
+      <div class="topbarbuttonuseless">Lessons</div>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
+      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
+      <br> 
+    </div>
+<div>
+    <center>
+     
+     
+     
+      <h1 class="text" style="font-size: 100px; margin: 0px;">Lessons</h1>
+    <br>
+    <h3 class="text">You have completed:</h3>
+    <div id="percentageShower" style="font-family: 'Montserrat';"></div>
+    <div id="xpShower"></div>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/shopping.html')">Shopping</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/saving.html')">Saving</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/budgeting.html')">Budgeting</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/invest.html')">Invest</div>
+    <br>
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/banking.html')">Banking</div>
+    <br>
+    <div id="unlock1">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/debt.html')">Debt</div>
+    </div>
+    <br>
+    <div id="unlock2">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/taxes.html')">Taxes</div>
+    </div>
+    <br>
+    <div id="unlock3">
+    <div class="smallsections" onclick="goSomewhere('/bigben/m/interest.html')">Interest</div>
+    </div>
+     
+     
+     
+    </center>
+    <br><br>
+    <div class="topBar">
+      <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
+    </div>
+  </body>
+   </div>
+</html>
