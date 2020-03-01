@@ -6,7 +6,7 @@
     <title>Big Ben</title>
     <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:500|Montserrat:900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900&amp;display=swap" rel="stylesheet">
   </head>
  <div class="header" id="myHeader">
   <body onload="startOffer()">
@@ -29,7 +29,7 @@
       }
       function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
+          document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;color:white;font-family: \"Alegreya Sans\";>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;font-family: 'Alegreya Sans';color:white;background-color:rgb(115,243,195);'>Log out</button>";
       }
         if(localStorage.getItem("loggedIn") == "true"){
           percentage = 0;
