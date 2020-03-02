@@ -15,8 +15,8 @@ window.location = x;
 function startOff(){
 if(localStorage.getItem("loggedIn") == "true"){
 document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
-if(localStorage.getItem("bigben")){
-document.getElementById("bigbenr").innerHTML = localStorage.getItem("bigben");
+if(localStorage.getItem("benbucks")){
+document.getElementById("bigbenr").innerHTML = localStorage.getItem("benbucks");
 }else{
 document.getElementById("bigbenr").innerHTML = "0";
 }
@@ -49,7 +49,7 @@ document.getElementById("bigbenr").innerHTML = "0";
     <br>
     <h2 class="text">You have</h2>
     <h2 class="text" style="margin:0px;padding:0px;font-size:150px;" id="bigbenr"></h2>
-    <h2 class="text">Big Ben</h2>
+    <h2 class="text">Big Bens</h2>
      <div id=""></div>
     </center>
     <br><br>
