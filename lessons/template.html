@@ -15,6 +15,8 @@ document.getElementById("changeToName").innerHTML = "<a href='#' style='text-dec
 }
 if(localStorage.getItem("benbucks")){
    document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
+   }else{
+   document.getElementByid("benbucksr").innerHTML = "0";
    }
 }
     </script></head>
@@ -31,7 +33,8 @@ if(localStorage.getItem("benbucks")){
   
     <br>
 <div style="box-shadow: 10px 10px grey;border-radius: 10px 10px;width: 300px;float:right;padding:15px;border: 5px solid rgb(255,200,0);">
-    ree
+    <h1 class="text" style="margin:10px;padding:0px;">BenBucks</h1>
+    <img src="/bigben/images/pig.png" width="75" style="display:inline-block" align="middle"><h1 class="text" style="display:inline-block;margin:10px;padding:0px;font-size:40px;" id="benbucksr">0</h1>
 </div>
 <h1 class="text"><i>President</i> on <b>Lesson</b></h1>
     <img src="/bigben/images/georgejungle.png" height="75%" style="position:sticky;top:100;padding:10px;">
