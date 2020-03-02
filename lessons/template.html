@@ -1,0 +1,39 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900|Dosis&amp;display=swap" rel="stylesheet">
+  </head>
+ <body onload="startOffer()">    <script src="/bigben/scripts/script.js"></script>
+    <script>
+      if(!localStorage.getItem("work")){
+         localStorage.setItem("work",0);
+      }
+      if(!localStorage.getItem("spending")){
+         localStorage.setItem("spending",0);
+      }
+      if(!localStorage.getItem("saving")){
+         localStorage.setItem("saving",0);
+      }
+      if(!localStorage.getItem("invest")){
+         localStorage.setItem("invest",0);
+      }
+      if(!localStorage.getItem("debt")){
+         localStorage.setItem("debt",0);
+      }
+      if(!localStorage.getItem("tax")){
+         localStorage.setItem("tax",0);
+      }
+      if(!localStorage.getItem("retirement")){
+         localStorage.setItem("retirement",0);
+      }
+      if(localStorage.getItem("work") == 0){
+         document.getElementById("washington").innerHTML = "<div><h1>Boomer!!!</h1></div>";
+      }
+    </script>
+  <div style="float: right; background-image: linear-gradient(to bottom right, rgb(0,0,0),rgb(0,0,0));">
+    <div id="washington">
+  </div>
+  </body></html>
