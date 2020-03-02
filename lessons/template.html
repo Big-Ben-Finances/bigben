@@ -6,34 +6,32 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900|Dosis&amp;display=swap" rel="stylesheet">
   </head>
- <body onload="startOffer()">    <script src="/bigben/scripts/script.js"></script>
     <script>
-      if(!localStorage.getItem("work")){
-         localStorage.setItem("work",0);
-      }
-      if(!localStorage.getItem("spending")){
-         localStorage.setItem("spending",0);
-      }
-      if(!localStorage.getItem("saving")){
-         localStorage.setItem("saving",0);
-      }
-      if(!localStorage.getItem("invest")){
-         localStorage.setItem("invest",0);
-      }
-      if(!localStorage.getItem("debt")){
-         localStorage.setItem("debt",0);
-      }
-      if(!localStorage.getItem("tax")){
-         localStorage.setItem("tax",0);
-      }
-      if(!localStorage.getItem("retirement")){
-         localStorage.setItem("retirement",0);
-      }
-      if(localStorage.getItem("work") == 0){
-         document.getElementById("washington").innerHTML = "<div><h1>Boomer!!!</h1></div>";
-      }
+        function goSomewhere(x){
+window.location = x;
+}
+function startOff(){
+if(localStorage.getItem("loggedIn") == "true"){
+document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
+}
+if(localStorage.getItem("benbucks")){
+   document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
+   }
+}
     </script>
-  <div style="display: inline-block; float: right; background-color: rgb(0, 0, 0);">
-    <div id="washington"></div>
+ <body onload="startOffer()">
+     <script src="/bigben/scripts/script.js"></script>
+     <div class="header">
+      <div id="changeToName">
+       <a href="#" style="text-decoration:none;">
+        <h2 class="text" style="display:inline-block;float:right;color:white;font-family: &quot;Dosis&quot;;"></h2>
+       </a>
+     </div>
+     <a href="/bigben/" style="text-decoration:none;">
+      <h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:30px;margin:0px;">BigBen</h1>
+     </a>
+      <br> 
+    </div>
   </div>
+    <h1 class="text"><i>President</i> on <b>Lesson</b></h1>
   </body></html>
