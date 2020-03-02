@@ -14,7 +14,7 @@ window.location = x;
 }
 function startOff(){
 if(localStorage.getItem("loggedIn") == "true"){
-document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button><button class='loginandsignupconfirm' onclick='goSomewhere(\"profile.html\")' style='float:right;background-color:rgb(115,243,195);'>Profile</button>";
+document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
 if(localStorage.getItem("benbucks")){
 document.getElementById("bigbenr").innerHTML = localStorage.getItem("benbucks");
 }else{
@@ -23,33 +23,30 @@ document.getElementById("bigbenr").innerHTML = "0";
 }
 }
   </script>
- <div class="header" id="myHeader">
   <body onload="startOff()">
-     <div class="header" id="myHeader">
     <script>
       function reset(){
         localStorage.setItem("loggedIn",null);
         window.location = "/bigben/index.html";
       }
     </script>
-     </div>
-    <div class="topBar">
-      <img src="images/big ben.png" width="150">
+    <div class="header">
       <div id="changeToName">
-      <a href="/bigben/profile.html" class="text" style="float: right; font-size: 20px;">Profile</a><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      </div>
-      <br>
-      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
+       <a href="#" style="text-decoration:none;">
+        <h2 class="text" style="display:inline-block;float:right;color:white;font-family: &quot;Dosis&quot;;"></h2>
+       </a>
+     </div>
+     <a href="/bigben/" style="text-decoration:none;">
+      <h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:30px;margin:0px;">BigBen</h1>
+     </a>
+      <br> 
     </div>
     <center>
       <h1 class="text" style="font-size: 100px; margin: 0px;">Store</h1>
     <br>
     <h2 class="text">You have</h2>
     <h2 class="text" style="margin:0px;padding:0px;font-size:150px;" id="bigbenr"></h2>
-    <h2 class="text">Big Bens</h2>
+    <h2 class="text">BenBucks</h2>
      <div id=""></div>
     </center>
     <br><br>
