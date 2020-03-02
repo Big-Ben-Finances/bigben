@@ -8,6 +8,7 @@
   </head>
  <body onload="startOffer()">    <script src="/bigben/scripts/script.js"></script>
     <script>
+
       
       var percentage = 0;
       var interest;
@@ -25,7 +26,7 @@
       }
       function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
-          document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Alegreya Sans\";'>"+localStorage.getItem('username')+"</h2></a>";
+          document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
       }
         if(localStorage.getItem("loggedIn") == "true"){
           percentage = 0;
@@ -127,6 +128,7 @@
           document.getElementById("unlock3").innerHTML = "<div class='lockedsmallsection'>Interest(complete Debt and Taxes)🔒</div>";
         }
       }
+    
     </script>
     <div class="header">
       <div id="changeToName">
