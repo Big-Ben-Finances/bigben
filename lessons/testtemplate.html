@@ -65,6 +65,7 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
   var result3;
   var overall;
   var benbucks = localStorage.getItem("benbucks");
+  benbucks = parseInt(benbucks);
   function popquizresult(amount){
     a = document.getElementById("question1");
     result1 = a.options[a.selectedIndex].value;
