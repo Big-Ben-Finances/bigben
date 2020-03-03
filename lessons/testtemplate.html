@@ -62,7 +62,8 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
   var c;
   var result3;
   var overall;
-  function popquizresult(){
+  var benbucks = localStorage.getItem("benbucks");
+  function popquizresult(amount){
     a = document.getElementById("question1");
     result1 = a.options[a.selectedIndex].value;
     b = document.getElementById("question2");
@@ -80,7 +81,8 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
       overall += 33;
     }
     if(overall == 99){
-      benbucks += 25;
+      benbucks += amount;
+      localStorage.setItem("benbucks",benbucks);
       document.getElementById("shower").innerHTML = "You passed the quiz!";
     }else{
       document.getElementById("shower").innerHTML = "Try Again";
