@@ -35,6 +35,7 @@ document.getElementById("bigbenr").innerHTML = "BenBucks$: 0";
      var benbucks = Number(localStorage.getItem("benbucks"));
      benbucks += -1*number;
      localStorage.setItem("benbucks",benbucks);
+     document.getElementById("bigbenr").innerHTML = benbucks;
      }
      }
     </script>
