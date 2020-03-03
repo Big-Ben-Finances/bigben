@@ -33,7 +33,7 @@ document.getElementById("bigbenr").innerHTML = "BenBucks$: 0";
      if(localStorage.getItem("benbucks") >= number){
      localStorage.setItem(name,"true");
      var benbucks = localStorage.getItem("benbucks");
-     benbucks += -1(number);
+     benbucks += -1*number;
      localStorage.setItem("benbucks",benbucks);
      }
      }
