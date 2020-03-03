@@ -1,4 +1,4 @@
-<html><head></head><body data-gr-c-s-loaded="true">
+<html><head></head><body data-gr-c-s-loaded="true" onload="start()">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
@@ -9,6 +9,11 @@
   function goSomewhere(x){
 window.location = x;
 }
+    function start(){
+    if(localStorage.getItem("loggedIn") == "true"){
+       window.location = "/bigben/lesson.html";
+       }
+    }
   </script>
     <div class="header">
       <div id="changeToName">
