@@ -16,9 +16,9 @@ function startOff(){
 if(localStorage.getItem("loggedIn") == "true"){
 document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
 if(localStorage.getItem("benbucks")){
-document.getElementById("bigbenr").innerHTML = localStorage.getItem("benbucks");
+document.getElementById("bigbenr").innerHTML = "BenBuck$: "+localStorage.getItem("benbucks");
 }else{
-document.getElementById("bigbenr").innerHTML = "0";
+document.getElementById("bigbenr").innerHTML = "BenBucks$: 0";
 }
 }
 }
@@ -41,9 +41,11 @@ document.getElementById("bigbenr").innerHTML = "0";
      </a>
       <br> 
     </div>
+      <h1 class="text" style="top:90;position:sticky;" id="bigbenr"></h1>
       <h1 class="text" style="font-size: 100px; margin: 0px;">Marketplace🏪</h1>
     <br><br>
-    <div class="topBar">
+   <div class="smallsections"></div>
+    <div class="topBar" style="position:sticky;bottom:0;">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   </body>
