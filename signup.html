@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:500|Montserrat:900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900&amp;display=swap" rel="stylesheet">
   </head>
-  <body onload="startOffer()">
+  <body onload="startOffer()" data-gr-c-s-loaded="true">
     <script src="/bigben/scripts/script.js"></script>
     <script>
       function startOffer(){
@@ -21,34 +19,33 @@
         window.location = "/bigben/index.html";
       }
     </script>
-    <div class="topBar">
-      <a href="/bigben/index.html"><img src="/bigben/images/big ben.png" width="150"></a>
+    <div class="header">
       <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      </div>
-      <br>
+      <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
+      </div><a href="index.html" style="text-decoration:none;"><h1 class="text" style="color:white;margin:0px;font-family: 'Alegreya Sans';font-size:70px;">BigBen</h1></a>
     </div>
-    <center>
-    <h1 class="text" style="font-size:75px;margin:0px;">Signup</h1>
-    <p class="text" style="font-size:50px;margin:0px;">First Name*</p>
-    <input type="text" class="textinput" id="firstnamer">
-    <p class="text" style="font-size:50px;margin:0px;">Last Name*</p>
-    <input type="text" class="textinput" id="lastnamer">
-    <p class="text" style="font-size:50px;margin:0px;">Username*</p>
-    <input type="text" class="textinput" id="usernamer">
-    <p class="text" style="font-size:50px;margin:0px;">Age*</p>
-    <input type="text" class="textinput" id="ager">
-    <p class="text" style="font-size:50px;margin:0px;">Password*</p>
-    <input type="password" class="textinput" style="padding:0px;font-size:35px;" id="passwordr">
-    <br>
-    <p class="text" style="font-size:50px;margin:0px;">Confirm Password*</p>
-    <input type="password" class="textinput" style="padding:0px;font-size:35px;" id="confirmpasswordr">
-    <br>
+    <center><div style="display:inline-block;"><img src="/bigben/images/georgejungle.png" height="600 px"></div>
+    
+    <div style="display:inline-block;">
+    
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size: 25px;margin:0px;">First Name*</p>
+    <input type="text" class="textinput" id="firstnamer" style="font-family: 'Alegreya Sans';color:grey;"><br>
+    <p class="text" style="color: rgb(48,144,199);padding-top: 25px;font-size:25px;margin:0px;">Last Name*</p>
+    <input style="font-family: 'Alegreya Sans';color:grey;" type="text" class="textinput" id="lastnamer"><br>
+        <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:25px;margin:0px;">Age*</p>
+    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="ager"><br>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:25px;margin:0px;">Username*</p>
+    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="usernamer"><br>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:25px;margin:0px;">Password*</p>
+    <input type="password" class="textinput" style="font-family: 'Alegreya Sans';color:grey;" id="passwordr"><br>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:25px;margin:0px;">Confirm Password*</p>
+    <input id="confirmpasswordr" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" type="password">
+    
     <p class="text" style="font-size:25px;margin:0px;color:red;" id="warner"></p>
     <br>
-    <br>
-    <br>
-    <button class="loginandsignupconfirm" onclick="confirming()">Confirm</button>
+    
+    
+    <button class="loginandsignupconfirm" onclick="confirming()" style="color: rgb(48,144,199);font-size:25px;margin:0px;">Sign Up</button>
     <script>
       function confirming(){
         var firstname = document.getElementById("firstnamer").value;
@@ -69,10 +66,12 @@
         }
       }
     </script>
+    </div>
     </center>
     <br><br>
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
-  </body>
-</html>
+  
+
+</body></html>
