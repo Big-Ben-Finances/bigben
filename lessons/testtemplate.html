@@ -64,7 +64,12 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
   var c;
   var result3;
   var overall;
+  if(!localStorage.getItem("benbucks")){
+  localStorage.setItem("benbucks",0);
   var benbucks = localStorage.getItem("benbucks");
+  }else{
+  var benbucks = localStorage.getItem("benbucks");
+  }
   benbucks = parseInt(benbucks);
   function popquizresult(amount){
     a = document.getElementById("question1");
