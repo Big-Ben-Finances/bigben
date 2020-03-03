@@ -100,7 +100,7 @@ if(localStorage.getItem("benbucks")){
       overall += 33;
     }
     if(overall == 99){
-      benbucks += 25;
+      benbucks += 1000;
       localStorage.setItem("benbucks",benbucks);
       document.getElementById("shower").innerHTML = "You passed the quiz!";
       document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
