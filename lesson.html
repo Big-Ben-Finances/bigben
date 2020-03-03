@@ -10,7 +10,17 @@
 window.location = x;
 }
     function startOffer(){
-    if(localStorage.getItem("loggedIn") == "true"){
+        var day = new Date;
+    if(localStorage.getItem("upgrade1") == "true"){
+        if(localStorage.getItem("lastvisit") != day.getDay()){
+       var benbucks = Number(localStorage.getItem("benbucks"));
+       benbucks += 100;
+       localStorage.setItem("benbucks",benbucks);
+    }else{
+    localStorage.setItem("lastvisit",day);
+    }
+       }
+        if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
       }
     }
