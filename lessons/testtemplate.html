@@ -103,7 +103,7 @@ if(localStorage.getItem("benbucks")){
       benbucks += amount;
       localStorage.setItem("benbucks",benbucks);
       document.getElementById("shower").innerHTML = "You passed the quiz!";
-      document.getElementById(benbucksr).innerHTML = localStorage.getItem("benbucks");
+      document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
     }else{
       document.getElementById("shower").innerHTML = "Try Again";
     }
