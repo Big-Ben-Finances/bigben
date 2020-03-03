@@ -9,10 +9,18 @@
   function goSomewhere(x){
 window.location = x;
 }
+    function startOffer(){
+    if(localStorage.getItem("loggedIn") == "true"){
+          document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><h2 class='text' style='display:inline-block;float:right;color:white;font-family: \"Dosis\";'>"+localStorage.getItem('username')+"</h2></a>";
+      }
+    }
   </script>
     <div class="header">
-      <h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:70px;margin:0px;">BigBen</h1>
-        </div>
+      <div id="changeToName">
+      <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
+      </div><a href="/bigben/" style="text-decoration:none;"><h1 class="text" style="color:white;font-family: 'Alegreya Sans';font-size:30px;margin:0px;">BigBen</h1></a>
+      <br> 
+    </div>
 <center>
 <div>
      <h1 class="text" style="display:inline-block;padding-bottom:200px;color:rgb(29,174,237);font-family: 'Alegreya Sans';float:up;padding:10px;font-size:75px;">What Do You Want To Learn?</h1>
