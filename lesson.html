@@ -16,9 +16,9 @@ window.location = x;
        var benbucks = Number(localStorage.getItem("benbucks"));
        benbucks += 100;
        localStorage.setItem("benbucks",benbucks);
-       localStorage.setItem("lastvisit",day);
+       localStorage.setItem("lastvisit",day.getDay());
     }else{
-    localStorage.setItem("lastvisit",day);
+    localStorage.setItem("lastvisit",day.getDay());
     }
        }
         if(localStorage.getItem("loggedIn") == "true"){
