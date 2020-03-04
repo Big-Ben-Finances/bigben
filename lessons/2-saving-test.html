@@ -64,7 +64,7 @@ if(localStorage.getItem("benbucks")){
 </select>
 <br>
 <br>
-<button class="loginandsignupconfirm" onclick="goSomewhere('/bigben/lessons/2-saving-jefferson.html.html')">Back</button><button class="loginandsignupconfirm" onclick="popquizresult(100)">Submit</button>
+<button class="loginandsignupconfirm" onclick="goSomewhere('/bigben/lessons/2-saving-jefferson.html.html')">Back</button><button class="loginandsignupconfirm" onclick="popquizresult(1000)">Submit</button>
 <p class="text" style="color:red;" id="shower"></p>
 </center><script>
   var a;
@@ -99,7 +99,7 @@ if(localStorage.getItem("benbucks")){
       overall += 33;
     }
     if(overall == 99){
-      benbucks += 1000;
+      benbucks += amount;
       localStorage.setItem("benbucks",benbucks);
       document.getElementById("shower").innerHTML = "You passed the quiz!";
       document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
