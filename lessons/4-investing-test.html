@@ -63,7 +63,7 @@ if(localStorage.getItem("benbucks")){
 </select>
 <br>
 <br>
-<button class="loginandsignupconfirm" onclick="goSomewhere('/bigben/lessons/1-work-washington.html.html')">Back</button><button class="loginandsignupconfirm" onclick="popquizresult(100)">Submit</button>
+<button class="loginandsignupconfirm" id="button" onclick="goSomewhere('/bigben/lessons/4-investing-hamilton.html')">Back</button><button id="remove" class="loginandsignupconfirm" onclick="popquizresult(100)">Submit</button>
 <p class="text" style="color:red;" id="shower"></p>
 </center><script>
   var a;
@@ -102,6 +102,9 @@ if(localStorage.getItem("benbucks")){
       localStorage.setItem("benbucks",benbucks);
       document.getElementById("shower").innerHTML = "You passed the quiz!";
       document.getElementById("benbucksr").innerHTML = localStorage.getItem("benbucks");
+      document.getElementById("button").setAttribute( "onClick", "javascript: goSomewhere('/bigben/lesson.html');" );
+      document.getElementById("remove").remove();
+      document.getElementById("button").innerHTML = "Back to lessons";
     }else{
       document.getElementById("shower").innerHTML = "Try Again";
     }
