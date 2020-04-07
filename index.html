@@ -14,7 +14,43 @@ window.location = x;
        window.location = "/bigben/lesson.html";
        }
     }
-  </script>
+    
+</script>
+
+<style>
+    h4 {
+        font-family: 'Alegreya Sans';
+        font-size: 20px;"
+    }
+      .cards {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      .cards .card {
+        text-align: center;
+      }
+      .cards img {
+        height: 150px;
+      }
+      @media (max-width: 800px) {
+        .cards img {
+        height: 120px;
+        }
+      }
+      @media (max-width: 650px) {
+        .cards h4 {
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 392px) {
+        .cards img {
+          height: 100px;
+        }
+        .cards h4 {
+            height: 10px;
+      }
+    </style>
     <div class="header">
       <div id="changeToName">
       <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
@@ -22,7 +58,7 @@ window.location = x;
         </div>
 <center>
 <div>
-     <h1 class="text" style="display:inline-block; padding-bottom:40px;color:rgb(29,174,237);font-family: 'Alegreya Sans';float:up;padding-top:165px;padding-bottom:70;font-size:75px;"><img src="images/big ben.png" style="width:200px;display:inline-block; padding-right:20px" align="middle">Learn About Money The Fun Way</h1>
+     <h1 style="display:inline-block; padding-bottom: 40px;color:rgb(29,174,237);font-family: 'Alegreya Sans';float:up;padding-top:155px;padding-bottom:70;font-size:85px;"><img src="images/big ben.png" style="width:200px;display:inline-block; padding-right:20px" align="middle">Learn About Money The Fun Way</h1>
      
 </div></center>
 
@@ -31,15 +67,38 @@ window.location = x;
 
 <br>
 <center>
-<div style="display: inline-block; width: 13%;"><center><img src="images/georgejungle.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Washington</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/jefferSUN.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Jefferson</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/LinkedIn.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Lincoln</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/porkinton.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Hamilton</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/jackson5.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Jackson</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/collegeGrant.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Grant</h4></center></div>
-<div style="display: inline-block; width: 13%;"><center><img src="images/MrBig.png" height="100px"><br><h4 style="font-family: 'Alegreya Sans'; font-size: 20px;">Franklin</h4></center></div>
-</center>
+<div class="cards">
+    <div class="card">
+        <img src="images/georgejungle.png"><br>
+        <h4>Washington</h4>
+    </div>
+    <div class="card">
+        <img src="images/jefferSUN.png"><br>
+        <h4>Jefferson</h4>
+    </div>
+    <div class="card">
+        <img src="images/LinkedIn.png"><br>
+        <h4>Lincoln</h4>
+    </div>
+    <div class="card">
+        <img src="images/porkinton.png"><br>
+        <h4>Hamilton</h4>
+    </div>
+    <div class="card">
+        <img src="images/jackson5.png"><br>
+        <h4>Jackson</h4>
+    </div>
+    <div class="card">
+        <img src="images/collegeGrant.png"><br>
+        <h4>Grant</h4>
+    </div>
+    <div class="card">
+        <img src="images/MrBig.png"><br>
+        <h4>Franklin</h4>
+    </div>
+</div></center>
     
+
 
 
 
