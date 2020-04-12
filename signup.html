@@ -24,55 +24,88 @@
       <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
       </div><a href="index.html" style="text-decoration:none;"><h1 class="text" style="color:white;margin:0px;font-family: 'Alegreya Sans';font-size:30px;">BigBen</h1></a>
     </div>
-    <center><div style="display:inline-block;"><img src="/bigben/images/georgejungle.png" height="600 px"></div>
+    <center>
     
-    <div style="display:inline-block;">
-    
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size: 20px;margin:0px;">First Name*</p>
-    <input type="text" class="textinput" id="firstnamer" style="font-family: 'Alegreya Sans';color:grey;"><br>
-    <p class="text" style="color: rgb(48,144,199);padding-top: 25px;font-size:20px;margin:0px;">Last Name*</p>
-    <input style="font-family: 'Alegreya Sans';color:grey;" type="text" class="textinput" id="lastnamer"><br>
-        <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Age*</p>
-    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="ager"><br>
+    <form id="sign-up-form">
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Username*</p>
-    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="usernamer"><br>
+    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="username"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Password*</p>
-    <input type="password" class="textinput" style="font-family: 'Alegreya Sans';color:grey;" id="passwordr"><br>
+    <input type="password" class="textinput" style="font-family: 'Alegreya Sans';color:grey;" id="password"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Confirm Password*</p>
-    <input id="confirmpasswordr" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" type="password">
+    <input id="confirmpassword" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" type="password">
     
     <p class="text" style="font-size:20px;margin:0px;color:red;" id="warner"></p>
-    <br>
+    
+<br><br>
     
     
-    <button class="loginandsignupconfirm" onclick="confirming()" style="color: rgb(48,144,199);font-size:20px;margin:0px;">Sign Up</button>
-    <script>
-      function confirming(){
-        var firstname = document.getElementById("firstnamer").value;
-        var lastname = document.getElementById("lastnamer").value;
-        var username = document.getElementById("usernamer").value;
-        var age = document.getElementById("ager").value;
-        var password = document.getElementById("passwordr").value;
-        var confirmpassword = document.getElementById("confirmpasswordr").value;
-        if(password == confirmpassword){
-          localStorage.setItem("firstname",firstname);
-          localStorage.setItem("age",age);
-          localStorage.setItem("lastname",lastname);
-          localStorage.setItem("username",username);
-          localStorage.setItem("password",password);
-          window.location = "/bigben/login.html"
-        }else{
-          document.getElementById("warner").innerHTML = "The passwords are different."
-        }
+    <button class="loginandsignupconfirm" type="submit" style="color: rgb(48,144,199);font-size:20px;margin:0px;">Sign Up</button>
+</form>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+<script>
+const form = document.querySelector('#sign-up-form');
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+    if(document.querySelector("#confirmpassword").value != document.querySelector("#password").value){
+        document.querySelector("#warner").innerHTML = "The passwords aren't the same";
+    }else{
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
+
+  const hashedPW = CryptoJS.SHA256(password).toString();
+
+  const user = {
+    username: username,
+    password: hashedPW
+  }; //"object"
+
+  db.collection('users')
+    .where('username', "==", username)
+    .get()
+    .then(function (snapshot) {
+      console.log(snapshot)
+      if (snapshot.empty) {
+        db.collection('users')
+          .add(user)
+          .then(function () {
+            console.log('User Success Success Add');
+          })
+          .catch(function () {
+            console.log('You Failure');
+          })
       }
-    </script>
-    </div>
+      else {
+        console.log('User already exists');
+      }
+    });
+    }
+
+});
+</script>
     </center>
     <br><br>
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   
+
 
 
 </body></html>
