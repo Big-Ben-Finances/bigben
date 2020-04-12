@@ -1,0 +1,55 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+</head><body data-gr-c-s-loaded="true" onload="startOffer()">
+    
+    
+    
+    
+    
+    
+  <script src="/bigben/scripts/script.js"></script><script>var transcripts = ["Lorem Ipsum","Lorem Ipsum Sit Dolor","Lorem Ipsum Sit Dolor Amet"];
+function startOffer(){
+    if(localStorage.getItem("loggedIn") == "true"){
+    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    }
+    document.querySelector("#maintext").innerHTML = transcript[0];
+}  
+function goSomewhere(x){
+window.location = x;
+}
+function difficulty(x){
+document.querySelector("#maintext").innerHTML = transcripts[x-1];
+}
+</script>
+    <div class="header">
+      <div id="changeToName">
+      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <br> 
+    </div><div style="display: inline-block; float: right"><div style="border-radius: 30px;width: 300px;padding:15px;border: 5px solid rgb(201,247,200);margin:15px;overflow:auto;">
+    <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
+    <img src="/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:50px;" id="benbucksr"></p><br>
+
+<p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
+<p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
+<p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p><p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reading Difficulty</font></font></p><div onclick="difficulty(1)" style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(222,222,222);"></div>
+<div style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(176,176,176);" onclick="difficulty(2)"></div>
+<div style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(117,117,117);" onclick="difficulty(3)"></div>
+</div>
+<br>
+    
+</div>
+
+<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;transform: translateY(0%);"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Lorem Ipsum</p>
+<p class="text" id="maintext"></p>
+
+
+
+
+
+</body></html>
