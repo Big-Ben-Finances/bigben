@@ -12,12 +12,13 @@
     
     
     
-  <script src="/bigben/scripts/script.js"></script><script>var transcripts = ["Lorem Ipsum","Lorem Ipsum Sit Dolor","Lorem Ipsum Sit Dolor Amet"];
+  <script src="/bigben/scripts/script.js"></script><script>
+    var transcripts = ["Lorem Ipsum","Lorem Ipsum Sit Dolor","Lorem Ipsum Sit Dolor Amet"];
 function startOffer(){
     if(localStorage.getItem("loggedIn") == "true"){
     document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
     }
-    document.querySelector("#maintext").innerHTML = transcript[0];
+    document.querySelector("#maintext").innerHTML = transcripts[0];
 }  
 function goSomewhere(x){
 window.location = x;
