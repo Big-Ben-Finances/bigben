@@ -85,14 +85,14 @@ form.addEventListener('submit', function (event) {
         db.collection('users')
           .add(user)
           .then(function () {
-            console.log('User Success Success Add');
+            window.location = "login.html";
           })
           .catch(function () {
-            console.log('You Failure');
+            document.querySelector("#warner").innerHTML = "There Was A Problem. Try Reloading.";
           })
       }
       else {
-        console.log('User already exists');
+        document.querySelector("#warner").innerHTML = "User Already Exists";
       }
     });
     }
