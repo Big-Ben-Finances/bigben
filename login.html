@@ -4,7 +4,7 @@
     <title>Big Ben</title>
     <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900|Montserrat:900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
   <script>
   function goSomewhere(x){
 window.location = x;
@@ -19,50 +19,75 @@ document.getElementById("changeToName").innerHTML = "<h2 class='text' style='flo
   <body onload="startOff()">
     <script src="/bigben/scripts/script.js"></script>
     <div class="header">
-      <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right;color:white; font-size: 20px;font-family: 'Alegreya Sans';">Signup</a><a href="/bigben/login.html" class="text" style="float: right;color:white; font-size: 20px; padding-right: 15px;font-family: 'Alegreya Sans';">Login</a>
-      </div><a href="index.html" style="text-decoration:none;"><h1 class="text" style="color:white;margin:0px;font-family: 'Alegreya Sans';font-size:30px;">BigBen</h1></a>
+      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a><a href="index.html" style="text-decoration:none;"><p class="text" style="margin:0px;font-size:30px;padding:10px;">BigBen</p></a>
     </div>
     <center>
     
-<img src="/bigben/images/MrBig.png" style="display:inline-block;padding:30px;padding-top:25px;" height="600px;" align="top">
+
     <div style="display:inline-block;padding-top:160px;">
+<form id="sign-in-form">
     <p class="text" style="font-size:20px;margin:0px;color: #3090C7;">Username</p>
 
-    <input type="text" style="font-family: 'Alegreya Sans';color:grey;" class="textinput" id="usernamer" autocomplete="off">
+    <input type="text" style="color:grey;" class="textinput" id="username">
 
 <br>
 <br>
 <br><br>
     <p class="text" style="font-size:20px;margin:0px;color: #3090C7;">Password</p>
 
-    <input type="password" class="textinput" style="padding:0px;font-size:35px;color:grey;" id="passwordr" autocomplete="off">
+    <input type="password" style="color:grey;" class="textinput" id="password">
 <br><br>
-        <button class="loginandsignupconfirm" onclick="confirming()" style="color: #3090C7;">login</button><br><br>
-
+        <button class="loginandsignupconfirm" type="submit">login</button>
+    </form><br><br>
+<p class="text" id="warner" style="color:red;"></p>
 <a href="#" class="text" style="text-decoration: none;color: #3090C7">forgot password</a></div>
     <br>
     <br>
     <br>
-      <!--kenji is ugly-->
-    
-    <script>
-      function confirming(){
-        var username = document.getElementById("usernamer").value;
-        var password = document.getElementById("passwordr").value;
-        if(username == localStorage.getItem("username") && password == localStorage.getItem("password")){
-          localStorage.setItem("loggedIn",true);
-          window.location = "/bigben/menu/m.html"
-        }
-      }
-    </script>
     </center>
-    <br>
-<br>
-    <div class="topBar" style="position:sticky;bottom:0;">
-      <a class="bottomText" style="float: right; font-size: 10px;">©BigBen</a>
-    </div>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+<script>
+const form = document.querySelector('#sign-in-form');
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
   
+  const hashedPW = CryptoJS.SHA256(password).toString();
+  db.collection("users")
+  .where("username","==",username)
+  .where("password","==",hashedPW)
+  .get()
+  .then(function(snapshot){
+    if(snapshot.empty){
+     document.querySelector("#warner").innerHTML = "Couldn't Find User. Try Again"; 
+    }
+    else{
+      const user = snapshot.docs[0];
+      console.log(user.id,user.data());
+      localStorage.setItem("userToken",user.id);
+      location = "lesson.html";
+    }
+  });
 
-
+});
+</script>
 </body></html>
