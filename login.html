@@ -84,6 +84,8 @@ form.addEventListener('submit', function (event) {
       const user = snapshot.docs[0];
       console.log(user.id,user.data());
       localStorage.setItem("userToken",user.id);
+      localStorage.setItem("username",username);
+      localStorage.setItem("password",username);
       location = "lesson.html";
     }
   });
