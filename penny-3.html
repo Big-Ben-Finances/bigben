@@ -1,34 +1,81 @@
-<html><head></head><body data-gr-c-s-loaded="true" onload="startOffer()">
+<html><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
     <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+</head><body data-gr-c-s-loaded="true" onload="startOffer()">
+    
+    
+    
+    
+    
+    
   <script src="/bigben/scripts/script.js"></script><script>
-  function goSomewhere(x){
+    var transcripts = [`
+<p class='text'>The end goal for most people is to retire.</p>
+<p class='text' style='font-size:25px;'>What Is Retirement?</p>
+<p class='text'>Retirement is when you stop working. You can retire by saving up money so you have enough money for the future.
+<p class='text' style='font-size:25px;'>How Does Retirement Work?</p>
+<p class='text'>When you retire, you stop getting money from your job. Instead, the government gives you the money that you saved up in the bank every month, so you can still pay for things you want or need.</p>
+<p class='text' style='font-size:25px;'>How Do You Retire?</p>
+<p class='text'>You can retire by setting aside some of your money. The money can be used to keep up the way you live, even when you’re not working</p>`,`
+<p class='text'>Retirement is a way to take a break from working when you are ready.</p>
+<p class='text'> style='font-size:25px;'>What Is Retirement?</p>
+<p class='text'>It is when you have enough money so that you don’t need to work anymore. You save up so much money that you can live without having to work.</p>
+<p class='text' style='font-size:25px;'>How Does Retirement Work?</p>
+<p class='text'>When you retire, you stop getting money (except money that comes from stocks, houses, or other investments). How do you maintain your lifestyle if you don’t get money? The government gives you the money that you saved up in the bank every month, so you can still pay for things you want or need.</p>
+<p class='text' style='font-size:25px;'>How Do You Retire?</p>
+<p class='text'>You can retire by setting aside some of your money. The money can be used to keep up the way you live, even when you’re not working.</p>
+<p class='text' style='font-size:25px;'>What If You Run Out Of Money?</p>
+<p class='text'>If you run out of money, the government will give you money. When you retire, the government will give you a monthly check (the amount changes depending on where you live) so you can pay for basic items you need. It is still best to save up for retirement because the government funding alone may not be enough and it may be necessary to start working again.</p>`,`
+<p class='text'>Many people in the financial world are able to live without having to work. To list some famous names, Mark Zuckerberg and Jeff Bezos are able to sit on their fortunes and retire at any time they want, since they have enough money stacked up.</p>
+<p class='text' style='font-size:25px;'>What Is Retirement</p>
+<p class='text'>Retirement is when a person has enough money to stop working and live off of their savings. A common retirement savings account is called a \"401(k) plan,\” which allows a person to limit how much income taxes they pay until they fill up the account. You may start to withdraw money from the account without additional taxes at the age of 59 ½ , but it will come with a penalty tax if you take money out of the account early. The amount that you pay back to the government (the income tax that was deduced throughout the years) is based on each individual’s estimated remaining life span.</p>
+<p class='text'>There is a rising movement called 'F.I.R.E.' (financial independence, retire early) that aggressively saves around 50-75% of their income to be able to retire early, usually from age 30-40. This group is controversial regarding whether or not retiring early is really as good as it seems.</p>
+<p class='text'>There are a number of ways to retire, although the most travelled-by path is to work hard and save money until around the age of 62 years old, at which point you use your savings to maintain your lifestyle without having to work any longer.</p>`];
+function startOffer(){
+    if(localStorage.getItem("userToken") == "true"){
+    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    }
+    document.querySelector("#maintext").innerHTML = transcripts[0];
+}  
+function goSomewhere(x){
 window.location = x;
-}      
-  </script>
+}
+function difficulty(x){
+document.querySelector("#maintext").innerHTML = transcripts[x-1];
+    document.getElementById("1").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById("2").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById("3").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById(x).style["background-color"] = "rgb(117,117,117)";
+}
+</script>
     <div class="header">
       <div id="changeToName">
       <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
       </div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
       <br> 
-    </div>
-<div style="width:100px;height:100px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:40px;display:inline-block;margin:0px;padding:0px;">Penny</p>
+    </div><div style="display: inline-block; float: right"><div style="border-radius: 30px;width: 300px;padding:15px;border: 5px solid rgb(201,247,200);margin:15px;overflow:auto;">
+    <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
+    <img src="/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:50px;" id="benbucksr"></p><br>
 
-<div style="border-radius:10px;border:2px solid black;height:130px;width:97%;margin:15px;padding-bottom:10px;display:inline-block;" onclick="goSomewhere('penny-1.html')">
-    <p class="text" style="font-size:30px;margin:0px;padding:15px; padding-top:20px">Introduction to Big Ben</p>
-<p class="text" style="margin:0px;padding:15px;">Learn how to use all the functions and take advantage of the provided resources.</p></div>
-<div style="border-radius:10px;border:2px solid black;height:130px;width:97%;margin:15px;padding-top:10px; padding-bottom:10px;display:inline-block;" onclick="goSomewhere('penny-2.html')">
-    <p class="text" style="font-size:30px;margin:0px;padding:15px; padding-top:20px">Work</p>
-<p class="text" style="margin:0px;padding:15px;">What is work? How does it affect one's daily life? What kind of work is available and what do you need to know about it?</p>
+<p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
+<p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
+<p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p><p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reading Difficulty</font></font></p>
+<div id="1" style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(222,222,222);" onclick="difficulty(1)"></div>
+<div id="2" style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(222,222,222);" onclick="difficulty(2)"></div>
+<div id="3" style="display:inline-block;width:50px;height:50px;border-radius:50%;margin:5px;background-color: rgb(222,222,222);" onclick="difficulty(3)"></div>
 </div>
-<div style="border-radius:10px;border:2px solid black;height:130px;width:97%;margin:15px;padding-top:10px;display:inline-block;">
-    <p class="text" style="font-size:30px;margin:0px;padding:15px;padding-top:20px">Lorem Ipsum</p>
-<p class="text" style="margin:0px;padding:15px;">Lorem Ipsum Dolor Sit Amet</p>
+<br>
+    
 </div>
+
+<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Retirement</p>
+<p class="text" id="maintext"></p>
+
+
 
 
 
