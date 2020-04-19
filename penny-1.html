@@ -29,27 +29,21 @@
 <p class='text'>Retirement is when a person has enough money to stop working and live off of their savings. A common retirement savings account is called a \"401(k) plan,\” which allows a person to limit how much income taxes they pay until they fill up the account. You may start to withdraw money from the account without additional taxes at the age of 59 ½ , but it will come with a penalty tax if you take money out of the account early. The amount that you pay back to the government (the income tax that was deduced throughout the years) is based on each individual’s estimated remaining life span.</p>
 <p class='text'>There is a rising movement called 'F.I.R.E.' (financial independence, retire early) that aggressively saves around 50-75% of their income to be able to retire early, usually from age 30-40. This group is controversial regarding whether or not retiring early is really as good as it seems.</p>
 <p class='text'>There are a number of ways to retire, although the most travelled-by path is to work hard and save money until around the age of 62 years old, at which point you use your savings to maintain your lifestyle without having to work any longer.</p>`];
-function startOffer(){
-    if(localStorage.getItem("userToken") == "true"){
-    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
-    }
-    document.querySelector("#maintext").innerHTML = transcripts[0];
-}  
-function goSomewhere(x){
+function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
+}
+  function goSomewhere(x){
 window.location = x;
 }
-function difficulty(x){
-document.querySelector("#maintext").innerHTML = transcripts[x-1];
-    document.getElementById("1").style["background-color"] = "rgb(222,222,222)";
-    document.getElementById("2").style["background-color"] = "rgb(222,222,222)";
-    document.getElementById("3").style["background-color"] = "rgb(222,222,222)";
-    document.getElementById(x).style["background-color"] = "rgb(117,117,117)";
-}
-</script>
+    function startOffer(){
+        if(localStorage.getItem("userToken")){
+          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+      }
+    }
+  </script>
     <div class="header">
-      <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      </div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <div id="changeToName"><a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
       <br> 
     </div><div style="display: inline-block; float: right"><div style="border-radius: 30px;width: 300px;padding:15px;border: 5px solid rgb(201,247,200);margin:15px;overflow:auto;">
     <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
