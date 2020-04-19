@@ -15,17 +15,6 @@
 window.location = x;
 }
     function startOffer(){
-        var day = new Date;
-    if(localStorage.getItem("upgrade1") == "true"){
-        if(localStorage.getItem("lastvisit") != day.getDay()){
-       var benbucks = Number(localStorage.getItem("benbucks"));
-       benbucks += 100;
-       localStorage.setItem("benbucks",benbucks);
-       localStorage.setItem("lastvisit",day.getDay());
-    }else{
-    localStorage.setItem("lastvisit",day.getDay());
-    }
-       }
         if(localStorage.getItem("userToken")){
           document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
       }
