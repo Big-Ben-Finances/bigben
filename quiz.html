@@ -125,11 +125,11 @@ window.location = x;
       yaya += 25;
     }
     if(yaya >= 75){
+      var token = localStorage.getItem("userToken");
       const benbucksinformation = {
-        token: localStorage.getItem("userToken"),
+        token: token,
         amount: 100
       };
-      var token = localStorage.getItem("userToken");
       db.collection("benbucks")
       .where('token',"==",token)
       .get()
