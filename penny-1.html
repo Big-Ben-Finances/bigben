@@ -36,9 +36,17 @@ function signOut(){
   function goSomewhere(x){
 window.location = x;
 }
+    function difficulty(x){
+document.querySelector("#maintext").innerHTML = transcripts[x-1];
+    document.getElementById("1").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById("2").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById("3").style["background-color"] = "rgb(222,222,222)";
+    document.getElementById(x).style["background-color"] = "rgb(117,117,117)";
+}
     function startOffer(){
         if(localStorage.getItem("userToken")){
-          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+          difficulty(1);
+            document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
       }
     }
   </script>
