@@ -73,7 +73,8 @@ form.addEventListener('submit', function (event) {
   const user = {
     username: username,
     password: hashedPW,
-    benBucks: 0
+    benBucks: 0,
+      completedLessons: []
   }; //"object"
 
   db.collection('users')
