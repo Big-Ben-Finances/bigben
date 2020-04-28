@@ -3,53 +3,119 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Big Ben</title>
+    <title>repl.it</title>
     <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css?family=Dosis:500|Montserrat:900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
   </head>
-	<script>
-		function changeDescription(){
-document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;font-size:20px;' id='textr' placeholder='Edit Description'></textarea>"+"<br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+  <body>
+    <script>
+    function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
 }
-function startOffProfile(){
-if(localStorage.getItem("loggedIn") == "true"){
-document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
-document.getElementById("name").innerHTML = localStorage.getItem("firstname")+" "+ localStorage.getItem("lastname");
-if(localStorage.getItem("description")){
-document.getElementById("descriptionr").innerHTML = "<p class = 'text' style='font-size:20px;'>"+localStorage.getItem("description")+"</p>"+"<br><button class='loginandsignupconfirm' onclick='changeDescription()'>Edit Profile</button>";
-}else{
-document.getElementById("descriptionr").innerHTML = "<textarea class='text' style='margin: 0px; width: 994px; height: 137px;font-size:20px;' id='textr' placeholder='Edit Description'></textarea>"+"<br><button class='loginandsignupconfirm' onclick='descriptionSave()'>Save</button>";
+  function goSomewhere(x){
+window.location = x;
 }
+    function startOffer(){
+        if(localStorage.getItem("userToken")){
+          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+      }
+    }
+  </script>
+  <script>
+    //If you copy this code, at least give us credit
+    var userToken = localStorage.getItem("userToken");
+var url = new URL(location.href);
+var otherUser = url.searchParams.get("user");
+console.log(otherUser);
+function getUserData(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+console.log(otherUser);
+  const h1 = document.querySelector('#username');
+  const h2 = document.querySelector('#benbucks');
+  if(userToken){
+    console.log("The Doc is in");
+    if(otherUser){
+      console.log("other user named "+otherUser);
+      db.collection("users")
+      .where('username',"==",otherUser)
+      .get()
+      .then(function(snapshot){
+        if(snapshot.empty){
+          console.log("user doesn't exists");
+          h1.textContent = "user doesn't exists"
+          h2.textContent = ""
+        }else{
+          console.log("user exists");
+          h1.textContent = snapshot.docs[0].data().username;
+          h2.textContent = snapshot.docs[0].data().benBucks;
+        }
+      })
+    }else{
+      console.log("our user should show");
+      db.collection('users')
+      .doc(userToken)
+      .get()
+      .then(function(snapshot){
+        h1.textContent = snapshot.data().username
+        h2.textContent = snapshot.data().benBucks
+      })
+    }
+  }else{
+    console.log("The Doc is out");
+    //location.href = "index.html" <-- signup page
+  }
+
 }
+getUserData();
+function search(){
+  var hello = document.querySelector("#text").value;
+  console.log(hello);
+  history.pushState({
+    id: 'profile'
+}, 'profile', '?user='+hello);
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  getUserData();
 }
-function descriptionSave(){
-localStorage.setItem("description",document.getElementById("textr").value);
-window.location = "profile.html";
-}
+  </script>
+  <div class="header">
+      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <br> 
+    </div>
+    <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
+    <style>
+  .add-friend,
+  .remove-friend{
+    display:none;
+  }
+</style>
+<h1 class="text" id="username"></h1>
+<h2 class="text" id="benbucks"></h2>
+<button class="add-friend">Add Friends</button>
+<button class="remove-friend">Remove Friends</button>
+<ul class="text">
+<ul class="text">
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth()
+  const db = firebase.firestore();
 </script>
-  <body onload="startOffProfile()">
-    <script src="/bigben/scripts/script.js"></script>
-    <div class="topBar">
-      <a href="index.html"><img src="/bigben/images/big ben.png" width="150"></a>
-      <div id="changeToName">
-      <a href="signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
-      </div>
-      <br>
-      <button class="topbarbutton" onclick="goSomewhere('/bigben/menu/m.html')">Lessons</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/e.html')">Budget Calculator</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/n.html')">Tips</button>
-      <button class="topbarbutton" onclick="goSomewhere ('/bigben/menu/u.html')">Other Resources</button>
-    </div>
-	    
-	    <div class="image-cropper" style="padding-left:50px;">
-    <img src="/bigben/images/Benny.png" id="profileImage" class="rounded">
-</div>   
-	        <h1 class="text" id="name" style="font-size:75px;"></h1>
-	    <div class="text" id="descriptionr"></div>
-    <br><br>
-    <div class="topBar">
-      <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
-    </div>
   </body>
 </html>
