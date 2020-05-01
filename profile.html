@@ -19,6 +19,7 @@ window.location = x;
     function startOffer(){
         if(localStorage.getItem("userToken")){
           document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+          getUserData();
       }
     }
   </script>
