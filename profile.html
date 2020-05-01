@@ -1,19 +1,28 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-  </head>
-  <body>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-<script>
-  var firebaseConfig = {
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>repl.it</title>
+	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js">
+
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
+
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+
+	</script>
+	<script>
+		var firebaseConfig = {
     apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
     authDomain: "bigben-finances.firebaseapp.com",
     databaseURL: "https://bigben-finances.firebaseio.com",
@@ -26,9 +35,9 @@
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth()
   const db = firebase.firestore();
-</script>
-<script>
-    //If you copy this code, at least give us credit
+	</script>
+	<script>
+		//If you copy this code, at least give us credit
     var userToken = localStorage.getItem("userToken");
 var url = new URL(location.href);
 var otherUser = url.searchParams.get("user");
@@ -55,7 +64,7 @@ console.log(otherUser);
         }else{
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
-          h2.textContent = "BenBucks: $"snapshot.docs[0].data().benBucks;
+          h2.textContent = "BigBens: $"+snapshot.docs[0].data().benBucks;
         }
       })
     }else{
@@ -75,6 +84,52 @@ console.log(otherUser);
 
 }
 getUserData();
+function addfriends(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    const user = snapshot.data();
+    if(user.friends.includes(otherUser)){
+      document.getElementById('warner').textContent = "You're Already Friends"
+    }else{
+      if(user.username == otherUser){
+        document.getElementById('warner').textContent = "You Can't Friend Yourself"
+      }else{
+        db.collection('users')
+        .doc(userToken)
+        .update({
+          friends: firebase.firestore.FieldValue.arrayUnion(otherUser)
+        })
+        document.getElementById('warner').textContent = "Successfully Added Friend";
+      }
+    }
+  })
+}
+function removefriends(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    const user = snapshot.data();
+    if(!user.friends.includes(otherUser)){
+      document.getElementById('warner').textContent = "You're Not Friends Already"
+    }else{
+        db.collection('users')
+        .doc(userToken)
+        .update({
+          friends: firebase.firestore.FieldValue.arrayRemove(otherUser)
+        })
+        document.getElementById('warner').textContent = "Successfully Removed Friend";
+    }
+  })
+}
 function search(){
   var hello = document.querySelector("#text").value;
   console.log(hello);
@@ -85,9 +140,9 @@ function search(){
   var otherUser = url.searchParams.get("user");
   getUserData();
 }
-  </script>
-    <script>
-    function signOut(){
+	</script>
+	<script>
+		function signOut(){
     localStorage.removeItem("userToken");
     location = "/bigben/";
 }
@@ -100,23 +155,23 @@ window.location = x;
           getUserData();
       }
     }
-  </script>
-  <div class="header">
-      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
-      <br> 
+	</script>
+	<div class="header">
+		<div id="changeToName">
+			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
+		</div><a href="/bigben/" style="text-decoration:none;">
+			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
+		</a>
+		<br> 
     </div>
     <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
-    <style>
-  .add-friend,
-  .remove-friend{
-    display:none;
-  }
-</style>
-<h1 class="text" id="username"></h1>
-<h2 class="text" id="benbucks"></h2>
-<button class="add-friend">Add Friends</button>
-<button class="remove-friend">Remove Friends</button>
+<h1 class="text" id="username">ree</h1>
+<h2 class="text" id="benbucks">100</h2>
+<button class="loginandsignupconfirm" onclick="addfriends()">Add Friend</button>
+<button class="loginandsignupconfirm" onclick="removefriends()">Remove Friend</button>
+<p id="warner" class="text" style="color:red;"></p>
 <ul class="text">
 <ul class="text">
-  </body>
-</html>
+  
+
+</ul></ul></body></html>
