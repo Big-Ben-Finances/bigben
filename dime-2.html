@@ -14,18 +14,31 @@
     
   <script src="/bigben/scripts/script.js"></script><script>
     var transcripts = [`
-<p class='text' style='font-size:20px;'>WHAT IS BIG BEN?</p>
-<p class='text'>Big Ben is a website for kids aged 7 and up that helps students learn about money.</p>
-<p class='text' style='font-size:20px;'>WHY IS BIG BEN IMPORTANT?</p>
-<p class='text'>Big Ben teaches important money skills that will help students do better when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Schools don’t teach students about money. Big Ben fills in the gaps, so when a student grows up, they will have a good foundation in money skills and will do well.</p>
-<p class='text' style='font-size:20px;'>HOW DO YOU USE BIG BEN?</p>
-<p class='text'>There are 4 lesson sections named after the famous American coins. There are 3 lessons in each section that are designed to help you succeed in life. Take the 3 lessons and progress to the next section. You can take the lessons in any order, but it is recommended to learn in the default order.
+<p class='text'>What does the school, the park, the library, and the police have in common? They are all paid by tax. Tax is when the government takes money from adults to pay for cooler buildings and a better life quality for everyone. Tax pays for the money that the government uses, like making new things.</p>
+<p class='text' style='font-size:20px;'>WHAT IS THE GOVERNMENT?</p>
+<p class='text'>The government is a group run by a leader that tries to make your life better.</p>
+<p class='text' style='font-size:20px;'>WHY DOES THE GOVERNMENT NEED MONEY?</p>
+<p class='text'>The government needs money because the government takes care of most things. They make parks for you to play in and the school you learn in.</p>
+<p class='text'>Benny wants to go to the park today. He asks his mom to go to the closest park, but it is 1 hour away from his house. Benny mails a letter to the government asking them to make a park near his neighborhood. The government collects taxes from the adults to pay to build the park.
 </p>`,`
-<p class='text' style='font-size:20px;'>WHAT IS BIG BEN?</p>
-<p class='text'>ig Ben is an educational website that promotes financial literacy to kids aged 7 and up.</p>
-<p class='text' style='font-size:20px;'>WHY IS BIG BEN IMPORTANT?</p>
-<p class='text'>Big Ben teaches important financial skills that will help young adults flourish when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Big Ben supports a young adult’s financial studies, to fill in the gaps. Ever since the Baby Boomer generation, the average generational wealth has been on a decline. Big Ben will equip students with the necessary skills to succeed after Academia.</p>`,`
-<p class='text' style='font-size:20px;'>Make part 3</p>
+<p class='text'>What does the library, the park, and the police have in common? They are all paid by taxes. Tax is when the government takes a percentage of an adult's income to fund projects they run, like all the examples above and more. Tax pays for everything the government owns, but tax rates are different in every state. Tax also pays for everything the government plans to make, like a new library, or spending their budget on hiring new teachers.</p>
+<p class='text' style='font-size:20px;'>WHAT IS THE GOVERNMENT?</p>
+<p class='text'>The government is an agency that is run by the elected president. The government surrounds our lives. They help make laws to keep the country in order and help it prosper. The government also has sub-sections that help make our lives easier and safer, like the CDC, the FDA, the US Department of Defense, and a lot more.</p>
+<p class='text' style='font-size:20px;'>WHY DOES THE GOVERNMENT NEED MONEY?</p>
+<p class='text'>To answer this, think of the government as a company. They try to make our lives easier, but they still need money to keep improving, so they charge a monthly wage, called taxes. These taxes help run the government.</p>
+<p class='text'>Benny wants to go to the library with his friends today. He asks his mother if he and his friends can go to the library, but the closest one is 30 miles away. He sends a letter to his mayor asking if his city can build a new library. The mayor thinks that's a great idea, so he uses the money from the city's taxes to pay for the construction of the library.
+</p>`,`
+<p class='text'>Taxpayers pay taxes to the government so that they have proper funding to support the general American public, including anything from the development of education within our country to the support of foreign affairs.</p>
+<p class='text' style='font-size:20px;'>WHAT ARE TAXES?</p>
+<p class='text'>Taxes are a financial charge taken from each citizen and given to the government. They use the taxes to fund the things that they believe are most important. These include: technology, education, health programs/Medicare, social security, public servants (police, firefighters, librarians, etc.), and more. There are three types of taxes that are used to support these activities, which are federal and state income taxes, payroll taxes, property taxes, and more. The rates for each of the taxes proportional tax, progressive tax, and regressive tax.</p>
+<p class='text' style='font-size:20px;'>HOW ARE THESE TAXES DISTRIBUTED?</p>
+<p class='text'>Proportional tax charges the same percentage of taxation on everyone, regardless of age, income, or other metrics. Progressive tax charges less taxation on the low-income earners and more taxation on the high-income earners. It is generally based on how much the individual taxpayer is able to pay. Regressive tax is when low-income earners are taxed with a higher percentage than high-income earners. It is the opposite of progressive taxes.</p>
+<p class='text'>Tax percentages are taken in tax brackets, which change every year. Instead of taking one uniform percentage across all of your income, taxes are paid similarly to a series of different-sized buckets. You fill up a small bucket and if you have enough water to fill it up, then you move onto a bigger bucket, and so on. Each bucket is part of your income, which you have to pay a percentage of as tax to the government.</p>
+<p class='text'>For instance, if you made $50,000, the first $39,475 would be taxed at 22%, the $9,700 would be taxed at 12%. This is based on the 2020 income tax brackets. </p>
+<p class='text'>Tax brackets:</p>
+<img src="https://cdn.aarp.net/content/dam/aarp/money/taxes/2020/01/1140x590-2020-tax-brackets.imgcache.rev7c32f744e03b52dd16624b243a48a3a7.jpg">
+<p class='text'>Example</p>
+<img src="https://www.nerdwallet.com/assets/blog/wp-content/uploads/2019/06/TAX_2019_federal-income-tax-brackets_example-2_50000-600x600.png">
 `];
 function startOffer(){
     if(localStorage.getItem("userToken") == "true"){
@@ -64,13 +77,5 @@ document.querySelector("#maintext").innerHTML = transcripts[x-1];
     
 </div>
 
-<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Interest</p>
-<p class="text" id="maintext">
-<p class="text" style="font-size:20px;">WHAT IS BIG BEN?</p>
-<p class="text">Big Ben is a website for kids aged 7 and up that helps students learn about money.</p>
-<p class="text" style="font-size:20px;">WHY IS BIG BEN IMPORTANT?</p>
-<p class="text">Big Ben teaches important money skills that will help students do better when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Schools don’t teach students about money. Big Ben fills in the gaps, so when a student grows up, they will have a good foundation in money skills and will do well.</p>
-<p class="text" style="font-size:20px;">HOW DO YOU USE BIG BEN?</p>
-<p class="text">There are 4 lesson sections named after the famous American coins. There are 3 lessons in each section that are designed to help you succeed in life. Take the 3 lessons and progress to the next section. You can take the lessons in any order, but it is recommended to learn in the default order.
-</p></p>
-</body></html>
+<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Taxes</p>
+<p class="text" id="maintext"></p></body></html>
