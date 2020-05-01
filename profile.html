@@ -55,7 +55,7 @@ console.log(otherUser);
         }else{
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
-          h2.textContent = snapshot.docs[0].data().benBucks;
+          h2.textContent = "BenBucks: $"snapshot.docs[0].data().benBucks;
         }
       })
     }else{
