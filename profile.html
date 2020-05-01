@@ -8,22 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <script>
-    function signOut(){
-    localStorage.removeItem("userToken");
-    location = "/bigben/";
-}
-  function goSomewhere(x){
-window.location = x;
-}
-    function startOffer(){
-        if(localStorage.getItem("userToken")){
-          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-          getUserData();
-      }
-    }
-  </script>
-  <script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth()
+  const db = firebase.firestore();
+</script>
+<script>
     //If you copy this code, at least give us credit
     var userToken = localStorage.getItem("userToken");
 var url = new URL(location.href);
@@ -82,6 +86,21 @@ function search(){
   getUserData();
 }
   </script>
+    <script>
+    function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
+}
+  function goSomewhere(x){
+window.location = x;
+}
+    function startOffer(){
+        if(localStorage.getItem("userToken")){
+          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+          getUserData();
+      }
+    }
+  </script>
   <div class="header">
       <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
       <br> 
@@ -99,24 +118,5 @@ function search(){
 <button class="remove-friend">Remove Friends</button>
 <ul class="text">
 <ul class="text">
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-<script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
-    authDomain: "bigben-finances.firebaseapp.com",
-    databaseURL: "https://bigben-finances.firebaseio.com",
-    projectId: "bigben-finances",
-    storageBucket: "bigben-finances.appspot.com",
-    messagingSenderId: "1046658245162",
-    appId: "1:1046658245162:web:083464e0dded0950fa1953",
-    measurementId: "G-24YR5YR7K3"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth()
-  const db = firebase.firestore();
-</script>
   </body>
 </html>
