@@ -6,45 +6,57 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head><body data-gr-c-s-loaded="true" onload="startOffer()">
+    
+    
+    
+    
+    
+    
   <script src="/bigben/scripts/script.js"></script><script>
     var transcripts = [`
-<p class='text' style='font-size:25px;'>WHAT IS BIG BEN?</p>
-<p class='text'>Big Ben is a website for kids aged 7 and up that helps students learn about money.
-<p class='text' style='font-size:25px;'>WHY IS BIG BEN IMPORTANT?</p>
-<p class='text'>Big Ben teaches important money skills that will help students do better when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Schools don’t teach students about money. Big Ben fills in the gaps, so when a student grows up, they will have a good foundation in money skills and will do well.</p>
-<p class='text' style='font-size:25px;'>HOW DO YOU USE BIG BEN?</p>
-<p class='text'>There are 4 lesson sections named after the famous American coins. There are 3 lessons in each section that are designed to help you succeed in life. Take the 3 lessons and progress to the next section. You can take the lessons in any order, but it is recommended to learn in the default order.
-</p>`,`
-<p class='text' style='font-size:25px;'>WHAT IS BIG BEN? </p>
-<p class='text'>Big Ben is an educational website that promotes financial literacy to kids aged 7 and up.
-</p>
-<p class='text' style='font-size:25px;'>WHY IS BIG BEN IMPORTANT?</p>
-<p class='text'>Big Ben teaches important financial skills that will help young adults flourish when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Big Ben supports a young adult’s financial studies, to fill in the gaps. Ever since the Baby Boomer generation, the average generational wealth has been on a decline. Big Ben will equip students with the necessary skills to succeed after Academia.</p>
-`,`
-<p class='text' style='font-size:25px;'>Dank Memes</p>`];
-function signOut(){
-    localStorage.removeItem("userToken");
-    location = "/bigben/";
-}
-  function goSomewhere(x){
+<p class='text'>The first way that most people earn money is by working.</p>
+<p class='text' style='font-size:20px;'>What Is Work?</p>
+<p class='text'>Work is when you do something to get a payment in return. For example, chores are an example of work. Every time you do the dishes, you get money for doing the work.</p>
+<p class='text'>Benny wants to earn some money, so he asks his parents if he can work. They tell him that he has to clean the pool for $5 every week. Whenever Benny cleans the pool, they give him $5.</p>
+<p class='text'>Some examples of work are:</p>
+<p class='text'>- Taking out the trash</p>
+<p class='text'>- Doing the laundry</p>
+<p class='text'>- Washing the dishes</p>
+<p class='text'>- Sweeping/vacuuming</p>
+<p class='text'>Anything where you do something for another thing in return is called working.</p>`,`
+
+<p class='text'>A majority of people earn money by getting a job and working.</p>
+<p class='text' style='font-size:20px;'>What Is Work?</p>
+<p class='text'>Work is when you trade your time and physical/mental energy for money.</p>
+<p class='text'>Different kinds of work earn different salaries. There are jobs where time is traded for significantly more pay, such as a lawyer, or jobs where the pay is average but the time spent and intellectual talent needed is only average, like a plumber. Finding the right job is a mixture of one’s intellect, passion, drive to move forwards, physical/mental strength, educational background, and how it fits in your long-term goals.</p>`,`
+
+<p class='text'>Have you ever wondered how you could acquire large sums of money? The simplest way to do that is to get a job and work.</p>
+<p class='text' style='font-size:20px;'>What Is Work?</p>
+<p class='text'>Work is when you exchange intellectual and physical talent for money. </p>
+<p class='text'>There are different aspects of a job that results in different salaries. These include how long you work, physical/mental talent needed, your personal drive to more forwards, and your educational background. Usually, intellect is more valued than physical ability, thus resulting in higher pay. This explains the large salary gap between a lawyer, who is largely focused in their intellectual field, and a plumber, who gets money for their physical work. </p>
+<p class='text'>Generally, the most well known high-paying jobs are being a doctor, lawyer, or engineer. Something they have in common is being intellectually focused in their particular subject and spending a lot of time on their work. Doctors work around 59.6 hours a week, lawyers work around 40 hours a week, and engineers work around 40 hours a week. However, this may not be the most preferable route for a majority of people, since it is important to balance out one’s daily routine with more than just work. </p>
+<p class='text'>An increasingly popular career is being a software developer/coder with more growing companies. Although they are being paid significantly less than doctors or lawyers, they are the growing future of technology and are in short supply. With this skill of being able to code comes the ability to negotiate salary prices, since there are not nearly enough coders to match the increasing demand that companies want to improve their products.</p>`];
+function startOffer(){
+    if(localStorage.getItem("userToken") == "true"){
+    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    }
+    document.querySelector("#maintext").innerHTML = transcripts[0];
+}  
+function goSomewhere(x){
 window.location = x;
 }
-    function difficulty(x){
+function difficulty(x){
 document.querySelector("#maintext").innerHTML = transcripts[x-1];
     document.getElementById("1").style["background-color"] = "rgb(222,222,222)";
     document.getElementById("2").style["background-color"] = "rgb(222,222,222)";
     document.getElementById("3").style["background-color"] = "rgb(222,222,222)";
     document.getElementById(x).style["background-color"] = "rgb(117,117,117)";
 }
-    function startOffer(){
-        if(localStorage.getItem("userToken")){
-          difficulty(1);
-            document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-      }
-    }
-  </script>
+</script>
     <div class="header">
-      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <div id="changeToName">
+      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;">Login</a>
+      </div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
       <br> 
     </div><div style="display: inline-block; float: right"><div style="border-radius: 30px;width: 300px;padding:15px;border: 5px solid rgb(201,247,200);margin:15px;overflow:auto;">
     <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
@@ -53,17 +65,23 @@ document.querySelector("#maintext").innerHTML = transcripts[x-1];
 <p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
 <p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
 <p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p><p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reading Difficulty</font></font></p>
-<div id="1" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(117, 117, 117);" onclick="difficulty(1)"></div>
+<div id="1" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(222, 222, 222);" onclick="difficulty(1)"></div>
 <div id="2" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(222, 222, 222);" onclick="difficulty(2)"></div>
-<div id="3" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(222, 222, 222);" onclick="difficulty(3)"></div>
+<div id="3" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(117, 117, 117);" onclick="difficulty(3)"></div>
 </div>
 <br>
     
 </div>
 
-<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Introduction to Big Ben</p>
+<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Work</p>
 <p class="text" id="maintext">
 
+<p class="text">Have you ever wondered how you could acquire large sums of money? The simplest way to do that is to get a job and work.</p>
+<p class="text" style="font-size:20px;">What Is Work?</p>
+<p class="text">Work is when you exchange intellectual and physical talent for money. </p>
+<p class="text">There are different aspects of a job that results in different salaries. These include how long you work, physical/mental talent needed, your personal drive to more forwards, and your educational background. Usually, intellect is more valued than physical ability, thus resulting in higher pay. This explains the large salary gap between a lawyer, who is largely focused in their intellectual field, and a plumber, who gets money for their physical work. </p>
+<p class="text">Generally, the most well known high-paying jobs are being a doctor, lawyer, or engineer. Something they have in common is being intellectually focused in their particular subject and spending a lot of time on their work. Doctors work around 59.6 hours a week, lawyers work around 40 hours a week, and engineers work around 40 hours a week. However, this may not be the most preferable route for a majority of people, since it is important to balance out one’s daily routine with more than just work. </p>
+<p class="text">An increasingly popular career is being a software developer/coder with more growing companies. Although they are being paid significantly less than doctors or lawyers, they are the growing future of technology and are in short supply. With this skill of being able to code comes the ability to negotiate salary prices, since there are not nearly enough coders to match the increasing demand that companies want to improve their products.</p></p>
 
 
 
