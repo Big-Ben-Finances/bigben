@@ -196,7 +196,8 @@ strong{
 .footer{
   background-color: rgb(201,247,200);
   padding: 20px;
-  position:sticky;
+  position:fixed;
+  min-width:100%;
   bottom:0px;
   overflow: auto;
 }
