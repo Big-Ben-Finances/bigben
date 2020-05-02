@@ -6,13 +6,27 @@
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head><body data-gr-c-s-loaded="true" onload="startOffer()">
-    
-    
-    
-    
-    
-    
-  <script src="/bigben/scripts/script.js"></script><script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
+	</script><script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
+	</script><script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+	<script>
+		var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth()
+  const db = firebase.firestore();
+	</script>
+  <script src="/bigben/scripts/script.js"></script>
+  <script>
     var transcripts = [`
 <p class='text' style='font-size:20px;'>WHAT IS BIG BEN?</p>
 <p class='text'>Big Ben is a website for kids aged 7 and up that helps students learn about money.</p>
@@ -28,8 +42,15 @@
 <p class='text' style='font-size:20px;'>Make part 3</p>
 `];
 function startOffer(){
-    if(localStorage.getItem("userToken") == "true"){
+    if(localStorage.getItem("userToken")){
     document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    var userToken = localStorage.getItem('userToken');
+    db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      document.getElementById('benbucksr').textContent = "$"+snapshot.data().benBucks;
+    })
     }
     document.querySelector("#maintext").innerHTML = transcripts[0];
 }  
@@ -51,8 +72,7 @@ document.querySelector("#maintext").innerHTML = transcripts[x-1];
       <br> 
     </div><div style="display: inline-block; float: right"><div style="border-radius: 30px;width: 300px;padding:15px;border: 5px solid rgb(201,247,200);margin:15px;overflow:auto;">
     <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
-    <img src="/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:50px;" id="benbucksr"></p><br>
-
+    <img src="/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:70px;" id="benbucksr"></p><br>
 <p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
 <p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
 <p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p><p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reading Difficulty</font></font></p>
@@ -64,5 +84,6 @@ document.querySelector("#maintext").innerHTML = transcripts[x-1];
     
 </div>
 
-<img src="/bigben/images/georgejungle.png" style="width:100px;padding:15px;" align="middle"><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;transform:translateY(30%);">Intro to BigBen</p>
-<p class="text" id="maintext"></p></body></html>
+<div style="width:75px;height:75px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: inline-block;vertical-align:middle;margin:15px;"></div><p class="text" style="font-size:30px;display:inline-block;margin:0px;padding:0px;">Intro to BigBen</p>
+<p class="text" id="maintext"></p>
+</body></html>
