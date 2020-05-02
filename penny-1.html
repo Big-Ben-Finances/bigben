@@ -41,6 +41,10 @@
 <p class='text'>Big Ben teaches important financial skills that will help young adults flourish when they’re older. Schools only teach students about Math, Science, Language, and History, but they forget one of the most important skills a person would need when they grow up. Big Ben supports a young adult’s financial studies, to fill in the gaps. Ever since the Baby Boomer generation, the average generational wealth has been on a decline. Big Ben will equip students with the necessary skills to succeed after Academia.</p>`,`
 <p class='text' style='font-size:20px;'>Make part 3</p>
 `];
+	  function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
+}
 function startOffer(){
     if(localStorage.getItem("userToken")){
     document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
