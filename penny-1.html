@@ -43,7 +43,7 @@
 `];
 function startOffer(){
     if(localStorage.getItem("userToken")){
-    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
     var userToken = localStorage.getItem('userToken');
     db.collection('users')
     .doc(userToken)
