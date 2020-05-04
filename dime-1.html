@@ -49,9 +49,20 @@
 <p class='text'>Credit card companies take advantage of interest so that their companies are able to profit significantly more than expected. 60% of the monthly credit card payment is profit for the credit card company. That means that the amount you spend is only around 40% of what you need to pay back.</p>
 <p class='text'>The rule of 72 is a simple way to calculate how many years it will take to double your money in a bank account. The equation is: 72 / interest rate = years to double money. For example, an interest rate of 2% would take 36 years to double your money, whereas a rate of 4% would take 18 years to double your money. Interest in a bank account takes an extremely long time to truly be noticeable and worthwhile, thus not being as effective as other ways to make money. </p>
 `];
+function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
+}
 function startOffer(){
-    if(localStorage.getItem("userToken") == "true"){
-    document.getElementById("changeToName").innerHTML = "<a href='#' style='text-decoration:none;'><p class='text' style='display:inline-block;float:right;'>"+localStorage.getItem('username')+"</p></a>";
+    if(localStorage.getItem("userToken")){
+    document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+    var userToken = localStorage.getItem('userToken');
+    db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      document.getElementById('benbucksr').textContent = "$"+snapshot.data().benBucks;
+    })
     }
     document.querySelector("#maintext").innerHTML = transcripts[0];
 }  
