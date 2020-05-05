@@ -1,25 +1,19 @@
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>repl.it</title>
+	<title>Big Ben</title>
 	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head>
-
-<body>
+<body onload="startOffer()">
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js">
-
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
-
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
-
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
-
 	</script>
 	<script>
 		var firebaseConfig = {
@@ -61,10 +55,12 @@ console.log(otherUser);
           console.log("user doesn't exists");
           h1.textContent = "user doesn't exists"
           h2.textContent = ""
+          document.getElementById('profilepic').src = "https://homewoodfamilyaz.org/wp-content/uploads/2017/04/square_profile_pic_male.png";
         }else{
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
-          h2.textContent = "BigBens: $"+snapshot.docs[0].data().benBucks;
+          h2.textContent = "BenBucks: $"+snapshot.docs[0].data().benBucks;
+          document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
         }
       })
     }else{
@@ -74,7 +70,8 @@ console.log(otherUser);
       .get()
       .then(function(snapshot){
         h1.textContent = snapshot.data().username
-        h2.textContent = snapshot.data().benBucks
+        h2.textContent = "BenBucks: $"+snapshot.data().benBucks
+        document.getElementById('profilepic').src = snapshot.data().profilepic
       })
     }
   }else{
@@ -93,20 +90,29 @@ function addfriends(){
   .get()
   .then(function (snapshot){
     const user = snapshot.data();
+    db.collection('users')
+    .where("username","==",otherUser)
+    .get()
+    .then(function (snapshot){
+      if(snapshot.empty){
+        document.getElementById('warner').textContent = "User Doesn't Exists"
+      }else{
     if(user.friends.includes(otherUser)){
-      document.getElementById('warner').textContent = "You're Already Friends"
+      document.getElementById('warner').textContent = "You Already Followed Them"
     }else{
       if(user.username == otherUser){
-        document.getElementById('warner').textContent = "You Can't Friend Yourself"
+        document.getElementById('warner').textContent = "You Can't Follow Yourself"
       }else{
         db.collection('users')
         .doc(userToken)
         .update({
           friends: firebase.firestore.FieldValue.arrayUnion(otherUser)
         })
-        document.getElementById('warner').textContent = "Successfully Added Friend";
+        document.getElementById('warner').textContent = "Successfully Followed";
       }
     }
+    }
+    })
   })
 }
 function removefriends(){
@@ -119,14 +125,14 @@ function removefriends(){
   .then(function (snapshot){
     const user = snapshot.data();
     if(!user.friends.includes(otherUser)){
-      document.getElementById('warner').textContent = "You're Not Friends Already"
+      document.getElementById('warner').textContent = "You're Not Following Them Already"
     }else{
         db.collection('users')
         .doc(userToken)
         .update({
           friends: firebase.firestore.FieldValue.arrayRemove(otherUser)
         })
-        document.getElementById('warner').textContent = "Successfully Removed Friend";
+        document.getElementById('warner').textContent = "Successfully Unfollowed";
     }
   })
 }
@@ -152,26 +158,26 @@ window.location = x;
     function startOffer(){
         if(localStorage.getItem("userToken")){
           document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-          getUserData();
-      }
+    }
+    getUserData()
     }
 	</script>
 	<div class="header">
-		<div id="changeToName">
-			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
-		</div><a href="/bigben/" style="text-decoration:none;">
-			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
-		</a>
-		<br> 
+      <div id="changeToName">
+      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;font-family: 'Comfortaa';">Login</a>
+      </div><a href="index.html" style="text-decoration:none;"><p class="text" style="margin:0px;font-size:30px;padding:10px;">BigBen</p></a>
     </div>
     <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
-<h1 class="text" id="username">ree</h1>
-<h2 class="text" id="benbucks">100</h2>
-<button class="loginandsignupconfirm" onclick="addfriends()">Add Friend</button>
-<button class="loginandsignupconfirm" onclick="removefriends()">Remove Friend</button>
+<br>
+<img id="profilepic" width="100" style="margin-left:30px;border-radius:50%;">
+<h1 class="text" id="username"></h1>
+<h2 class="text" id="benbucks"></h2>
+<button class="loginandsignupconfirm" onclick="addfriends()" style="margin-left:30px;">Follow</button>
+<button class="loginandsignupconfirm" onclick="removefriends()">Unfollow</button>
 <p id="warner" class="text" style="color:red;"></p>
 <ul class="text">
 <ul class="text">
-  
-
-</ul></ul></body></html>
+</ul>
+</ul>
+</body>
+</html>
