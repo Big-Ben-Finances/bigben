@@ -72,6 +72,9 @@ form.addEventListener('submit', function (event) {
   const password = document.querySelector('#password').value;
   
   const hashedPW = CryptoJS.SHA256(password).toString();
+  if(username == "¡™£¢∞§¶•ªº"){
+    console.log("Stop Trying to get in Keizou!");
+  }else{
   db.collection("users")
   .where("username","==",username)
   .where("password","==",hashedPW)
@@ -79,15 +82,14 @@ form.addEventListener('submit', function (event) {
   .then(function(snapshot){
     if(snapshot.empty){
      document.querySelector("#warner").innerHTML = "Couldn't Find User. Try Again"; 
-    }
-    else{
+    }else{
       const user = snapshot.docs[0];
       console.log(user.id,user.data());
       localStorage.setItem("userToken",user.id);
       location = "lesson.html";
     }
   });
-
+  }
 });
 </script>
 
