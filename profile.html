@@ -57,6 +57,7 @@ console.log(otherUser);
       var f = snapshot.data().friends
       var flength = f.length
       var following = []
+      document.getElementById("followinglist").innerHTML = "";
       for(var number = 0;flength > number;number++){
         following.push(f[number]);
         var ree = document.getElementById("followinglist").innerHTML;
@@ -130,6 +131,23 @@ function addfriends(){
           friends: firebase.firestore.FieldValue.arrayUnion(otherUser)
         })
         document.getElementById('warner').textContent = "Successfully Followed";
+        db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      document.getElementById("followinglist").innerHTML = "";
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+      var followingr = [];
+})
       }
     }
     }
@@ -154,6 +172,23 @@ function removefriends(){
           friends: firebase.firestore.FieldValue.arrayRemove(otherUser)
         })
         document.getElementById('warner').textContent = "Successfully Unfollowed";
+        db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      document.getElementById("followinglist").innerHTML = "";
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+      var followingr = [];
+})
     }
   })
 }
