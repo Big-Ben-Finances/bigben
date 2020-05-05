@@ -1,6 +1,4 @@
-<html>
-
-<head>
+<html><head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>BigBen Finances</title>
@@ -83,7 +81,7 @@ console.log(otherUser);
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
           h2.textContent = "BenBucks: $"+snapshot.docs[0].data().benBucks;
-          document.getElementById('profilepic').src = snapshot.data().profilepic
+          document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
         }
       })
     }else{
@@ -219,9 +217,7 @@ window.location = x;
     }
 	</script>
 	<div class="header">
-		<div id="changeToName">
-			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
-		</div>
+		<div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div>
 		<a href="/bigben/" style="text-decoration:none;">
 			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
 		</a>
@@ -237,5 +233,6 @@ window.location = x;
 <p id="warner" class="text" style="color:red;"></p>
 <h2 class="text">Following</h2>
 <h3 class="text" id="followinglist"></h3>
-</body>
-</html>
+
+
+</body></html>
