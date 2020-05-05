@@ -1,19 +1,25 @@
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Big Ben</title>
+	<title>BigBen Finances</title>
 	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head>
+
 <body onload="startOffer()">
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js">
+
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
+
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
+
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+
 	</script>
 	<script>
 		var firebaseConfig = {
@@ -44,6 +50,22 @@ console.log(otherUser);
   const h1 = document.querySelector('#username');
   const h2 = document.querySelector('#benbucks');
   if(userToken){
+    db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+      var followingr = [];
+})
     console.log("The Doc is in");
     if(otherUser){
       console.log("other user named "+otherUser);
@@ -60,7 +82,7 @@ console.log(otherUser);
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
           h2.textContent = "BenBucks: $"+snapshot.docs[0].data().benBucks;
-          document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
+          document.getElementById('profilepic').src = snapshot.data().profilepic
         }
       })
     }else{
@@ -80,7 +102,6 @@ console.log(otherUser);
   }
 
 }
-getUserData();
 function addfriends(){
   var userToken = localStorage.getItem("userToken");
   var url = new URL(location.href);
@@ -163,21 +184,23 @@ window.location = x;
     }
 	</script>
 	<div class="header">
-      <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;font-family: 'Comfortaa';">Login</a>
-      </div><a href="index.html" style="text-decoration:none;"><p class="text" style="margin:0px;font-size:30px;padding:10px;">BigBen</p></a>
+		<div id="changeToName">
+			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
+		</div>
+		<a href="/bigben/" style="text-decoration:none;">
+			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
+		</a>
+		<br> 
     </div>
     <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
 <br>
-<img id="profilepic" width="100" style="margin-left:30px;border-radius:50%;">
+<img id="profilepic" width="100" style="padding-left:30px;">
 <h1 class="text" id="username"></h1>
 <h2 class="text" id="benbucks"></h2>
-<button class="loginandsignupconfirm" onclick="addfriends()" style="margin-left:30px;">Follow</button>
+<button class="loginandsignupconfirm" onclick="addfriends()">Follow</button>
 <button class="loginandsignupconfirm" onclick="removefriends()">Unfollow</button>
 <p id="warner" class="text" style="color:red;"></p>
-<ul class="text">
-<ul class="text">
-</ul>
-</ul>
+<h2 class="text">Following</h2>
+<h3 class="text" id="followinglist"></h3>
 </body>
 </html>
