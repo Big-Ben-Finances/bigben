@@ -75,7 +75,9 @@ form.addEventListener('submit', function (event) {
     password: hashedPW,
     benBucks: 0,
       completedLessons: [],
-    profilepic: "https://api.adorable.io/avatars/100/"+username
+    profilepic: "https://api.adorable.io/avatars/100/"+username,
+    friends: [],
+    bio: "This is your description"
   }; //"object"
 
   db.collection('users')
