@@ -79,17 +79,17 @@ console.log(otherUser);
           h2.textContent = ""
           document.getElementById('profilepic').src = "https://homewoodfamilyaz.org/wp-content/uploads/2017/04/square_profile_pic_male.png";
           document.getElementById('buttonedit').style["display"] = "none";
-          document.getElementById('remove1').style["display"] = "none";
-          document.getElementById('remove2').style["display"] = "none";
+          document.getElementById('remove1').hidden = true;
+          document.getElementById('remove2').hidden = true;
         }else{
           console.log("user exists");
+          document.getElementById('remove1').hidden = false
+          document.getElementById('remove2').hidden = false
           h1.textContent = snapshot.docs[0].data().username;
           h2.textContent = snapshot.docs[0].data().benBucks;
           document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
           document.getElementById('bio').textContent = snapshot.docs[0].data().bio
-          document.getElementById('buttonedit').style["display"] = "none";
-          document.getElementById('remove1').style["display"] = "true";
-          document.getElementById('remove2').style["display"] = "true";
+          document.getElementById('buttonedit').style["display"] = "none"
         }
       })
     }else{
@@ -102,9 +102,9 @@ console.log(otherUser);
         h2.textContent = snapshot.data().benBucks
         document.getElementById('profilepic').src = snapshot.data().profilepic
         document.getElementById('bio').textContent = snapshot.data().bio
-        document.getElementById('buttonedit').style["display"] = "block";
-        document.getElementById('remove1').style["display"] = "none";
-        document.getElementById('remove2').style["display"] = "none";
+        document.getElementById('buttonedit').style["display"] = "true";
+        document.getElementById('remove1').hidden = true;
+        document.getElementById('remove2').hidden = true;
       })
     }
   }else{
@@ -215,30 +215,35 @@ function edit(){
   .doc(userToken)
   .get()
   .then(function (snapshot){
-    document.getElementById('edit').innerHTML = `<br>
-    <input type="text" class="text" style="font-size:2em;margin-left:30px;padding-left:0px;padding-right:0px;" placeholder="`+snapshot.data().username+`" id="editusername">
+    document.getElementById('edit').innerHTML = `<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="save()" id="buttonedit">Save</button>
+<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle" src="`+snapshot.data().profilepic+`">
+    <input type="text" class="text" style="display:inline-block;font-size:2em;margin-left:30px;padding-left:0px;padding-right:0px;" placeholder="`+snapshot.data().username+`" id="editusername">
     <br>
     <br>
-    <textarea maxlength="200" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;height:209px;" id="editbio">`+snapshot.data().bio+`</textarea>
-    <br>
-    <br>
-    <button class="loginandsignupconfirm" style="margin-left:25px;" onclick="save()" id="buttonsave">Save</button>`;
+    <textarea maxlength="200" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;height:209px;" id="editbio">`+snapshot.data().bio+`</textarea>`;
   })
 }
 function save(){
   var usernamer = document.getElementById('editusername').value;
   var bior = document.getElementById('editbio').value;
   db.collection('users')
-  .doc(userToken)
-  .update({
-    username: usernamer,
-    bio: bior
+  .where("username","==",usernamer)
+  .get()
+  .then(function (snapshot){
+    if(snapshot.empty){
+        db.collection('users')
+        .doc(userToken)
+        .update({
+          username: usernamer,
+          bio: bior
   })
-
-  document.getElementById('edit').innerHTML = `<h1 class="text" id="username" style="display:inline-block"></h1>
+    }
+  })
+  document.getElementById('edit').innerHTML = `<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="edit()" id="buttonedit">Edit</button>
+<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle">
+<h1 class="text" id="username" style="display:inline-block;"></h1>
 <p class="text" id="bio" style="width:500px;"></p>
-<br>
-<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>`;
+<br>`;
   getUserData();
 }
 	</script>
@@ -268,12 +273,12 @@ window.location = x;
     </div>
     <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
 <br>
-<img id="profilepic" width="100" style="padding-left:30px;display:inline-block" align="top">
 <div id="edit">
-<h1 class="text" id="username" style="display:inline-block"></h1>
+<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="edit()" id="buttonedit">Edit</button>
+<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle">
+<h1 class="text" id="username" style="display:inline-block;"></h1>
 <p class="text" id="bio" style="width:500px;"></p>
 <br>
-<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>
 </div>
 <div style="width:80%;background-color:lightgrey;height:5px;margin:25px;"></div>
 <div style="float:right;display:inline-block;border: 5px solid #C9F7C8;border-radius:10px;margin:25px;">
