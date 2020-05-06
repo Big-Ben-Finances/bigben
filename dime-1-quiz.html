@@ -161,9 +161,7 @@ testForm.addEventListener("submit", function (event) {
               benBucks: user.benBucks + reward,
               [currentLesson]: '100'
             })
-          document.getElementById("warner").innerHTML = "Good Job! You passed the quiz!";
-          console.log(user.benBucks, reward);
-          document.getElementById("benbucksr").innerHTML = "$"+user.benBucks;
+          location = "/bigben/dime-1-quiz.html"
         }
         })
     })
