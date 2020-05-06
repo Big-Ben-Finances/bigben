@@ -78,7 +78,7 @@ console.log(otherUser);
           h1.textContent = "user doesn't exists"
           h2.textContent = ""
           document.getElementById('profilepic').src = "https://homewoodfamilyaz.org/wp-content/uploads/2017/04/square_profile_pic_male.png";
-          document.getElementById('buttonedit').style["display"] = "none";
+          document.getElementById('buttonedit').hidden = true;
           document.getElementById('remove1').hidden = true;
           document.getElementById('remove2').hidden = true;
         }else{
@@ -89,7 +89,7 @@ console.log(otherUser);
           h2.textContent = snapshot.docs[0].data().benBucks;
           document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
           document.getElementById('bio').textContent = snapshot.docs[0].data().bio
-          document.getElementById('buttonedit').style["display"] = "none"
+          document.getElementById('buttonedit').hidden = true
         }
       })
     }else{
@@ -102,7 +102,7 @@ console.log(otherUser);
         h2.textContent = snapshot.data().benBucks
         document.getElementById('profilepic').src = snapshot.data().profilepic
         document.getElementById('bio').textContent = snapshot.data().bio
-        document.getElementById('buttonedit').style["display"] = "true";
+        document.getElementById('buttonedit').hidden = false;
         document.getElementById('remove1').hidden = true;
         document.getElementById('remove2').hidden = true;
       })
