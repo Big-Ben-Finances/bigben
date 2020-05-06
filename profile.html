@@ -1,9 +1,10 @@
-<html><head>
+<html>
+
+<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>BigBen Finances</title>
 	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
-	<link type="shortcut icon" href="/bigben/images/big ben.png">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head>
 
@@ -64,7 +65,6 @@ console.log(otherUser);
       }
       console.log(following)
       console.log(following.length);
-      var followingr = [];
 })
     console.log("The Doc is in");
     if(otherUser){
@@ -78,11 +78,18 @@ console.log(otherUser);
           h1.textContent = "user doesn't exists"
           h2.textContent = ""
           document.getElementById('profilepic').src = "https://homewoodfamilyaz.org/wp-content/uploads/2017/04/square_profile_pic_male.png";
+          document.getElementById('buttonedit').style["display"] = "none";
+          document.getElementById('remove1').style["display"] = "none";
+          document.getElementById('remove2').style["display"] = "none";
         }else{
           console.log("user exists");
           h1.textContent = snapshot.docs[0].data().username;
-          h2.textContent = "BenBucks: $"+snapshot.docs[0].data().benBucks;
+          h2.textContent = snapshot.docs[0].data().benBucks;
           document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
+          document.getElementById('bio').textContent = snapshot.docs[0].data().bio
+          document.getElementById('buttonedit').style["display"] = "none";
+          document.getElementById('remove1').style["display"] = "true";
+          document.getElementById('remove2').style["display"] = "true";
         }
       })
     }else{
@@ -92,8 +99,12 @@ console.log(otherUser);
       .get()
       .then(function(snapshot){
         h1.textContent = snapshot.data().username
-        h2.textContent = "BenBucks: $"+snapshot.data().benBucks
+        h2.textContent = snapshot.data().benBucks
         document.getElementById('profilepic').src = snapshot.data().profilepic
+        document.getElementById('bio').textContent = snapshot.data().bio
+        document.getElementById('buttonedit').style["display"] = "block";
+        document.getElementById('remove1').style["display"] = "none";
+        document.getElementById('remove2').style["display"] = "none";
       })
     }
   }else{
@@ -145,7 +156,6 @@ function addfriends(){
       }
       console.log(following)
       console.log(following.length);
-      var followingr = [];
 })
       }
     }
@@ -186,7 +196,6 @@ function removefriends(){
       }
       console.log(following)
       console.log(following.length);
-      var followingr = [];
 })
     }
   })
@@ -199,6 +208,37 @@ function search(){
 }, 'profile', '?user='+hello);
   var url = new URL(location.href);
   var otherUser = url.searchParams.get("user");
+  getUserData();
+}
+function edit(){
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    document.getElementById('edit').innerHTML = `<br>
+    <input type="text" class="text" style="font-size:2em;margin-left:30px;padding-left:0px;padding-right:0px;" placeholder="`+snapshot.data().username+`" id="editusername">
+    <br>
+    <br>
+    <textarea maxlength="200" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;height:209px;" id="editbio">`+snapshot.data().bio+`</textarea>
+    <br>
+    <br>
+    <button class="loginandsignupconfirm" style="margin-left:25px;" onclick="save()" id="buttonsave">Save</button>`;
+  })
+}
+function save(){
+  var usernamer = document.getElementById('editusername').value;
+  var bior = document.getElementById('editbio').value;
+  db.collection('users')
+  .doc(userToken)
+  .update({
+    username: usernamer,
+    bio: bior
+  })
+
+  document.getElementById('edit').innerHTML = `<h1 class="text" id="username" style="display:inline-block"></h1>
+<p class="text" id="bio" style="width:500px;"></p>
+<br>
+<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>`;
   getUserData();
 }
 	</script>
@@ -218,7 +258,9 @@ window.location = x;
     }
 	</script>
 	<div class="header">
-		<div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div>
+		<div id="changeToName">
+			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
+		</div>
 		<a href="/bigben/" style="text-decoration:none;">
 			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
 		</a>
@@ -226,14 +268,23 @@ window.location = x;
     </div>
     <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
 <br>
-<img id="profilepic" width="100" style="padding-left:30px;">
-<h1 class="text" id="username"></h1>
-<h2 class="text" id="benbucks"></h2>
-<button class="loginandsignupconfirm" onclick="addfriends()">Follow</button>
-<button class="loginandsignupconfirm" onclick="removefriends()">Unfollow</button>
-<p id="warner" class="text" style="color:red;"></p>
+<img id="profilepic" width="100" style="padding-left:30px;display:inline-block" align="top">
+<div id="edit">
+<h1 class="text" id="username" style="display:inline-block"></h1>
+<p class="text" id="bio" style="width:500px;"></p>
+<br>
+<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>
+</div>
+<div style="width:80%;background-color:lightgrey;height:5px;margin:25px;"></div>
+<div style="float:right;display:inline-block;border: 5px solid #C9F7C8;border-radius:10px;margin:25px;">
 <h2 class="text">Following</h2>
 <h3 class="text" id="followinglist"></h3>
-
-
+</div>
+<div style="display:inline-block;">
+<h3 class="text">BenBucks</h3>
+<h1 class="text" id="benbucks"></h1>
+<button class="loginandsignupconfirm" onclick="addfriends()" style="margin-left:25px;" id="remove1">Follow</button>
+<button class="loginandsignupconfirm" onclick="removefriends()" id="remove2">Unfollow</button>
+</div>
+<p id="warner" class="text" style="color:red;"></p>
 </body></html>
