@@ -2,12 +2,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+    <link href="bigbenfinances.github.io/bigben/scripts/style.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
   </head>
   <body onload="startOffer()" data-gr-c-s-loaded="true">
-    <script src="/bigben/scripts/script.js"></script>
+    <script src="bigbenfinances.github.io/bigben/scripts/script.js"></script>
     <script>
       function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
@@ -30,7 +30,7 @@
     <input type="text" style="color:grey;" class="textinput" id="cash"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Rate</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="rate"><br>
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Monthly or Yearly</p>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Monthly or Yearly (type year or month)</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="time"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Amount of Years</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="periodr"><br>   
@@ -69,7 +69,8 @@ form.addEventListener('submit', function (event) {
   //amount of cash
 var cash = Number(cashr);
 //name is pretty self explanatory, it's for the normal interest for comparison
-var originalCash = Number(cash);
+var originalCash = cash;
+var koolKash = cash;
 //this is where the person puts the percentage
 var rate = rater;
 //this calculates the percentage
@@ -86,7 +87,7 @@ var niceInterest = originalCash * realRate;
 
 
 //this checks the interest after the fufilled amount of years is yearly
-if(time == "year" || time == "yearly" || time == "Year" || time == "Yearly"){
+if(time == "year"){
   while(goneThrough < years){
     cash += cash * realRate;
     originalCash += niceInterest;
@@ -97,7 +98,7 @@ if(time == "year" || time == "yearly" || time == "Year" || time == "Yearly"){
 
 
 //this checks the interest after the fufilled amount of years is monthly
-if(time == "month" || time == "monthly" || time == "Month" || time == "Monthly"){
+if(time == "month"){
   while(goneThrough < years){
     cash += cash * realRate * 12;
     originalCash += niceInterest * 12;
@@ -107,7 +108,7 @@ if(time == "month" || time == "monthly" || time == "Month" || time == "Monthly")
 
 //Keizou is the ultimate Shrek
 
- document.getElementById("compoundShower").innerHTML = "<h2 class='text'> The Compound amount is $"+ (parseInt((cash * 100))/100) +". And the amount if the interest doesn't compound is $"+ (parseInt((originalCash * 100))/100) +"</h2>";
+ document.getElementById("compoundShower").innerHTML = "<h2 class='text'> The Compound amount is $"+ (parseInt((koolKash * 100) + (cash * 100))/100) +". And the amount if the interest doesn't compound is $"+ (parseInt((koolKash * 100) + (originalCash * 100))/100) +"</h2>";
 })
 </script>
     </center>
