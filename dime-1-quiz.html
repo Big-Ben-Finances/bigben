@@ -99,7 +99,7 @@ window.location = x;
         if(localStorage.getItem("userToken")){
           document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
           db.collection('users')
-          .doc(userToken)
+          .doc(localStorage.getItem('userToken'))
           .then(function (snapshot){
           document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
           });
