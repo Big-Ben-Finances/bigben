@@ -161,6 +161,7 @@ testForm.addEventListener("submit", function (event) {
               benBucks: user.benBucks + reward,
               [currentLesson]: '100'
             })
+          document.getElementById('warner').innerHTML = "Good job! You passed the quiz!"
           document.getElementById('benbucksr').innerHTML = "$"+user.benBucks;
         }
         })
