@@ -1,15 +1,20 @@
-<html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
-  </head>
-  <body onload="startOffer()" data-gr-c-s-loaded="true">
-    <script src="/bigben/scripts/script.js"></script>
-    <script>
-      function startOffer(){
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Big Ben</title>
+	<link href="https://bigbenfinances.github.io/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/bigben/images/big ben.png">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+</head>
+
+<body onload="startOffer()" data-gr-c-s-loaded="true">
+	<script src="bigbenfinances.github.io/bigben/scripts/script.js">
+
+	</script>
+	<script>
+		function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
       }
@@ -18,29 +23,36 @@
         localStorage.setItem("loggedIn",null);
         window.location = "/bigben/index.html";
       }
-    </script>
-    <div class="header">
-      <div id="changeToName">
-      <a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html" class="text" style="float: right; font-size: 20px; padding-right: 15px;font-family: 'Comfortaa';">Login</a>
-      </div><a href="index.html" style="text-decoration:none;"><p class="text" style="margin:0px;font-size:30px;padding:10px;">BigBen</p></a>
-    </div>
-    <center style="top:50px;">
-    <form id="compoundCheck">
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Initial Amount</p>
-    <input type="text" style="color:grey;" class="textinput" id="cash"><br>
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Rate</p>
+	</script>
+	<div class="header">
+		<div id="changeToName">
+			<a href="/bigben/signup.html" class="text" style="float: right; font-size: 20px;">Signup</a><a href="/bigben/login.html"
+			 class="text" style="float: right; font-size: 20px; padding-right: 15px;font-family: 'Comfortaa';">Login</a>
+		</div><a href="index.html" style="text-decoration:none;">
+			<p class="text" style="margin:0px;font-size:30px;padding:10px;">BigBen</p>
+		</a>
+	</div>
+	<center style="top:50px;">
+		<form id="compoundCheck">
+			<p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Initial Deposit</p>
+			<input type="text" style="color:grey;" class="textinput" id="cash"><br>
+    <p class="text" style="padding-top: 25px; color: rgb(48,144,199);font-size:20px; margin:0px;">Interest Rate (%)</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="rate"><br>
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Monthly or Yearly (type year or month)</p>
-    <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="time">
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;"> Compound Frequency</p>
+    <label style="color: rgb(30,144, 255);" class="time"><input type="radio" value="month" name="compoundFrequency">Monthly<input type="radio" name="compoundFrequency" value="year"> Annually</label>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Contributions</p>
+    <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="cont"><br>
+    <label style="margin-right: 15px; color: rgb(30, 144, 255); font-size: 15px;"><input type="radio" name="contributionFrequency" value="month"> Monthly </label>
+    <label style="color: rgb(30, 144, 255); font-size: 15px;"><input type="radio" name="contributionFrequency" value="year"> Annually </label>
     <br>
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Amount of Years</p>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Investment Time Span</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="periodr"><br>   
 <br><br>
     
     
-    <button class="loginandsignupconfirm" type="submit" style="color: rgb(48,144,199);font-size:20px;margin:0px;">Confirm</button>
-    <div id="compoundShower">
-</form>
+    <button class="loginandsignupconfirm" type="submit" style="color: rgb(48,144,199);font-size:20px;margin:0px;">Calculate</button>
+    <div id="compoundShower"></div>
+
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
@@ -65,59 +77,47 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
   const cashr = document.querySelector('#cash').value;
   const rater = document.querySelector('#rate').value;
-  const timer = document.querySelector('#time').value;
-  const periodr = document.querySelector('#time').value;
+  const timer = event.target.elements.compoundFrequency.value;
+  const contribution = event.target.elements.contributionFrequency.value
+  const periodrr = document.querySelector('#periodr').value;
+  console.log(timer)
   //amount of cash
-var cash = Number(cashr);
-//name is pretty self explanatory, it's for the normal interest for comparison
-var originalCash = cash;
-var koolKash = cash;
-//this is where the person puts the percentage
-var rate = rater;
-//this calculates the percentage
-var realRate = rate / 100;
-//this is the amount of years
-var years = 2;
-//this measures how many years the algorithm ran for
-var goneThrough = 0;
-//this tells the computer if the interest is applied monthly or yearly (you would put "month", or "year")
-var time = timer;
-//this is applied to non-compound interest
-var niceInterest = originalCash * realRate;
+//intial amount of money
+var initial = parseInt(cashr);
+//the rate
+var raterr = parseInt(rater);
+var rate = raterr / 100;
+//the amount of years
+var timeSpan = parseInt(periodrr);
+//is it anually of monthly
+var type = timer;
 
 
 
-//this checks the interest after the fufilled amount of years is yearly
-if(time == "year"){
-  while(goneThrough < years){
-    cash += cash * realRate;
-    originalCash += niceInterest;
-    goneThrough ++;
-  }
+//monthly calculations
+if(type == "month"){
+var compoundResult = initial * Math.pow((1 + (rate / 12)), (12 * timeSpan));
 }
 
-
-
-//this checks the interest after the fufilled amount of years is monthly
-if(time == "month"){
-  while(goneThrough < years){
-    cash += cash * realRate * 12;
-    originalCash += niceInterest * 12;
-    goneThrough ++;
-  }
+if(type == "year"){
+var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
 
+var answer = (parseInt( 100 * compoundResult )) / 100;
+
+console.log("$"+ answer);
 //Keizou is the ultimate Shrek
 
- document.getElementById("compoundShower").innerHTML = "<h2 class='text'> The Compound amount is $"+ (parseInt((koolKash * 100) + (cash * 100))/100) +". And the amount if the interest doesn't compound is $"+ (parseInt((koolKash * 100) + (originalCash * 100))/100) +"</h2>";
+ document.getElementById("compoundShower").innerHTML = "<h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2>";
 })
 </script>
-    </center>
+    </form></center>
     <br><br>
     <div class="topBar">
       <a class="bottomText" style="float: left; font-size: 25px;">Big Ben</a><a class="bottomText" style="float: right; font-size: 10px;">©Big Ben</a>
     </div>
   
+
 
 
 
