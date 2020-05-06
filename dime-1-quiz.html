@@ -161,7 +161,7 @@ testForm.addEventListener("submit", function (event) {
               benBucks: user.benBucks + reward,
               [currentLesson]: '100'
             })
-          location = "/bigben/dime-1-quiz.html"
+          document.getElementById('benbucksr').innerHTML = "$"+user.benBucks;
         }
         })
     })
