@@ -30,7 +30,7 @@
     <input type="text" style="color:grey;" class="textinput" id="cash"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Rate</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="rate"><br>
-    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Monthly or Yearly (type year or month)</p>
+    <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Monthly or Yearly</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="time"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Amount of Years</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="periodr"><br>   
@@ -86,7 +86,7 @@ var niceInterest = originalCash * realRate;
 
 
 //this checks the interest after the fufilled amount of years is yearly
-if(time == "year"){
+if(time == "year" || time == "yearly" || time == "Year" || time == "Yearly"){
   while(goneThrough < years){
     cash += cash * realRate;
     originalCash += niceInterest;
@@ -97,7 +97,7 @@ if(time == "year"){
 
 
 //this checks the interest after the fufilled amount of years is monthly
-if(time == "month"){
+if(time == "month" || time == "monthly" || time == "Month" || time == "Monthly"){
   while(goneThrough < years){
     cash += cash * realRate * 12;
     originalCash += niceInterest * 12;
