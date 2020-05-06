@@ -100,6 +100,7 @@ window.location = x;
           document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
           db.collection('users')
           .doc(localStorage.getItem('userToken'))
+          .get()
           .then(function (snapshot){
           document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
           });
