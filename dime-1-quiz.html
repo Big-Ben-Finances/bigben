@@ -80,6 +80,7 @@ testForm.addEventListener("submit", function (event) {
               benBucks: user.benBucks + reward,
               [currentLesson]: '100'
             })
+          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
           document.getElementById("warner").innerHTML = "Good Job! You passed the quiz!";
         }
         })
