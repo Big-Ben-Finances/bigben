@@ -34,7 +34,10 @@
   console.log("Error. Lesson not found.");
 }
 
-const testForm = document.querySelector(".test-form");
+var testForm = document.querySelector(".test-form");
+if(testForm){
+   console.log("YAYA");
+   }
 testForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const userAnswers = event.target.elements;
