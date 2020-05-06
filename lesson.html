@@ -1,16 +1,26 @@
-<html><head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="/bigben/images/big ben.png">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
-        </head>
-        <body data-gr-c-s-loaded="true" onload="startOffer()">
-  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>BigBen Finances</title>
+	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+</head>
+
+<body onload="startOffer()">
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js">
+
+	</script>
 	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
-	</script><script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
-	</script><script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
+
+	</script>
 	<script>
 		var firebaseConfig = {
     apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
@@ -26,109 +36,255 @@
   const auth = firebase.auth()
   const db = firebase.firestore();
 	</script>
-  <script src="/bigben/scripts/script.js"></script>
-  <script>function signOut(){
+	<script>
+		//If you copy this code, at least give us credit
+    var userToken = localStorage.getItem("userToken");
+var url = new URL(location.href);
+var otherUser = url.searchParams.get("user");
+console.log(otherUser);
+function getUserData(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+console.log(otherUser);
+  const h1 = document.querySelector('#username');
+  const h2 = document.querySelector('#benbucks');
+  if(userToken){
+    db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      document.getElementById("followinglist").innerHTML = "";
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+})
+    console.log("The Doc is in");
+    if(otherUser){
+      console.log("other user named "+otherUser);
+      db.collection("users")
+      .where('username',"==",otherUser)
+      .get()
+      .then(function(snapshot){
+        if(snapshot.empty){
+          console.log("user doesn't exists");
+          h1.textContent = "user doesn't exists"
+          h2.textContent = ""
+          document.getElementById('profilepic').src = "https://homewoodfamilyaz.org/wp-content/uploads/2017/04/square_profile_pic_male.png";
+          document.getElementById('buttonedit').style["display"] = "none";
+          document.getElementById('remove1').style["display"] = "none";
+          document.getElementById('remove2').style["display"] = "none";
+        }else{
+          console.log("user exists");
+          h1.textContent = snapshot.docs[0].data().username;
+          h2.textContent = snapshot.docs[0].data().benBucks;
+          document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
+          document.getElementById('bio').textContent = snapshot.docs[0].data().bio
+          document.getElementById('buttonedit').style["display"] = "none";
+          document.getElementById('remove1').style["display"] = "true";
+          document.getElementById('remove2').style["display"] = "true";
+        }
+      })
+    }else{
+      console.log("our user should show");
+      db.collection('users')
+      .doc(userToken)
+      .get()
+      .then(function(snapshot){
+        h1.textContent = snapshot.data().username
+        h2.textContent = snapshot.data().benBucks
+        document.getElementById('profilepic').src = snapshot.data().profilepic
+        document.getElementById('bio').textContent = snapshot.data().bio
+        document.getElementById('buttonedit').style["display"] = "block";
+        document.getElementById('remove1').style["display"] = "none";
+        document.getElementById('remove2').style["display"] = "none";
+      })
+    }
+  }else{
+    console.log("The Doc is out");
+    //location.href = "index.html" <-- signup page
+  }
+
+}
+function addfriends(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    const user = snapshot.data();
+    db.collection('users')
+    .where("username","==",otherUser)
+    .get()
+    .then(function (snapshot){
+      if(snapshot.empty){
+        document.getElementById('warner').textContent = "User Doesn't Exists"
+      }else{
+    if(user.friends.includes(otherUser)){
+      document.getElementById('warner').textContent = "You Already Followed Them"
+    }else{
+      if(user.username == otherUser){
+        document.getElementById('warner').textContent = "You Can't Follow Yourself"
+      }else{
+        db.collection('users')
+        .doc(userToken)
+        .update({
+          friends: firebase.firestore.FieldValue.arrayUnion(otherUser)
+        })
+        document.getElementById('warner').textContent = "Successfully Followed";
+        db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      document.getElementById("followinglist").innerHTML = "";
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+})
+      }
+    }
+    }
+    })
+  })
+}
+function removefriends(){
+  var userToken = localStorage.getItem("userToken");
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    const user = snapshot.data();
+    if(!user.friends.includes(otherUser)){
+      document.getElementById('warner').textContent = "You're Not Following Them Already"
+    }else{
+        db.collection('users')
+        .doc(userToken)
+        .update({
+          friends: firebase.firestore.FieldValue.arrayRemove(otherUser)
+        })
+        document.getElementById('warner').textContent = "Successfully Unfollowed";
+        db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      var f = snapshot.data().friends
+      var flength = f.length
+      var following = []
+      document.getElementById("followinglist").innerHTML = "";
+      for(var number = 0;flength > number;number++){
+        following.push(f[number]);
+        var ree = document.getElementById("followinglist").innerHTML;
+        document.getElementById("followinglist").innerHTML = ree+f[number]+"<br>";
+      }
+      console.log(following)
+      console.log(following.length);
+})
+    }
+  })
+}
+function search(){
+  var hello = document.querySelector("#text").value;
+  console.log(hello);
+  history.pushState({
+    id: 'profile'
+}, 'profile', '?user='+hello);
+  var url = new URL(location.href);
+  var otherUser = url.searchParams.get("user");
+  getUserData();
+}
+function edit(){
+  db.collection('users')
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    document.getElementById('edit').innerHTML = `<br>
+    <input type="text" class="text" style="font-size:2em;margin-left:30px;padding-left:0px;padding-right:0px;" placeholder="`+snapshot.data().username+`" id="editusername">
+    <br>
+    <br>
+    <textarea maxlength="200" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;height:209px;" id="editbio">`+snapshot.data().bio+`</textarea>
+    <br>
+    <br>
+    <button class="loginandsignupconfirm" style="margin-left:25px;" onclick="save()" id="buttonsave">Save</button>`;
+  })
+}
+function save(){
+  var usernamer = document.getElementById('editusername').value;
+  var bior = document.getElementById('editbio').value;
+  db.collection('users')
+  .doc(userToken)
+  .update({
+    username: usernamer,
+    bio: bior
+  })
+
+  document.getElementById('edit').innerHTML = `<h1 class="text" id="username" style="display:inline-block"></h1>
+<p class="text" id="bio" style="width:500px;"></p>
+<br>
+<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>`;
+  getUserData();
+}
+	</script>
+	<script>
+		function signOut(){
     localStorage.removeItem("userToken");
-    location = "https://bigbenfinances.github.io/bigben/";
+    location = "/bigben/";
 }
   function goSomewhere(x){
 window.location = x;
 }
     function startOffer(){
         if(localStorage.getItem("userToken")){
-          const userToken = localStorage.getItem("userToken");
-          const username = db.collection('users')
-          .doc(userToken)
-          .get()
-          .then(function (snapshot){
-            document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p><p onclick=\"goSomewhere('/bigben/profile.html')\" class='text' style='display:inline-block;float:right;'>"+snapshot.data().username+"</p>";
-          })
-      }
+          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
     }
-  </script>
-    <div class="header">
-      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
-      <br> 
+    getUserData()
+    }
+	</script>
+	<div class="header">
+		<div id="changeToName">
+			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
+		</div>
+		<a href="/bigben/" style="text-decoration:none;">
+			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
+		</a>
+		<br> 
     </div>
-<center>
-
-    <div style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/penny.html')"><center>
-    <br>
-    <img src="/bigben/images/georgejungle.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Washington</p>
-    
-    <div style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
-    <br>
-    <p class="text" style="font-size:20px;">Intro to BigBen</p>
-<br><p class="text" style="font-size:20px;">Work</p>
-<br><p class="text" style="font-size:20px;">Saving</p>
-
-</div>
-    </center>
-    </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/nickel.html')">
-    <br>
-    <img src="/bigben/images/Abe Lincoln.png" style="width:100px;">
+    <input style="text-align:left;margin:30px;" class="textinput" type="text" onkeyup="search()" id="text">
 <br>
-<p style="color:#a0dbac; font-size:25px">Lincoln</p>
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
-    <br>
-    <p class="text" style="font-size:20px;">Debt</p>
-<br><p class="text" style="font-size:20px;">Spending and Budgeting</p>
-<br><p class="text" style="font-size:20px;">Donate</p>
+<img id="profilepic" width="100" style="padding-left:30px;display:inline-block" align="top">
+<div id="edit">
+<h1 class="text" id="username" style="display:inline-block"></h1>
+<p class="text" id="bio" style="width:500px;"></p>
+<br>
+<button class="loginandsignupconfirm" style="margin-left:25px;" onclick="edit()" id="buttonedit">Edit</button>
 </div>
-    </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/dime.html')">
-    <br>
-    <img src="/bigben/images/Jackson.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Jackson</p>
-    
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
-    <br>
-    <p class="text" style="font-size:20px;">Interest</p>
-<br><p class="text" style="font-size:20px;">Taxes</p>
-<br><p class="text" style="font-size:20px;">Stocks and Bonds</p>
+<div style="width:80%;background-color:lightgrey;height:5px;margin:25px;"></div>
+<div style="float:right;display:inline-block;border: 5px solid #C9F7C8;border-radius:10px;margin:25px;">
+<h2 class="text">Following</h2>
+<h3 class="text" id="followinglist"></h3>
 </div>
-    </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/quarter.html')">
-    <br>
-    <img src="/bigben/images/Benjamin Franklin.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Franklin</p>
-    
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
-    <br>
-    <p class="text" style="font-size:20px;">Inflation</p><br>
-<p class="text" style="font-size:20px;">Property and Real Estate</p>
-<br><p class="text" style="font-size:20px;">Retirement</p>
-</div>
-    </div>
-    </center>
-<div class="footer">
-    <div style="float: right">
-    <div style="display:inline-block;">  
-    <h3 class="text" style="margin:1px;"><b>About Us</b></h3>
-    <a href="/bigben/footer/About.html" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Mission</h5></a>
-    <a href="/bigben/footer/Us.html" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Team</h5></a>
-    
-    <a href="/bigben/footer/Contact.html" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Contact Us</h5></a>
-        </div>
 <div style="display:inline-block;">
-    <h3 class="text" style="margin:1px;">Products</h3>
-    
-    <a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">iOS App</h5></a>
-    <a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Android App</h5></a>
-    
-<a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">School Use</h5></a></div>
-    
-<div style="display:inline-block;">
-    <h3 class="text" style="margin:1px;">Privacy &amp; Terms</h3> 
-    
-    <a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Privacy</h5></a><a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Terms</h5></a>
-    
-<a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Community Guidelines</h5></a></div></div></div>
-
-
-
-
-
+<h3 class="text">BenBucks</h3>
+<h1 class="text" id="benbucks"></h1>
+<button class="loginandsignupconfirm" onclick="addfriends()" style="margin-left:25px;" id="remove1">Follow</button>
+<button class="loginandsignupconfirm" onclick="removefriends()" id="remove2">Unfollow</button>
+</div>
+<p id="warner" class="text" style="color:red;"></p>
 </body></html>
