@@ -1,85 +1,15 @@
-<html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>BigBen Finances</title>
-	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
-</head>
-
-<body onload="startOffer()">
-	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js">
-
-	</script>
-	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js">
-
-	</script>
-	<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js">
-
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js">
-
-	</script>
-	<script>
-		var firebaseConfig = {
-    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
-    authDomain: "bigben-finances.firebaseapp.com",
-    databaseURL: "https://bigben-finances.firebaseio.com",
-    projectId: "bigben-finances",
-    storageBucket: "bigben-finances.appspot.com",
-    messagingSenderId: "1046658245162",
-    appId: "1:1046658245162:web:083464e0dded0950fa1953",
-    measurementId: "G-24YR5YR7K3"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth()
-  const db = firebase.firestore();
-	</script>
-	<div class="header">
-		<div id="changeToName">
-			<p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p>
-		</div>
-		<a href="/bigben/" style="text-decoration:none;">
-			<p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p>
-		</a>
-		<br> 
-    </div>
-  <div style="display: inline-block; float: right"><div style="border-radius: 30px;width:300px;padding:15px;border:5px solid rgb(201,247,200);margin:15px;margin-bottom:500px;overflow:auto;">
-    <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
-    <img src="https://bigbenfinances.github.io/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:50px;" id="benbucksr"></p><br>
-<p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
-<p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
-<p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p>
-</div>
-<br>
-</div>
-	<h1 class="text">Shop</h1>
-	<div class="shop">
-	</div>
-  	<script>
-		function signOut(){
-      localStorage.removeItem("userToken");
-      location = "/bigben/";
-    }
-    function goSomewhere(x){
-      window.location = x;
-    }
-    function startOffer(){
-      if(localStorage.getItem("userToken")){
-        document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-        db.collection('users')
-          .doc(localStorage.getItem('userToken'))
-          .get()
-          .then(function (snapshot){
-          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
-          });
-      }
-    }
-    
-	</script>
-	<script>
-    const userToken = localStorage.getItem("userToken");
+function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
+const userToken = localStorage.getItem("userToken");
 const shop = document.querySelector('.shop');
 db.collection('shop')
 .get()
@@ -106,7 +36,7 @@ div.appendChild(divName)
 
 const divPrice = document.createElement('p')
 divPrice.className = "text";
-divPrice.textContent = "Price: $"+product.price;
+divPrice.textContent = "Price: $"+addCommas(product.price);
 divPrice.classList.add('price')
 div.appendChild(divPrice)
 
@@ -142,7 +72,3 @@ a.addEventListener('click',function(event){
 shop.appendChild(a)
 }
 })
-	</script>
-</body>
-
-</html>
