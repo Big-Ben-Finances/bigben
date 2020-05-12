@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>BigBen Finances</title>
-	<link href="https://bigbenfinances.github.io/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head>
 
@@ -216,35 +216,38 @@ function edit(){
   .get()
   .then(function (snapshot){
     document.getElementById('edit').innerHTML = `<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="save()" id="buttonedit">Save</button>
-<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle" src="`+snapshot.data().profilepic+`">
-    <input type="text" class="text" style="display:inline-block;font-size:2em;margin-left:30px;padding-left:0px;padding-right:0px;" placeholder="`+snapshot.data().username+`" id="editusername">
-    <br>
-    <br>
-    <textarea maxlength="200" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;height:209px;" id="editbio">`+snapshot.data().bio+`</textarea>`;
+<img id="profilepic" width="150" style="padding-left:30px;display:inline-block;" align="middle" src="`+snapshot.data().profilepic+`">
+    <div style="display:inline-block;transform:translateY(40%)">
+    <h1 class="text" id="username">`+snapshot.data().username+`</h1>
+    <textarea maxlength="75" class="text" style="padding-left:0px;padding-right:0px;margin-left:30px;width:668px;" id="editbio">`+snapshot.data().bio+`</textarea>
+    </div>`;
   })
 }
 function save(){
-  var usernamer = document.getElementById('editusername').value;
   var bior = document.getElementById('editbio').value;
-  db.collection('users')
-  .where("username","==",usernamer)
-  .get()
-  .then(function (snapshot){
-    if(snapshot.empty){
+
+    console.log('we are going to update the profile')
+ 
         db.collection('users')
         .doc(userToken)
         .update({
-          username: usernamer,
           bio: bior
-  })
-    }
-  })
-  document.getElementById('edit').innerHTML = `<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="edit()" id="buttonedit">Edit</button>
-<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle">
-<h1 class="text" id="username" style="display:inline-block;"></h1>
+        }).then(function() {
+          console.log('profile has been updated')
+    document.getElementById('edit').innerHTML = `<div id="edit">
+<button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="edit()" id="buttonedit">Edit</button>
+<img id="profilepic" width="150" style="padding-left:30px;display:inline-block;" align="middle">
+<div style="display:inline-block;transform:translateY(30%)">
+<h1 class="text" id="username"></h1>
 <p class="text" id="bio" style="width:500px;"></p>
-<br>`;
+</div>
+<br>
+</div>`;
   getUserData();
+
+    })
+  
+  
 }
 	</script>
 	<script>
@@ -275,12 +278,14 @@ window.location = x;
 <br>
 <div id="edit">
 <button class="loginandsignupconfirm" style="margin-right:30px;float:right;" onclick="edit()" id="buttonedit">Edit</button>
-<img id="profilepic" width="100" style="padding-left:30px;display:inline-block;" align="middle">
-<h1 class="text" id="username" style="display:inline-block;"></h1>
+<img id="profilepic" width="150" style="padding-left:30px;display:inline-block;" align="middle">
+<div style="display:inline-block;transform:translateY(30%)">
+<h1 class="text" id="username"></h1>
 <p class="text" id="bio" style="width:500px;"></p>
+</div>
 <br>
 </div>
-<div style="width:80%;background-color:lightgrey;height:5px;margin:25px;"></div>
+<div style="width:96%;background-color:lightgrey;height:5px;margin:2%;"></div>
 <div style="float:right;display:inline-block;border: 5px solid #C9F7C8;border-radius:10px;margin:25px;">
 <h2 class="text">Following:</h2>
 <h3 class="text" id="followinglist"></h3>
