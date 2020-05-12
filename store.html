@@ -58,6 +58,17 @@
 	<div class="shop">
 	</div>
   	<script>
+		function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
 		function signOut(){
       localStorage.removeItem("userToken");
       location = "/bigben/";
@@ -72,7 +83,7 @@
           .doc(localStorage.getItem('userToken'))
           .get()
           .then(function (snapshot){
-          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
+          document.getElementById("benbucksr").innerHTML = "$"+addCommas(snapshot.data().benBucks);
           });
       }
     }
