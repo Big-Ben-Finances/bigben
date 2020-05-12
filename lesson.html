@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Big Ben</title>
-    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+    <link href="testest.css" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="/bigben/images/big ben.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
         </head>
@@ -47,17 +47,17 @@ window.location = x;
     }
   </script>
     <div class="header">
-      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p><p onclick="goSomewhere('/bigben/profile.html')" class="text" style="display:inline-block;float:right;">Benny</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
       <br> 
     </div>
 <center>
-
-    <div style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/penny.html')"><center>
+    <div class="test">
+    <div onclick="goSomewhere('/bigben/penny.html')"><center>
     <br>
     <img src="/bigben/images/georgejungle.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Washington</p>
+<br><p style="color:#a0dbac; font-size:25px;font-family: 'Comfortaa';">Washington</p>
     
-    <div style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
+    <div class="choosingpath">
     <br>
     <p class="text" style="font-size:20px;">Intro to BigBen</p>
 <br><p class="text" style="font-size:20px;">Work</p>
@@ -66,41 +66,42 @@ window.location = x;
 </div>
     </center>
     </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/nickel.html')">
+<div onclick="goSomewhere('/bigben/nickel.html')">
     <br>
     <img src="/bigben/images/Abe Lincoln.png" style="width:100px;">
 <br>
-<p style="color:#a0dbac; font-size:25px">Lincoln</p>
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
+<p style="color:#a0dbac; font-size:25px;font-family: 'Comfortaa';">Lincoln</p>
+    <div class="choosingpath">
     <br>
     <p class="text" style="font-size:20px;">Debt</p>
 <br><p class="text" style="font-size:20px;">Spending and Budgeting</p>
 <br><p class="text" style="font-size:20px;">Donate</p>
 </div>
     </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/dime.html')">
+<div  onclick="goSomewhere('/bigben/dime.html')">
     <br>
     <img src="/bigben/images/Jackson.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Jackson</p>
+<br><p style="color:#a0dbac; font-size:25px;font-family: 'Comfortaa';">Jackson</p>
     
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
+    <div class="choosingpath">
     <br>
     <p class="text" style="font-size:20px;">Interest</p>
 <br><p class="text" style="font-size:20px;">Taxes</p>
-<br><p class="text" style="font-size:20px;">Stocks and Bonds</p>
+<br><p class="text" style="font-size:20px;">Economy</p>
 </div>
     </div>
-<div class="choosingpath" style="height:55%;width:20%;margin:15px;display:inline-block;font-family: 'Comfortaa';" onclick="goSomewhere('/bigben/quarter.html')">
+<div  onclick="goSomewhere('/bigben/quarter.html')">
     <br>
     <img src="/bigben/images/Benjamin Franklin.png" style="width:100px;">
-<br><p style="color:#a0dbac; font-size:25px">Franklin</p>
+<br><p style="color:#a0dbac; font-size:25px;font-family: 'Comfortaa';">Franklin</p>
     
-    <div class="choosingpath" style="border-radius:10px;border:2px solid black;height:68%;width:75%;margin:10px;display:inline-block;font-family: 'Comfortaa';">
+    <div class="choosingpath">
     <br>
-    <p class="text" style="font-size:20px;">Inflation</p><br>
+    <p class="text" style="font-size:20px;">Investing</p><br>
 <p class="text" style="font-size:20px;">Property and Real Estate</p>
 <br><p class="text" style="font-size:20px;">Retirement</p>
 </div>
+    </div>
     </div>
     </center>
 <div class="footer">
@@ -126,9 +127,4 @@ window.location = x;
     <a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Privacy</h5></a><a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Terms</h5></a>
     
 <a href="#" style="text-decoration:none;"><h5 class="text" style="margin:1px;">Community Guidelines</h5></a></div></div></div>
-
-
-
-
-
 </body></html>
