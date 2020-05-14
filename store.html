@@ -69,38 +69,6 @@
  }
  return x1 + x2;
 }
-		function signOut(){
-      localStorage.removeItem("userToken");
-      location = "/bigben/";
-    }
-    function goSomewhere(x){
-      window.location = x;
-    }
-    function startOffer(){
-      if(localStorage.getItem("userToken")){
-        document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-        db.collection('users')
-          .doc(localStorage.getItem('userToken'))
-          .get()
-          .then(function (snapshot){
-          document.getElementById("benbucksr").innerHTML = "$"+addCommas(snapshot.data().benBucks);
-          });
-      }
-    }
-    
-	</script>
-	<script>
-    function addCommas(nStr){
- nStr += '';
- var x = nStr.split('.');
- var x1 = x[0];
- var x2 = x.length > 1 ? '.' + x[1] : '';
- var rgx = /(\d+)(\d{3})/;
- while (rgx.test(x1)) {
-  x1 = x1.replace(rgx, '$1' + ',' + '$2');
- }
- return x1 + x2;
-}
 const userToken = localStorage.getItem("userToken");
 const shop = document.querySelector('.shop');
 db.collection('shop')
@@ -158,7 +126,15 @@ a.addEventListener('click',function(event){
     body: JSON.stringify(data)
   })
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => {
+    console.log(data)
+    db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot){
+      document.getElementById("benbucksr").textContent = snapshot.data().benBucks;
+    })
+  })
   .catch(error => console.log(error))
 })
 shop.appendChild(a)
