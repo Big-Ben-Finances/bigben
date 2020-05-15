@@ -43,6 +43,8 @@ window.location = x;
           .then(function (snapshot){
             document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p><p onclick=\"goSomewhere('/bigben/profile.html')\" class='text' style='display:inline-block;float:right;'>"+snapshot.data().username+"</p>";
           })
+      }else{
+      location.href = "/bigben/"
       }
     }
   </script>
