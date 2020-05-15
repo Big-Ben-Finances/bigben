@@ -156,7 +156,7 @@ shop.appendChild(a)
           .doc(localStorage.getItem('userToken'))
           .get()
           .then(function (snapshot){
-          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
+          document.getElementById("benbucksr").innerHTML = "$"+addCommas(snapshot.data().benBucks);
           });
       }
     }
