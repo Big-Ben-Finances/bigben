@@ -57,26 +57,6 @@
 	<h1 class="text">Shop</h1>
 	<div class="shop" style="display:flex; flex-wrap:wrap;">
 	</div>
-	<script>
-		function signOut(){
-      localStorage.removeItem("userToken");
-      location = "/bigben/";
-    }
-    function goSomewhere(x){
-      window.location = x;
-    }
-    function startOffer(){
-      if(localStorage.getItem("userToken")){
-        document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
-        db.collection('users')
-          .doc(localStorage.getItem('userToken'))
-          .get()
-          .then(function (snapshot){
-          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
-          });
-      }
-    }
-	</script>
   	<script>
 		function addCommas(nStr){
  nStr += '';
@@ -161,6 +141,26 @@ shop.appendChild(a)
 }
 })
 </script>
+<script>
+		function signOut(){
+      localStorage.removeItem("userToken");
+      location = "/bigben/";
+    }
+    function goSomewhere(x){
+      window.location = x;
+    }
+    function startOffer(){
+      if(localStorage.getItem("userToken")){
+        document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+        db.collection('users')
+          .doc(localStorage.getItem('userToken'))
+          .get()
+          .then(function (snapshot){
+          document.getElementById("benbucksr").innerHTML = "$"+snapshot.data().benBucks;
+          });
+      }
+    }
+	</script>
 </body>
 
 </html>
