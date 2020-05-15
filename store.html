@@ -60,47 +60,61 @@
 	<div class="shop" style="display:flex; flex-wrap:wrap;">
 	</div>
   	<script>
-		function loadUserAssets() {
-			const userToken = localStorage.getItem('userToken');
-			const assets = document.querySelector('.assets');
+		function loadUserAssets(){
+			const userToken = localStorage.getItem('userToken')
+const assets = document.querySelector('.assets')
   db.collection('users')
-    .doc(userToken)
+  .doc(userToken)
+  .get()
+  .then(function (snapshot){
+    const user = snapshot.data();
+    assets.innerHTML = '';
+    if(!user.assets || user.assets.length === 0){
+      console.log('user has no assets');
+      return
+    }
+    db.collection('shop')
     .get()
-    .then(function (snapshot) {
-      const user = snapshot.data()
+    .then(function (snapshot){
+      const shopItems = snapshot.docs
+      for(let i = 0;i < user.assets.length;i +=1){
+        const asset = user.assets[i]
+        const product = shopItems.find(item => item.id === asset.productId).data()
+        const value = asset.value || product.price;
 
-      assets.innerHTML = ''
+        const div = document.createElement('div');
 
-      if (!user.assets || user.assets.length === 0) {
-        console.log('user has no assets')
-        return
+        const divName = document.createElement('h2');
+        divName.textContent = product.name
+	divName.class = "text";
+        divName.classList.add('name');
+        div.appendChild(divName);
+
+        const divValue = document.createElement('p');
+        divValue.textContent = value.toFixed(2)
+	divName.class = "text";
+        divValue.classList.add('value');
+        div.appendChild(divValue);
+
+        const button = document.createElement('button');
+        button.textContent = "sell";
+	divName.class = "loginandsignupconfirm";
+        button.classList.add('sell-button');
+        button.addEventListener('click',function(){
+          const newAssets = user.assets.slice()
+          newAssets.splice(i,1);
+          db.collection('users')
+          .doc(userToken)
+          .update({
+            assets: newAssets,
+            benBucks: user.benBucks+value
+          })
+        })
+        div.appendChild(button)
+        assets.appendChild(div)
       }
-
-      db.collection('shop')
-        .get()
-        .then(function(snapshot) {
-          const shopItems = snapshot.docs
-
-          for (let i = 0; i < user.assets.length; i += 1) {
-            const asset = user.assets[i]
-            const product = shopItems.find(item => item.id === asset.productId).data()
-            const value = asset.value || product.price
-
-            const div = document.createElement('div')
-
-            const divName = document.createElement('div')
-            divName.textContent = product.name
-            divName.classList.add('name')
-            div.appendChild(divName)
-
-            const divValue = document.createElement('div')
-            divValue.textContent = '$' + value.toFixed(2)
-            divValue.classList.add('value')
-            div.appendChild(divValue)
-            assets.appendChild(div)
-          }
-      })
     })
+  })
 }
 		function addCommas(nStr){
  nStr += '';
