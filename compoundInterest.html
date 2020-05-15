@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Big Ben</title>
-	<link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+	<link href="https://bigben-finances.github.io/bigben/scripts/style.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="/bigben/images/big ben.png">
 	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
 </head>
@@ -42,8 +42,7 @@
     <label style="color: rgb(30,144, 255);" class="time"><input type="radio" value="month" name="compoundFrequency">Monthly<input type="radio" name="compoundFrequency" value="year"> Annually</label>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Contributions</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="cont"><br>
-    <label style="margin-right: 15px; color: rgb(30, 144, 255); font-size: 15px;"><input type="radio" name="contributionFrequency" value="month"> Monthly </label>
-    <label style="color: rgb(30, 144, 255); font-size: 15px;"><input type="radio" name="contributionFrequency" value="year"> Annually </label>
+    <label style="color: rgb(30,144, 255);" class="time"><input type="radio" value="month" name="contributionFrequency">Monthly<input type="radio" name="contributionFrequency" value="year"> Annually</label>
     <br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Investment Time Span</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="periodr"><br>   
@@ -80,7 +79,10 @@ form.addEventListener('submit', function (event) {
   const timer = event.target.elements.compoundFrequency.value;
   const contribution = event.target.elements.contributionFrequency.value
   const periodrr = document.querySelector('#periodr').value;
+  const timerCont = event.target.elements.contributionFrequency.value;
+  const contr = document.querySelector('#cont').value;
   console.log(timer)
+  console.log(timerCont)
   //amount of cash
 //intial amount of money
 var initial = parseInt(cashr);
@@ -91,7 +93,7 @@ var rate = raterr / 100;
 var timeSpan = parseInt(periodrr);
 //is it anually of monthly
 var type = timer;
-
+var cont = contr;
 
 
 //monthly calculations
@@ -102,13 +104,19 @@ var compoundResult = initial * Math.pow((1 + (rate / 12)), (12 * timeSpan));
 if(type == "year"){
 var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
+if (timerCont == "year"){
+  var contResult = cont*((1+Math.pow((rate/1), (timeSpan*1))-1)/(rate/1))
+}
+if (timerCont == "month"){
+  var contResult = cont*((1+Math.pow((rate/12), (timeSpan*12))-12)/(rate/12))
+}
 
-var answer = (parseInt( 100 * compoundResult )) / 100;
+
+var answer = Math.abs((parseInt( 100 * (compoundResult + contResult))) / 100);
 
 console.log("$"+ answer);
 //Keizou is the ultimate Shrek
-
- document.getElementById("compoundShower").innerHTML = "<h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2>";
+ document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2></div>";
 })
 </script>
     </form></center>
