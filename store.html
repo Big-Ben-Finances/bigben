@@ -61,6 +61,8 @@
 	</div>
   	<script>
 		function loadUserAssets() {
+			const userToken = localStorage.getItem('userToken');
+			const assets = document.querySelector('.assets');
   db.collection('users')
     .doc(userToken)
     .get()
