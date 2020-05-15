@@ -52,12 +52,54 @@
 <p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
 <p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p>
 </div>
+<div class="assets">
+</div>
 </div>
 <br>
 	<h1 class="text">Shop</h1>
 	<div class="shop" style="display:flex; flex-wrap:wrap;">
 	</div>
   	<script>
+		function loadUserAssets() {
+  db.collection('users')
+    .doc(userToken)
+    .get()
+    .then(function (snapshot) {
+      const user = snapshot.data()
+
+      assets.innerHTML = ''
+
+      if (!user.assets || user.assets.length === 0) {
+        console.log('user has no assets')
+        return
+      }
+
+      db.collection('shop')
+        .get()
+        .then(function(snapshot) {
+          const shopItems = snapshot.docs
+
+          for (let i = 0; i < user.assets.length; i += 1) {
+            const asset = user.assets[i]
+            const product = shopItems.find(item => item.id === asset.productId).data()
+            const value = asset.value || product.price
+
+            const div = document.createElement('div')
+
+            const divName = document.createElement('div')
+            divName.textContent = product.name
+            divName.classList.add('name')
+            div.appendChild(divName)
+
+            const divValue = document.createElement('div')
+            divValue.textContent = '$' + value.toFixed(2)
+            divValue.classList.add('value')
+            div.appendChild(divValue)
+            assets.appendChild(div)
+          }
+      })
+    })
+}
 		function addCommas(nStr){
  nStr += '';
  var x = nStr.split('.');
@@ -142,6 +184,7 @@ shop.appendChild(a)
 })
 </script>
 <script>
+	
 		function signOut(){
       localStorage.removeItem("userToken");
       location = "/bigben/";
@@ -151,6 +194,7 @@ shop.appendChild(a)
     }
     function startOffer(){
       if(localStorage.getItem("userToken")){
+	loadUserAssets();
         document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
         db.collection('users')
           .doc(localStorage.getItem('userToken'))
