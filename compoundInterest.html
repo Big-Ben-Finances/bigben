@@ -105,10 +105,10 @@ if(type == "year"){
 var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
 if (timerCont == "year"){
-  var contResult = cont*((1+Math.pow((rate/1), (timeSpan*1))-1)/(rate/1))
+  var contResult = cont*((1+Math.pow((rate/1), (timeSpan*1))-1)/(rate/1))*(1+(rate/1))
 }
 if (timerCont == "month"){
-  var contResult = cont*((1+Math.pow((rate/12), (timeSpan*12))-12)/(rate/12))
+  var contResult = cont*((1+Math.pow((rate/12), (timeSpan*12))-1)/(rate/12))*(1+(rate/12))
 }
 
 
