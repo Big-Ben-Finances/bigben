@@ -14,6 +14,7 @@
 
 	</script>
 	<script>
+		
 		function startOffer(){
         if(localStorage.getItem("loggedIn") == "true"){
           document.getElementById("changeToName").innerHTML = "<h2 class='text' style='float:right;'>"+localStorage.getItem('username')+"</h2><button class='loginandsignupconfirm' onclick='reset()' style='float:right;background-color:rgb(115,243,195);'>Log out</button>";
@@ -71,6 +72,17 @@
   const db = firebase.firestore();
 </script>
 <script>
+	function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
 const form = document.querySelector('#compoundCheck');
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -144,7 +156,7 @@ var answer = Math.abs((parseInt( 100 * (compoundResult + contResult))) / 100);
 
 console.log("$"+ answer);
 //Keizou is the ultimate Shrek
- document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2></div>";
+ document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ addCommas(timeSpan) +" years, you have $"+ addCommas(answer) +"</h2></div>";
 }
 
 })
