@@ -74,7 +74,7 @@
 const form = document.querySelector('#compoundCheck');
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const cashr = document.querySelector('#cash').value;
+  const initial = document.querySelector('#cash').value;
   const rater = document.querySelector('#rate').value;
   const timer = event.target.elements.compoundFrequency.value;
   const contribution = event.target.elements.contributionFrequency.value
@@ -83,9 +83,6 @@ form.addEventListener('submit', function (event) {
   const contr = document.querySelector('#cont').value;
   console.log(timer)
   console.log(timerCont)
-  //amount of cash
-//intial amount of money
-var initial = parseInt(cashr);
 //the rate
 var raterr = parseInt(rater);
 var rate = raterr / 100;
@@ -107,7 +104,7 @@ var compoundResult = initial * Math.pow((1 + (rate / 12)), (12 * timeSpan));
 if(type == "year"){
 var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
-var answer = (parseInt(100*compoundResult))/100;
+var answer = (parseInt(100*(compoundResult+initial)))/100;
 console.log("$"+ answer);
 //Keizou is the ultimate Shrek
  document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2></div>";
