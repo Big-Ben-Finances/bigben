@@ -39,10 +39,10 @@
     <p class="text" style="padding-top: 25px; color: rgb(48,144,199);font-size:20px; margin:0px;">Interest Rate (%)</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="rate"><br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;"> Compound Frequency</p>
-    <label style="color: rgb(30,144, 255);" class="time"><input type="radio" value="month" name="compoundFrequency">Monthly<input type="radio" name="compoundFrequency" value="year"> Annually</label>
+    <label style="color: rgb(30,144, 255);" class="text"><input type="radio" value="month" name="compoundFrequency">Monthly<input type="radio" name="compoundFrequency" value="year"> Annually</label>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Contributions</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="cont"><br>
-    <label style="color: rgb(30,144, 255);" class="time"><input type="radio" value="month" name="contributionFrequency">Monthly<input type="radio" name="contributionFrequency" value="year"> Annually</label>
+    <label style="color: rgb(30,144, 255);" class="text"><input type="radio" value="month" name="contributionFrequency">Monthly<input type="radio" name="contributionFrequency" value="year"> Annually</label>
     <br>
     <p class="text" style="padding-top: 25px;color: rgb(48,144,199);font-size:20px;margin:0px;">Investment Time Span</p>
     <input class="textinput" style="font-family: 'Comfortaa';color:grey;" id="periodr"><br>   
@@ -74,7 +74,7 @@
 const form = document.querySelector('#compoundCheck');
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  const initial = document.querySelector('#cash').value;
+  const cashr = document.querySelector('#cash').value;
   const rater = document.querySelector('#rate').value;
   const timer = event.target.elements.compoundFrequency.value;
   const contribution = event.target.elements.contributionFrequency.value
@@ -83,6 +83,9 @@ form.addEventListener('submit', function (event) {
   const contr = document.querySelector('#cont').value;
   console.log(timer)
   console.log(timerCont)
+  //amount of cash
+//intial amount of money
+var initial = parseInt(cashr);
 //the rate
 var raterr = parseInt(rater);
 var rate = raterr / 100;
@@ -104,7 +107,7 @@ var compoundResult = initial * Math.pow((1 + (rate / 12)), (12 * timeSpan));
 if(type == "year"){
 var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
-var answer = (parseInt(100*(compoundResult+initial)))/100;
+var answer = (parseInt(100*compoundResult))/100;
 console.log("$"+ answer);
 //Keizou is the ultimate Shrek
  document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2></div>";
