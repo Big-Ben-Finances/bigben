@@ -194,6 +194,7 @@ a.addEventListener('click',function(event){
     .get()
     .then(function (snapshot){
       document.getElementById("benbucksr").textContent = "$"+addCommas(snapshot.data().benBucks);
+      loadUserData()
     })
   })
   .catch(error => console.log(error))
