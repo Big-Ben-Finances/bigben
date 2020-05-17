@@ -112,12 +112,18 @@ console.log("$"+ answer);
 //Keizou is the ultimate Shrek
  document.getElementById("compoundShower").innerHTML = "<div id='compoundShower'><h2 class='text'> After "+ timeSpan +" years, you have $"+ answer +"</h2></div>";
 }else{
-  if (type == "month")
-  var answerr = cont*((Math.pow((1+rate/12), (12*timeSpan))-1)/(rate/12));
-  var answer = (parseInt((answerr + initial)*100))/100;
-  if (type == "year")
+  if (type == "month"){
+    var answerr = cont*((Math.pow((1+rate/12), (12*timeSpan))-1)/(rate/12));
+  var answerrr = initial*(Math.pow((1+rate/12), (12*timeSpan)));
+  var answer = (parseInt((answerr + answerrr)*100))/100;
+  }
+  
+  if (type == "year"){
+    var answerrr = initial*(Math.pow((1+rate/1), (1*timeSpan)));
   var answerr = cont*((Math.pow((1+rate/1), (1*timeSpan))-1)/(rate/1));
-  var answer = (parseInt((answerr + initial)*100))/100;
+  var answer = (parseInt((answerr + answerrr)*100))/100;
+  }
+  
 }
   console.log("$"+ answer);
 //Keizou is the ultimate Shrek
@@ -131,7 +137,7 @@ if(type == "year"){
 var compoundResult = initial * Math.pow((1 + rate), timeSpan);
 }
 if (timerCont == "year"){
-  var contResult = cont*((1+Math.pow((rate/1), (timeSpan*1))-1)/(rate/1))*(1+(rate/1))
+  var contResult = cont*((Math.pow((1+rate/1), (timeSpan*1))-1)/(rate/1))*(1+(rate/1))
 }
 
 var answer = Math.abs((parseInt( 100 * (compoundResult + contResult))) / 100);
