@@ -92,13 +92,13 @@ const assets = document.querySelector('.assets')
 
         const divValue = document.createElement('p');
         divValue.textContent = value.toFixed(2)
-	divName.className = "text";
+	divValue.className = "text";
         divValue.classList.add('value');
         div.appendChild(divValue);
 
         const button = document.createElement('button');
         button.textContent = "sell";
-	divName.className = "loginandsignupconfirm";
+	button.className = "loginandsignupconfirm";
         button.classList.add('sell-button');
         button.addEventListener('click',function(){
           const newAssets = user.assets.slice()
