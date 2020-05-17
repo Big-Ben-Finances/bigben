@@ -86,19 +86,19 @@ const assets = document.querySelector('.assets')
 
         const divName = document.createElement('h2');
         divName.textContent = product.name
-	divName.class = "text";
+	divName.className = "text";
         divName.classList.add('name');
         div.appendChild(divName);
 
         const divValue = document.createElement('p');
         divValue.textContent = value.toFixed(2)
-	divName.class = "text";
+	divName.className = "text";
         divValue.classList.add('value');
         div.appendChild(divValue);
 
         const button = document.createElement('button');
         button.textContent = "sell";
-	divName.class = "loginandsignupconfirm";
+	divName.className = "loginandsignupconfirm";
         button.classList.add('sell-button');
         button.addEventListener('click',function(){
           const newAssets = user.assets.slice()
@@ -109,6 +109,9 @@ const assets = document.querySelector('.assets')
             assets: newAssets,
             benBucks: user.benBucks+value
           })
+	  .then(function (snapshot){
+	  loadUserData()
+	  })
         })
         div.appendChild(button)
         assets.appendChild(div)
