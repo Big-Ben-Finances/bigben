@@ -37,6 +37,17 @@
   const db = firebase.firestore();
 	</script>
 	<script>
+		function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
 		//If you copy this code, at least give us credit
     var userToken = localStorage.getItem("userToken");
 var url = new URL(location.href);
@@ -86,7 +97,7 @@ console.log(otherUser);
           document.getElementById('remove1').hidden = false
           document.getElementById('remove2').hidden = false
           h1.textContent = snapshot.docs[0].data().username;
-          h2.textContent = snapshot.docs[0].data().benBucks;
+          h2.textContent = addCommas(snapshot.docs[0].data().benBucks);
           document.getElementById('profilepic').src = snapshot.docs[0].data().profilepic
           document.getElementById('bio').textContent = snapshot.docs[0].data().bio
           document.getElementById('buttonedit').hidden = true
@@ -99,7 +110,7 @@ console.log(otherUser);
       .get()
       .then(function(snapshot){
         h1.textContent = snapshot.data().username
-        h2.textContent = snapshot.data().benBucks
+        h2.textContent = addCommas(snapshot.data().benBucks)
         document.getElementById('profilepic').src = snapshot.data().profilepic
         document.getElementById('bio').textContent = snapshot.data().bio
         document.getElementById('buttonedit').hidden = false;
