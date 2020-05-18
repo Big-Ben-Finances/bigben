@@ -1,0 +1,161 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Big Ben</title>
+    <link href="/bigben/scripts/style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/bigben/images/big ben.png">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&amp;display=swap" rel="stylesheet">
+        </head>
+        <body data-gr-c-s-loaded="true" onload="startOffer()">
+  <script src="/bigben/scripts/script.js"></script><script>function signOut(){
+    localStorage.removeItem("userToken");
+    location = "/bigben/";
+}
+  function goSomewhere(x){
+window.location = x;
+}
+    function startOffer(){
+        if(localStorage.getItem("userToken")){
+          document.getElementById("changeToName").innerHTML = "<p onclick='signOut()' class='text' style='display:inline-block;float:right;'>Sign Out</p>";
+      }else{
+        location = "/bigben/";
+      }
+    }
+  </script>
+    <div class="header">
+      <div id="changeToName"><p onclick="signOut()" class="text" style="display:inline-block;float:right;">Sign Out</p></div><a href="/bigben/" style="text-decoration:none;"><p class="text" style="font-size:30px;margin:0px;padding:10px;">BigBen</p></a>
+      <br> 
+    </div>
+    <br>
+    <div class="width:100px;height:100px;border-radius:50%;background-color: rgb(223,139,45);color:white;display: flex;justify-content: center;align-items: center;"></div>
+
+<div style="display: inline-block; float: right"><div style="border-radius: 30px;width:300px;padding:15px;border:5px solid rgb(201,247,200);margin:15px;margin-bottom:300px;overflow:auto;">
+    <p class="text" style="margin:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BenBucks</font></font></p>
+    <img src="/bigben/images/pig.png" width="75" style="display:inline-block;padding-top: 0px;padding-right:5px;padding-bottom:40px;" align="middle"><p class="text" style="display:inline-block;margin:0px;padding-bottom:40px;padding:0px;font-size:50px;" id="benbucksr">$180799</p><br>
+
+<p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daily Streak</font></font></p>
+<p class="text" style="margin:0px;padding:0px;font-size:70px;display:inline-block;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🔥</font></font></p>
+<p class="text" style="margin:0px;padding-left:20px;font-size:70px;display:inline-block;color:orange;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></p><p class="text" style="margin:10px;margin-bottom:0px;padding:0px;font-size:25px;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reading Difficulty</font></font></p>
+<div id="1" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(117, 117, 117);" onclick="difficulty(1)"></div>
+<div id="2" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(222, 222, 222);" onclick="difficulty(2)"></div>
+<div id="3" style="display: inline-block; width: 50px; height: 50px; border-radius: 50%; margin: 5px; background-color: rgb(222, 222, 222);" onclick="difficulty(3)"></div>
+</div>
+<br>
+    
+</div>
+    <br>
+    <h1 class="text">Work Test</h1>
+<form class="test-form">
+  <div>
+    <p class="text">1. What is investing?</p>
+    <label class="text"><input type="radio" name="q0" value="a">To buy and sell properties.</label>
+    <br>
+    <br>
+    <label class="text"><input type="radio" name="q0" value="b">Any form of passive income.</label>
+    <br>
+    <br>
+    <label class="text"><input type="radio" name="q0" value="c">The purchase of stocks.</label>
+  </div>
+  <div>
+    <p class="text">2. What is a stock?</p>
+    <label class="text"><input type="radio" name="q1" value="a">Part of a company.</label>
+    <br>
+    <br>
+    <label class="text"><input type="radio" name="q1" value="b">A house or property.</label>
+    <br>
+    <br>
+    <label class="text"><input type="radio" name="q1" value="c">When a seller wants to sell something for less.</label>
+  </div>
+  <div>
+    <p class="text">3. Stocks will always make you money. (True or False?)</p>
+    <label class="text"><input type="radio" name="q2" value="a">True</label>
+    <br>
+    <br>
+    <label class="text"><input type="radio" name="q2" value="b">False</label>
+  </div>
+  <br>
+  <button type="submit" class="loginandsignupconfirm" style="padding:10px;margin-left:30px;">Submit</button>
+  <p class="text" id="warner" style="color:red;"></p>
+</form>
+<script>
+  const lessonId = "SZgKymopDZmWfy8Vvg8m";
+</script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+<script>
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyAcPOlFIiQZz8V9flKVbLA7TaYs1Q6_AWs",
+    authDomain: "bigben-finances.firebaseapp.com",
+    databaseURL: "https://bigben-finances.firebaseio.com",
+    projectId: "bigben-finances",
+    storageBucket: "bigben-finances.appspot.com",
+    messagingSenderId: "1046658245162",
+    appId: "1:1046658245162:web:083464e0dded0950fa1953",
+    measurementId: "G-24YR5YR7K3"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+<script>
+  if (!lessonId) {
+  console.log("Error. Lesson not found.");
+}
+
+const testForm = document.querySelector(".test-form");
+testForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const userAnswers = event.target.elements;
+
+  db.collection("lessons")
+    .doc(lessonId)
+    .get()
+    .then(function (snapshot) {
+      const answers = snapshot.data().answers;
+      const reward = snapshot.data().reward;
+
+      let correctAnswers = 0
+
+      for (var i = 0; i < answers.length; i++) {
+        if (userAnswers['q' + i].value !== answers[i]) {
+        }
+        else {
+          correctAnswers++
+        }
+      }
+
+      if (correctAnswers !== answers.length) {
+        document.getElementById("warner").innerHTML = "Try Again";
+        return
+      }
+
+      const userId = localStorage.getItem('userToken');
+      const currentLesson = 'completedLessons.' + lessonId;
+
+      db.collection('users')
+        .doc(userId)
+        .get()
+        .then(function(snapshot) {
+          const user = snapshot.data();
+          console.log(user.benBucks, reward);
+
+          if(user.completedLessons[lessonId]){
+            document.getElementById("warner").innerHTML = "You already completed this lesson";
+          }else{
+          db.collection('users')
+            .doc(userId)
+            .update({
+              benBucks: user.benBucks + reward,
+              [currentLesson]: '100'
+            })
+          document.getElementById("warner").innerHTML = "Good Job! You passed the quiz!";
+        }
+        })
+    })
+});
+
+</script>
+
+</body></html>
