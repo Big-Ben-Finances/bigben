@@ -65,7 +65,8 @@ form.addEventListener('submit', function (event) {
     if(document.querySelector("#confirmpassword").value != document.querySelector("#password").value){
         document.querySelector("#warner").innerHTML = "The passwords aren't the same";
     }else if(document.querySelector("#username").value.includes("<") || document.querySelector("#username").value.includes(">")){
-             alert("Stop trying to hack");
+             alert("those symbols are restricted");
+             return
              }else{
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
